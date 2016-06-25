@@ -1,0 +1,146 @@
+<?php
+/**
+ * @file main module file
+ */
+// Required CSS/JS libraries
+require_once (dirname(__FILE__) . '/includes/libs.inc');
+
+// Define machine name for elastic slider
+@define('SWIPE_SLIDER_MN', 'swipe_slider');
+
+/**
+ * Implements hook_theme()
+ */
+function swipe_slider_theme() {
+	$module_path = drupal_get_path('module', 'swipe_slider');
+	$themes = array();
+
+	$themes['swipe_slider_slides_edit'] = array(
+		'template' => 'swipe_slider_slides_edit',
+		'variables' => array('slid' => null),
+		'path' => $module_path . '/templates/admin',
+		'file' => 'theme.admin.inc',
+	);
+
+	$themes['swipe_slider'] = array(
+		'template' => 'swipe_slider.block',
+		'variables' => array('slid' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+
+	return $themes;
+}
+
+/**
+ * Implementation of hook_ac_slider_info()
+ */
+function swipe_slider_ac_sliders_info() {
+	return array(
+		SWIPE_SLIDER_MN => array(
+			'#title' => t('swipe slider'),
+			'#description' => t('swipe_slider'),
+			'#class' => 'swipe_slider',
+			'#file' => 'slider.inc',
+			'#path' => drupal_get_path('module', 'swipe_slider') . '/utility',
+			'#slides' => array(
+				'#edit' => 'swipe_slider_slides_edit', // slides edit form
+			),
+			'#import_export' => array(
+				'#import' => 'swipe_slider_import_data', // import function
+				'#export' => 'swipe_slider_export_slider', // export slider function
+			),
+			'#theme' => 'swipe_slider',
+		));
+}
+
+/**
+ * export slider data
+ */
+function swipe_slider_export_slider($slider, $slides) {
+	$export = array();
+	foreach ($slides as $slide) {
+		$export['layers'][] = array('sublayers' => $slide->layers, 'properties' => $slide->settings);
+	}
+	$export['properties'] = $slider->settings;
+	$export = array($export);
+	return base64_encode(json_encode($export));
+}
+
+/**
+ * import slider data
+ * @param string $data
+ * 		Encoded swipe_slider data
+ * @param string $machine_name
+ * 		machine name of the new importing slider.
+ *
+ * @return array $slider
+ */
+function swipe_slider_import_data($data, $type = 'swipe_slider', $machine_name) {
+	$slider = array();
+	$sublayers = array();
+	$data = base64_decode($data);
+	if ($data) {
+		$data = @array_shift(json_decode($data));
+	}
+
+	if (!is_object($data) || !isset($data->layers) || !isset($data->properties)) {
+		return false;
+	}
+
+	$data->properties = (array) $data->properties;
+
+	$slider['title'] = isset($data->properties['title']) ? $data->properties['title'] : t('swipe_slider: no title');
+	$slider['machine_name'] = $machine_name;
+	$slider['description'] = isset($data->description) ? $data->description : '';
+	$slider['type'] = 'swipe_slider';
+	$slider['settings'] = $data->properties;
+	$slider['slides'] = array();
+	// modify layers to be compatible with 
+	foreach($data->layers as $lid => $layer) {
+		foreach($layer->sublayers as $sublayer) {
+			$sublayers[] = (array) $sublayer;
+		}
+		$slider['slides'][] = array('layers' => $sublayers, 'position' => $lid, 'settings' => (array)$layer->properties);
+	}
+
+	return $slider;
+}
+
+/**
+ * slides edit form
+ */
+function swipe_slider_slides_edit($slid) {
+	acquia_include('utility');
+	acquia_include('utility', 'swipe_slider');
+	acquia_include('slider', 'ac_slider');
+	acquia_include('slider', 'swipe_slider');
+
+	// add admin resources
+	acquia_load_resources();
+	swipe_slider_load_resources('admin');
+
+	// register actions
+	swipe_slider::register_settings();
+	$slider = acquiaSlider::get_by_id($slid);
+
+	return theme('swipe_slider_slides_edit', array('slid' => $slid));
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function swipe_slider_ac_shortcode_include_directory($plugin) {
+	if ($plugin == 'shortcodes') {
+		return 'shortcodes';
+	}
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function swipe_slider_ac_composer_include_directory($plugin) {
+	if ($plugin == 'composer') {
+		return 'composer';
+	}
+}

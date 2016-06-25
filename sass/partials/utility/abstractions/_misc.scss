@@ -1,0 +1,65 @@
+@mixin opacity($opacity){
+   -moz-opacity: $opacity*0.01;
+  -khtml-opacity: $opacity*0.01;
+  -webkit-opacity: $opacity*0.01;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
+  filter: alpha(opacity=#{$opacity});
+  opacity: $opacity*0.01;
+}
+
+@mixin scale($scale){
+  -webkit-transform: 	scale($scale);
+  -moz-transform: 	scale($scale);
+  -ms-transform: 		scale($scale);
+  -o-transform: 		scale($scale);
+  transform: 			scale($scale);
+}
+
+@mixin buttonstyle($defaultcolor, $hovercolor){
+   border-color: $defaultcolor;
+   background: $defaultcolor;
+   &:hover{
+      border-color: $hovercolor;
+      background: $hovercolor;
+   }
+}
+
+%no-margin-padding {
+  padding: 0;
+  margin: 0;
+}
+
+%left-float{
+  float: left;
+  display: inline-block;
+}
+
+%no-right-margin{
+  margin-right: 0; 
+}
+
+%bg-gradient{
+   background-image: -webkit-gradient(linear,left 0,left 100%,from(rgba(40,50,60,0)),to(rgba(40,50,60,0.05)));
+   background-image: -webkit-linear-gradient(top,rgba(40,50,60,0),0,rgba(40,50,60,0.05),100%);
+   background-image: -moz-linear-gradient(top,rgba(40,50,60,0) 0,rgba(40,50,60,0.05) 100%);
+   background-image: linear-gradient(to bottom,rgba(40,50,60,0) 0,rgba(40,50,60,0.05) 100%);
+   background-repeat: repeat-x;
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0028323c',endColorstr='#0c28323c',GradientType=0);
+   filter: none;
+}
+
+%border-box-sizing{
+   @include box-sizing(border-box);
+}
+
+%clearfix{
+   @include clearfix();
+}
+
+%highlighted{
+	 background: $highlight-bg-color;
+}
+
+%no-box-shadow{
+   @include box-shadow(none);
+}

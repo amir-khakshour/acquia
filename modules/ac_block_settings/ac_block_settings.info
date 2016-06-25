@@ -1,0 +1,9 @@
+name = DiamondLayers Block Settings
+description = Allows Configuring blocks via DiamondLayers utilities.
+core = 7.x
+
+dependencies[] = block
+files[] = ac_block_class.test
+test_dependencies[] = context
+
+package = DiamondLayers

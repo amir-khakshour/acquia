@@ -1,0 +1,6 @@
+name = DiamondLayers  - Content Slider
+core = 7.x
+description = Implements Content Slider slide builder tool.
+dependencies[] = ac_slider
+package = DiamondLayers
+

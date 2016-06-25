@@ -1,0 +1,8 @@
+name = DiamondLayers Blog
+description = Adding Multimedia features to your Blog.
+core = 7.x
+
+dependencies[] = acquia
+dependencies[] = blog
+package = DiamondLayers
+

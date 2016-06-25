@@ -1,0 +1,32 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/global\.scss}line{font-family:\000033}}
+#db-content {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/global\.scss}line{font-family:\000039}}
+div.db_ac_iconlist .db-visual-sc {
+  padding: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/global\.scss}line{font-family:\0000313}}
+.iconlist_icon, .iconbox_icon {
+  -moz-border-radius: 100em;
+  -webkit-border-radius: 100em;
+  border-radius: 100em;
+  background-color: #21759b;
+  padding: 15px;
+  color: #fff;
+  display: inline-block;
+  float: left;
+  margin-right: 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/global\.scss}line{font-family:\0000321}}
+  .iconlist_icon span, .iconbox_icon span {
+    display: block;
+    vertical-align: middle;
+    font-size: 25px;
+    line-height: 25px;
+    width: 25px;
+    height: 25px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/global\.scss}line{font-family:\0000328}}
+    .iconlist_icon span:before, .iconbox_icon span:before {
+      margin: 0; }

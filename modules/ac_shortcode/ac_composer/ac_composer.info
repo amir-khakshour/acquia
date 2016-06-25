@@ -1,0 +1,8 @@
+name = Diamond Builder
+core = 7.x
+description = Provides UI to add/edit content via pre-defined module shortcodes easily. 
+
+dependencies[] = ac_shortcode
+
+package = DiamondLayers
+

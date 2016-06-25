@@ -1,0 +1,257 @@
+/**
+ * ShowCase Slider
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000310}}
+.ps-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #555;
+  background: #fff;
+  position: relative;
+  z-index: 1; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000320}}
+.ps-container > div {
+  position: absolute;
+  width: 50%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000325}}
+.ps-container > div > div,
+.ps-slidewrapper > nav,
+.ps-slides > div {
+  position: absolute; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000331}}
+.ps-header {
+  top: 0px;
+  left: 0px;
+  height: 150px;
+  z-index: 1001; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000338}}
+.ps-header h1 {
+  color: #ccc;
+  line-height: 150px;
+  margin: 0;
+  padding: 0 50px;
+  font-weight: 200;
+  font-size: 14px;
+  letter-spacing: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000348}}
+.ps-contentwrapper {
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1000; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000355}}
+.ps-content {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  padding-top: 200px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzZjNmMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f3f3f3), color-stop(100%, #ffffff));
+  background-image: -moz-linear-gradient(top, #f3f3f3 0%, #ffffff 100%);
+  background-image: -webkit-linear-gradient(top, #f3f3f3 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #f3f3f3 0%, #ffffff 100%); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000363}}
+.ps-content h2 {
+  padding: 10px 15px;
+  border-right: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  margin: 10px 0 30px;
+  text-align: right;
+  height: auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000372}}
+.ps-caption {
+  border-left: 1px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000377}}
+.ps-content .ps-caption-text {
+  padding: 10px 15px;
+  text-align: justify; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000382}}
+.ps-content .ps-price {
+  float: left;
+  margin: 10px 20px 10px 10px;
+  width: 140px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+  color: #fff;
+  font-size: 55px;
+  font-weight: 200; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000394}}
+.ps-content .buy-icon {
+  float: right; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\0000398}}
+.no-touch .ps-content a:last-child:hover {
+  color: #b2d79d;
+  border-color: #b2d79d; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003103}}
+.ps-slidewrapper {
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  overflow: hidden; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003110}}
+.ps-slides {
+  top: 0px;
+  bottom: 200px;
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003116}}
+.ps-slides > div {
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 0 9999px rgba(179, 157, 250, 0.1); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003122}}
+.ps-slidewrapper > nav {
+  width: 100%;
+  height: 200px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1000; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003130}}
+.ps-slidewrapper > nav > a {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  float: left;
+  box-shadow: inset 0 0 0 9999px rgba(207, 227, 206, 0.8);
+  outline: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003139}}
+.ps-slidewrapper > nav > a:first-child {
+  box-shadow: inset 0 0 0 9999px rgba(233, 217, 141, 0.8); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003143}}
+.no-touch .ps-slidewrapper > nav > a {
+  -webkit-transition: box-shadow 0.4s ease-in-out;
+  -moz-transition: box-shadow 0.4s ease-in-out;
+  -ms-transition: box-shadow 0.4s ease-in-out;
+  -o-transition: box-shadow 0.4s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003151}}
+.no-touch .ps-slidewrapper > nav > a:hover {
+  box-shadow: inset 0 0 0 9999px rgba(246, 224, 121, 0.1); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003155}}
+.no-touch .ps-slidewrapper > nav > a:first-child:hover {
+  box-shadow: inset 0 0 0 9999px rgba(249, 15, 15, 0.1); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003159}}
+.ps-slidewrapper > nav > a:after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -50px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003176}}
+.ps-slidewrapper > nav > a:first-child:after {
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  margin: -80px 0 0 -50px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003185}}
+.ps-slides > div,
+.ps-slidewrapper > nav > a {
+  background-color: #fff;
+  background-position: center top;
+  background-repeat: no-repeat;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  background-size: auto 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003195}}
+.ps-move {
+  -webkit-transition: top 400ms ease-out;
+  -moz-transition: top 400ms ease-out;
+  -o-transition: top 400ms ease-out;
+  -ms-transition: top 400ms ease-out;
+  transition: top 400ms ease-out; }
+
+@media screen and (max-width: 860px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003205}}
+  .js .ps-container > div {
+    width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003209}}
+  .js .ps-header {
+    height: 50px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003213}}
+  .js .ps-header h1 {
+    line-height: 50px;
+    padding: 0px 20px;
+    letter-spacing: 4px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003219}}
+  .js .ps-slides {
+    bottom: 320px;
+    top: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003224}}
+  .js .ps-slidewrapper > nav {
+    height: 100px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003228}}
+  .js .ps-contentwrapper {
+    top: auto;
+    height: 240px;
+    bottom: 100px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003234}}
+  .js .ps-content {
+    padding: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003238}}
+  .js .ps-content h2 {
+    border-right: none;
+    font-size: 18px;
+    margin: 10px 0;
+    padding-top: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003245}}
+  .js .ps-content span.ps-price {
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    margin-bottom: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_slider\/modules\/showcase_slider\/sass\/showcase_slider\.scss}line{font-family:\00003254}}
+  .js .ps-content p {
+    line-height: 20px;
+    border: none;
+    padding: 5px 10px;
+    height: 80px; } }

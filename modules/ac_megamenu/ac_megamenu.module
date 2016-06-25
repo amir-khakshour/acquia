@@ -1,0 +1,308 @@
+<?php
+// settings path for DiamondLayers Portfolio
+define('AC_MEGAMENU_ADMIN_PATH', ACQUIA_MENU_PATH . '/ac-megamenu');
+define('AC_MEGAMENU_AJAX_PATH', AC_MEGAMENU_ADMIN_PATH . '/ajax');
+
+
+// theme functions
+require_once (dirname(__FILE__) . '/includes/theme.inc');
+
+function ac_megamenu_init() {
+}
+
+function ac_megamenu_menu() {
+  $items[AC_MEGAMENU_AJAX_PATH] = array(
+    'title' => 'Request',
+    'page callback' => 'ac_megamenu_request',
+    'access arguments' => array('administer ac_megamenu'),
+    'type' => MENU_SUGGESTED_ITEM,
+    'file' => 'ac_megamenu.ajax.inc',
+  );    
+
+  $items[AC_MEGAMENU_ADMIN_PATH] = array(
+    'title' => 'DiamondLayers MegaMenu',
+    'description' => t('DiamondLayers MegaMenu'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ac_megamenu_admin_settings'),
+    'access arguments' => array('administer ac_megamenu'),
+    'file' => 'includes/admin.inc', 
+  );
+
+  $items[AC_MEGAMENU_ADMIN_PATH .'/%ac_megamenu_menu_name'] = array(
+    'title' => 'Config DiamondLayers MegaMenu',
+    'description' => t('Config DiamondLayers MegaMenu'),
+    'page callback' => 'drupal_get_form', 
+    'page arguments' => array ('ac_megamenu_configure_form', 3),
+    'access arguments' => array(3),
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('administer ac_megamenu'),
+    'file' => 'includes/admin.inc', 
+  );
+
+  $items[AC_MEGAMENU_ADMIN_PATH.'/%ac_megamenu_menu_name/config'] = array(
+    'title' => 'Config DiamondLayers MegaMenu',
+    'weight' => -10,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
+  return $items;
+}
+
+function ac_megamenu_permission() {
+  return array(
+    'administer ac_megamenu' => array(
+      'title' => t('Administer DiamondLayers MegaMenu'),
+    ),
+  );
+}
+
+function ac_megamenu_theme($existing, $type, $theme, $path) {
+  $items = array();
+  $items['ac_megamenu'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'content' => NULL,
+      'section' => 'frontend',
+    ),
+    'template' => 'ac-megamenu',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu',
+    ),    
+  );
+
+  $items['ac_megamenu_nav'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'level' => NULL,
+      'items' => NULL,
+      'menu_config' => NULL,
+      'block_config' => NULL,
+      'trail' => NULL,
+      'section' => 'frontend',
+    ), 
+    'template' => 'ac-megamenu-nav',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_nav',
+    ),
+  );
+
+  $items['ac_megamenu_item'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'a_classes' => array(),
+      'item' => NULL,
+      'level' => NULL,
+      'menu_config' => NULL,
+      'block_config' => NULL,
+      'trail' => NULL,
+      'submenu' => NULL,
+      'section' => 'frontend',
+    ), 
+    'template' => 'ac-megamenu-item',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_item',
+    ),
+  );
+
+  $items['ac_megamenu_submenu'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'parent' => NULL,
+      'level' => NULL,
+      'menu_config' => NULL,
+      'block_config' => NULL,
+      'trail' => NULL,
+      'section' => 'frontend',
+    ),
+    'template' => 'ac-megamenu-submenu',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_submenu',
+    ),
+  );
+
+  $items['ac_megamenu_row'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'row' => NULL,
+      'parent' => NULL,
+      'level' => NULL,
+      'menu_config' => NULL,
+      'block_config' => NULL,
+      'trail' => NULL,
+      'section' => 'frontend',
+    ),
+    'template' => 'ac-megamenu-row',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_row',
+    ),
+  );
+
+  $items['ac_megamenu_column'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'col' => NULL,
+      'parent' => NULL,
+      'level' => NULL,
+      'menu_config' => NULL,
+      'block_config' => NULL,
+      'trail' => NULL,
+      'section' => 'frontend',
+    ),
+    'template' => 'ac-megamenu-column',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_column',
+    ),
+  );
+
+  $items['ac_megamenu_subnav'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'col' => NULL,
+      'level' => NULL,
+      'items' => NULL,
+      'menu_config' => NULL,
+      'block_config' => NULL,
+      'trail' => NULL,
+      'section' => 'frontend',
+    ), 
+    'template' => 'ac-megamenu-subnav',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_subnav',
+    ),
+  );
+
+  $items['ac_megamenu_block'] = array(
+    'variables' => array(
+      'menu_name' => NULL,
+      'block_key' => NULL,
+      'section' => 'frontend',
+      'showblocktitle' => 1,
+    ), 
+    'template' => 'ac-megamenu-block',
+    'path' => $path . '/templates',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_block',
+    ),
+  );
+
+  $items['ac_megamenu_admin_settings'] = array(
+    'render element' => 'form',
+  );
+
+  $items['ac_megamenu_backend'] = array(
+    'variables' => array(
+      'blocks' => NULL,
+      'menu_name' => NULL,
+      'menu_content' => NULL,
+    ),
+    'template' => 'ac-megamenu-backend',
+    'path' => $path . '/templates/backend',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_ac_megamenu_backend',
+    ),    
+  );
+
+  return $items;
+}
+
+/*
+ * Implementation of hook_block_view()
+ */
+function ac_megamenu_block_view($delta = 0) {
+  acquia_include('utility', 'ac_megamenu');
+  
+  static $added_js_css = false;
+  if(!$added_js_css) {
+    $added_js_css = true;
+    ac_megamenu_add_css(drupal_get_path('module', 'ac_megamenu') . '/css/ac_menu_frontend.css');
+    drupal_add_js(drupal_get_path('module', 'ac_megamenu') . '/js/ac-megamenu-frontend.js');
+    //if(module_exists('fontawesome') && file_exists(libraries_get_path('fontawesome') . '/css/fontawesome.css')) {
+    //  ac_megamenu_add_css(libraries_get_path('fontawesome') . '/css/font-awesome.css');
+    //}
+    //else {
+    //  ac_megamenu_add_css(drupal_get_path('module', 'ac_megamenu') . '/fonts/font-awesome/css/font-awesome.css');
+    //}
+    //ac_megamenu_add_css(drupal_get_path('module', 'ac_megamenu') . '/css/base.css');
+    //ac_megamenu_add_css(drupal_get_path('module', 'ac_megamenu') . '/css/bootstrap.css');
+    //ac_megamenu_add_css(drupal_get_path('module', 'ac_megamenu') . '/css/default.css');
+    //ac_megamenu_add_css(drupal_get_path('module', 'ac_megamenu') . '/css/compatibility.css');
+    //drupal_add_js(drupal_get_path('module', 'ac_megamenu') . '/js/ac-megamenu-frontend.js');
+    //drupal_add_js(drupal_get_path('module', 'ac_megamenu') . '/js/ac-megamenu-touch.js');
+  }
+  return array('content' => array(
+    '#type' => 'markup',
+    '#markup' =>  theme('ac_megamenu', array('menu_name' => $delta))
+  ));
+}
+
+/*
+ * Implementation of hook_block_info()
+ */
+function ac_megamenu_block_info() {
+  acquia_include('utility', 'ac_megamenu');
+
+  $menus = ac_megamenu_get_megamenus();
+  $blocks = array();
+  foreach($menus as $menu) {
+    $blocks[$menu->menu_name] = array(
+      'info' => t('DiamondLayers MegaMenu') . ': ' . $menu->title, 'cache' => DRUPAL_NO_CACHE
+    );
+  }
+  return $blocks;
+}
+
+function ac_megamenu_menu_name_load($ac_megamenu_menu_name) {
+  return array($ac_megamenu_menu_name);
+}
+
+function ac_megamenu_theme_registry_alter(&$theme_registry) {
+  if(isset($theme_registry['ac_megamenu_submenu'])) {
+    acquia_include('utility', 'ac_megamenu');
+    $submenu_registry = $theme_registry['ac_megamenu_submenu'];
+    $cache = array('ac_megamenu_submenu' => $submenu_registry);
+    $templates = ac_megamenu_find_hook_templates($cache, drupal_get_path('module', "ac_megamenu") . "/templates/submenu-types");
+    foreach($templates as $hook => $info) {
+      if (!isset($theme_registry[$hook])) {
+        $new_hook = $submenu_registry;
+        $new_hook['path'] = $info['path'];
+        $new_hook['template'] = str_replace("_", "-", $hook);
+        $theme_registry[$hook] = $new_hook;
+      }
+    }
+  }
+}
+
+function ac_megamenu_block_view_alter(&$data, $block) {
+  if (isset($data['content']) && is_array($data['content']) && $block->module == 'ac_megamenu') {
+    $contextual_links = array(
+      'admin/structure/menu/manage',
+      array($block->delta),
+    );
+
+    $data['content']['#contextual_links']['menu_config'] = $contextual_links;
+
+    $contextual_links = array(
+      AC_MEGAMENU_ADMIN_PATH,
+      array($block->delta),
+    );
+
+    $data['content']['#contextual_links']['ac_megamenu_config'] = $contextual_links;
+    
+  }
+}

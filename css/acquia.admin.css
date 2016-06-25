@@ -1,0 +1,805 @@
+.ac-options-header .header-top .toggle-tabs {
+  text-shadow: none;
+}
+
+.ac-admin a.button, .ac-admin .acquia-button, .ac-admin input#edit-submit, .ac-admin input.form-submit, .ac-admin .icon-btn, .ac-admin a.button.remove {
+  -webkit-transition: background-color .2s;
+  background-color: #4687F4;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #4687F4), color-stop(0, #4687F4), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(top, #4687F4 0, #4687F4 0, transparent 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4687F4), color-stop(0, #4687F4), to(transparent));
+  background-image: linear-gradient(to bottom, #4687f4 0%, #4687f4 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4687f4',endColorstr='transparent',GradientType=0 );
+  font-family: 'open sans';
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 23px;
+  line-height: 32px;
+  height: 32px;
+  display: inline-block;
+  transition: background-color .2s;
+  border: none;
+  color: #fff;
+  margin: 0;
+  text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ac-admin a.button:hover, .ac-admin a.button .icon-btn:hover, .ac-admin a.button:focus, .ac-admin .acquia-button:hover, .ac-admin .acquia-button .icon-btn:hover, .ac-admin .acquia-button:focus, .ac-admin input#edit-submit:hover, .ac-admin input#edit-submit .icon-btn:hover, .ac-admin input#edit-submit:focus, .ac-admin input.form-submit:hover, .ac-admin input.form-submit .icon-btn:hover, .ac-admin input.form-submit:focus, .ac-admin .icon-btn:hover, .ac-admin .icon-btn .icon-btn:hover, .ac-admin .icon-btn:focus, .ac-admin a.button.remove:hover, .ac-admin a.button.remove .icon-btn:hover, .ac-admin a.button.remove:focus {
+  background-color: #2D6EDB;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #4687F4), color-stop(0, #4687F4), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(top, #4687F4 0, #4687F4 0, transparent 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4687F4), color-stop(0, #4687F4), to(transparent));
+  background-image: linear-gradient(to bottom, #4687f4 0%, #4687f4 0%, rgba(0, 0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4687f4',endColorstr='transparent',GradientType=0 );
+  color: #fff;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ac-admin a.button:active, .ac-admin .acquia-button:active, .ac-admin input#edit-submit:active, .ac-admin input.form-submit:active, .ac-admin .icon-btn:active, .ac-admin a.button.remove:active {
+  background: #126dde;
+  -moz-box-shadow: inset 0 0 0 transparent;
+  -webkit-box-shadow: inset 0 0 0 transparent;
+  box-shadow: inset 0 0 0 transparent;
+}
+
+.ac-admin .form-item .description, .ac-admin div.media-widget.form-wrapper .description, .ac-admin fieldset .fieldset-description {
+  margin-top: 7px;
+  line-height: 16px;
+  font-size: 12px;
+  color: gray;
+}
+
+.ac-font-admin, .ac-font-admin:before, .admin-icon:before, .ac-admin fieldset .fieldset-legend .font-icon {
+  font: 20px 'fontadmin';
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.ac-admin div .form-item select, .ac-admin div div.media-widget.form-wrapper select, .ac-admin .form-item label, .ac-admin div.media-widget.form-wrapper label, .ac-admin .form-item label.option, .ac-admin fieldset .fieldset-title {
+  font-size: 13px;
+  font-weight: normal;
+  color: #333;
+}
+
+.ac-admin div .form-item select, .ac-admin div div.media-widget.form-wrapper select, .ac-admin .form-item label, .ac-admin div.media-widget.form-wrapper label, .ac-admin .form-item label.option {
+  cursor: text;
+  display: inline-block;
+  line-height: 28px;
+  height: 28px;
+}
+
+.ac-admin input, .ac-admin select, .ac-admin .form-item .field-suffix, .ac-admin div.media-widget.form-wrapper .field-suffix {
+  height: 32px;
+  line-height: 32px;
+}
+
+.ac-font-fontello {
+  font: 20px 'fontello';
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.ac-admin input, .ac-admin select, .ac-admin textarea.form-textarea {
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  margin-bottom: 5px;
+  padding: 0 6px;
+  width: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ac-options-header .logo, .ac-admin fieldset legend, .ac-admin fieldset .fieldset-legend, .ac-admin fieldset .form-wrapper fieldset .fieldset-legend {
+  padding: 0;
+  margin: 0;
+}
+
+.ac-options-header {
+  background-image: -webkit-gradient(linear, left 0, left 100%, from(rgba(40, 50, 60, 0)), to(rgba(40, 50, 60, 0.05)));
+  background-image: -webkit-linear-gradient(top, rgba(40, 50, 60, 0), 0, rgba(40, 50, 60, 0.05), 100%);
+  background-image: -moz-linear-gradient(top, rgba(40, 50, 60, 0) 0, rgba(40, 50, 60, 0.05) 100%);
+  background-image: linear-gradient(to bottom, rgba(40, 50, 60, 0) 0%, rgba(40, 50, 60, 0.05) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0028323c',endColorstr='#0c28323c',GradientType=0);
+  filter: none;
+}
+
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset legend {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ac-admin .form-item .element-inner:after, .ac-admin div.media-widget.form-wrapper .element-inner:after, .ac-admin .fieldset-wrapper:after, .ac-admin div.media-widget.form-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Base DiamondLayers Admin Styles
+/*-------------------------------------------------------------------------*/
+@media (min-width: 51em) {
+  body div .ac-table {
+    display: table;
+    width: 100%;
+  }
+
+  body div .ac-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+/*-------------------------------------------------------------------------*/
+/* DiamondLayers Typography Styles
+/*-------------------------------------------------------------------------*/
+body.mceContentBody {
+  font-size: 20px;
+}
+
+/*-------------------------------------------------------------------------*/
+/* DiamondLayers options Header Styles
+/*-------------------------------------------------------------------------*/
+.ac-options-header {
+  background-color: #f9fafc;
+  border-bottom: 1px solid #e0e4e8;
+  margin: 0 !important;
+  padding: 10px 13px;
+  -moz-box-shadow: inset 0 1px 0 #fff;
+  -webkit-box-shadow: inset 0 1px 0 #fff;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.ac-options-header .header-top {
+  position: relative;
+  padding: 10px 10px 10px 20px;
+}
+.ac-options-header .header-top .toggle-tabs {
+  width: 34px;
+}
+.ac-options-header .logo {
+  height: 100%;
+}
+.ac-options-header .logo h3 {
+  display: inline-block;
+  font-style: normal;
+  padding-right: 5px;
+  font-size: 23px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+.ac-options-header .toggle-tabs span {
+  height: 32px;
+  line-height: 32px;
+  background: transparent;
+  color: #0074BD;
+}
+.toggle-view .ac-options-header .toggle-tabs span {
+  color: #fff;
+}
+
+.ac-options-header .info:before {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  border-left: 1px solid #D8D8D8;
+  height: 26px;
+  top: 50%;
+  margin-top: -13px;
+  border-right: 1px solid #FFF;
+}
+
+.ac-options-header .info {
+  padding: 0 35px;
+  position: relative;
+}
+
+.ac-options-header .info h3 {
+  text-transform: capitalize;
+  font-weight: lighter;
+  font-size: 22px;
+}
+
+.ac-options-header .header-top {
+  display: table;
+  width: 100%;
+  padding: 0;
+}
+
+.ac-options-header .logo {
+  width: 187px;
+  height: auto;
+}
+
+.ac-options-header .logo img {
+  height: auto;
+  max-width: 175px;
+  max-height: 60px;
+}
+
+/** Main Nav **/
+.ac-main-nav {
+  text-align: right;
+  padding-right: 20px;
+  display: none;
+}
+.ac-main-nav ul {
+  list-style: none;
+}
+.ac-main-nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.ac-main-nav a {
+  color: #0074BD;
+  display: block;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #0074BD;
+  border-radius: 6px;
+}
+
+.header-top .toggle-tabs,
+.header-top .logo,
+.header-top .info {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/** tablet view **/
+@media (min-width: 12em) {
+  .ac-options-header {
+    margin: 0 0 0 50px;
+  }
+  .ac-options-header .form-submit {
+    margin-right: 8px;
+  }
+}
+/*-------------------------------------------------------------------------*/
+/* Admin Theme Settings Styles
+/*-------------------------------------------------------------------------*/
+.acquia-theme-options {
+  border: 1px solid #e5e5e5;
+  max-width: 100%;
+  position: relative;
+  background: #f1f1f1;
+  z-index: 2;
+  width: 960px;
+  background: #4c5566;
+}
+.acquia-theme-options.ac-vtabs-enabled #edit-actions {
+  margin-left: 200px;
+}
+.acquia-theme-options #edit-actions {
+  padding: 10px;
+  margin: 0;
+  text-align: right;
+  background: #fff;
+  border-top: 1px solid #e0e4e8;
+}
+.acquia-theme-options .omega-assets-missing-files {
+  margin: 0;
+}
+.acquia-theme-options > .form-wrapper {
+  margin: 0;
+}
+
+/** Vertical Tabs
+--------------------------------------------------*/
+.acquia-theme-options .vertical-tabs {
+  background: #f9fafc;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0;
+  border: none;
+  /** Vertical Tab Panes **/
+}
+.acquia-theme-options .vertical-tabs .vertical-tabs-list,
+.acquia-theme-options .vertical-tabs .vertical-tabs-panes {
+  display: table-cell;
+  height: 100%;
+  vertical-align: top;
+}
+.acquia-theme-options .vertical-tabs .vtab-pane-legend,
+.acquia-theme-options .vertical-tabs .vertical-tabs-list {
+  border-bottom: none;
+  float: none;
+  background: #4c5566;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane legend.vtab-pane-legend {
+  margin: 0;
+  padding: 10px 0;
+  background: transparent !important;
+  color: inherit;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.acquia-theme-options .vertical-tabs .vertical-tabs-panes {
+  padding: 10px 15px;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane {
+  /** Vertival Tab Pane **/
+  padding: 20px 0;
+  margin: 0;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane legend {
+  background: transparent;
+  color: #333;
+  margin-left: 20px;
+  padding-top: 15px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane legend .fieldset-legend {
+  border: none;
+  height: auto;
+  line-height: 22px;
+  font-weight: 500;
+  color: #252525;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane .fieldset-wrapper {
+  background: none;
+  border: none;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper {
+  /** First level fieldsets In current pane **/
+  padding: 0 !important;
+  margin: 0;
+  background: transparent;
+  height: auto;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset {
+  margin: 10px;
+  /** Inner level fieldsets In current pane **/
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset.collapsed legend {
+  background: #fff;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset legend {
+  background: #f5f5f5;
+  color: #717171;
+  border: 1px solid #ebeff6;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset .fieldset-legend {
+  padding: 0;
+  background: none;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset fieldset .fieldset-wrapper {
+  background: #fcfcfc;
+}
+.acquia-theme-options .vertical-tabs fieldset.vertical-tabs-pane fieldset.form-wrapper fieldset fieldset .fieldset-wrapper .fieldset-wrapper {
+  background: #fff;
+}
+.acquia-theme-options .vertical-tabs .fieldset-wrapper {
+  padding: 0;
+}
+.acquia-theme-options .vertical-tabs .fieldset-wrapper .fieldset-wrapper {
+  margin: 0;
+}
+.acquia-theme-options .vertical-tabs .fieldset-wrapper .fieldset-wrapper .fieldset-wrapper {
+  border: 1px solid #e5e5e5;
+}
+
+/** toggle vertical tabs **/
+.toggle-view #ac-options-header,
+.toggle-view .form-actions {
+  margin: 0 !important;
+  border-left: none;
+}
+.toggle-view legend {
+  display: block !important;
+}
+.toggle-view .toggle-tabs span {
+  border-color: #fb6b5b;
+  background: #fb6b5b;
+}
+.toggle-view .toggle-tabs span:hover {
+  border-color: #fa4c38;
+  background: #fa4c38;
+}
+.toggle-view .vertical-tabs-list {
+  display: none !important;
+}
+.toggle-view .vertical-tabs-panes {
+  margin: 0 !important;
+  border: 0 !important;
+}
+.toggle-view .vertical-tabs-panes fieldset {
+  display: block !important;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Misc DiamondLayers Admin Styles
+/*-------------------------------------------------------------------------*/
+.ac-admin {
+  font-family: "Open Sans", sans-serif;
+}
+.ac-admin strong {
+  font-family: "Open Sans", sans-serif !important;
+}
+.ac-admin div .form-item select, .ac-admin div div.media-widget.form-wrapper select {
+  cursor: pointer;
+  display: block;
+  width: 100% !important;
+}
+.ac-admin select, .ac-admin .customSelect {
+  max-width: 300px;
+}
+.ac-admin .form-item, .ac-admin div.media-widget.form-wrapper {
+  margin: 0;
+  padding: 15px;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+.ac-admin .form-item.form-type-textarea .element-inner .el, .ac-admin div.form-type-textarea.media-widget.form-wrapper .element-inner .el {
+  max-width: 100%;
+}
+.ac-admin .form-item input.form-autocomplete, .ac-admin div.media-widget.form-wrapper input.form-autocomplete, .ac-admin .form-item input.form-text, .ac-admin div.media-widget.form-wrapper input.form-text, .ac-admin .form-item input.form-file, .ac-admin div.media-widget.form-wrapper input.form-file {
+  line-height: 32px;
+  height: 32px;
+}
+.ac-admin .form-item .selectpicker, .ac-admin div.media-widget.form-wrapper .selectpicker {
+  left: 3px;
+  bottom: 2px;
+}
+.ac-admin .form-item .field-suffix, .ac-admin div.media-widget.form-wrapper .field-suffix {
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+}
+.ac-admin .form-item .form-label, .ac-admin div.media-widget.form-wrapper .form-label {
+  width: 24%;
+  max-width: 230px;
+}
+.ac-admin .form-item .form-label, .ac-admin div.media-widget.form-wrapper .form-label, .ac-admin .form-item .element-inner, .ac-admin div.media-widget.form-wrapper .element-inner {
+  display: inline-block;
+  vertical-align: top;
+}
+.ac-admin .form-item .element-inner, .ac-admin div.media-widget.form-wrapper .element-inner {
+  width: 74%;
+}
+.ac-admin .form-item .element-inner .el, .ac-admin div.media-widget.form-wrapper .element-inner .el {
+  max-width: 360px;
+  position: relative;
+}
+.ac-admin .form-item .element-inner .el input, .ac-admin div.media-widget.form-wrapper .element-inner .el input, .ac-admin .form-item .element-inner .el select, .ac-admin div.media-widget.form-wrapper .element-inner .el select, .ac-admin .form-item .element-inner .el textarea, .ac-admin div.media-widget.form-wrapper .element-inner .el textarea, .ac-admin .form-item .element-inner .el .customSelect, .ac-admin div.media-widget.form-wrapper .element-inner .el .customSelect {
+  font-family: "Open Sans", sans-serif;
+  max-width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: border 0.2s linear;
+  -o-transition: border 0.2s linear;
+  -webkit-transition: border 0.2s linear;
+  transition: border 0.2s linear;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.ac-admin .form-item .element-inner .el input:focus, .ac-admin div.media-widget.form-wrapper .element-inner .el input:focus, .ac-admin .form-item .element-inner .el select:focus, .ac-admin div.media-widget.form-wrapper .element-inner .el select:focus, .ac-admin .form-item .element-inner .el textarea:focus, .ac-admin div.media-widget.form-wrapper .element-inner .el textarea:focus, .ac-admin .form-item .element-inner .el .customSelect:focus, .ac-admin div.media-widget.form-wrapper .element-inner .el .customSelect:focus {
+  border-color: #2A83ED;
+  outline: none;
+}
+.ac-admin .form-item label, .ac-admin div.media-widget.form-wrapper label, .ac-admin .form-item label.option, .ac-admin div.media-widget.form-wrapper label.option {
+  font-size: 13px !important;
+}
+.ac-admin .form-type-radio, .ac-admin .form-type-checkbox {
+  display: block;
+  text-align: left;
+}
+.ac-admin .form-type-radio .form-radio, .ac-admin .form-type-checkbox .form-checkbox {
+  line-height: 16px;
+  height: 16px;
+  width: 16px;
+}
+.ac-admin .fieldset-wrapper {
+  padding: 0;
+}
+.ac-admin fieldset {
+  /** Root **/
+  border: none !important;
+  margin: 10px 0;
+  padding: 0;
+}
+.ac-admin fieldset.collapsible > legend > .fieldset-legend > .fieldset-title > .font-icon:before {
+  content: '\e803';
+  color: inherit;
+}
+.ac-admin fieldset.collapsible.collapsed > legend > .fieldset-legend > .fieldset-title > .font-icon:before {
+  content: '\e808';
+  color: #AFAFAF;
+}
+.ac-admin fieldset legend {
+  background: #efefef;
+  color: #717171;
+  width: 100%;
+  padding: 0;
+}
+.ac-admin fieldset .fieldset-legend {
+  font-size: 13px;
+  display: block;
+  height: 3em;
+  line-height: 3em;
+  background: none !important;
+  display: block;
+  position: inherit;
+  padding: 0 !important;
+  border: 1px solid #EBEFF6;
+  text-transform: capitalize;
+}
+.ac-admin fieldset .fieldset-legend .font-icon {
+  display: inline-block;
+  width: 18px;
+  line-height: 32px;
+  font-size: 12px;
+  margin: 0 10px 0 20px;
+}
+.ac-admin fieldset .fieldset-legend .font-icon:before {
+  content: '\e808';
+}
+.ac-admin fieldset .fieldset-title {
+  display: block;
+  height: 3em;
+  line-height: 3em;
+  display: block;
+  color: #575757;
+  text-decoration: none;
+  font-weight: bold;
+}
+.ac-admin fieldset .fieldset-title:hover {
+  background: #f5f5f5;
+  color: #3e3e3e;
+}
+.ac-admin fieldset .fieldset-legend span.summary {
+  float: left;
+}
+.ac-admin fieldset .fieldset-description {
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  font-style: italic;
+}
+.ac-admin fieldset .fieldset-wrapper {
+  background: #fff;
+  border: 1px solid #ebeff6;
+}
+.ac-admin fieldset .form-wrapper {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.ac-admin fieldset .form-wrapper fieldset {
+  background: transparent;
+  padding: 0;
+  margin: 10px 0;
+  border: none;
+}
+.ac-admin fieldset .fieldset-wrapper fieldset {
+  padding: 0 !important;
+  margin: 10px;
+  background: transparent;
+}
+.ac-admin fieldset .fieldset-wrapper fieldset.collapsed {
+  height: auto;
+}
+.ac-admin fieldset .fieldset-wrapper fieldset .fieldset-wrapper {
+  background: #fcfcfc;
+}
+.ac-admin fieldset .fieldset-wrapper fieldset .fieldset-wrapper .fieldset-wrapper {
+  background: #fff;
+}
+.ac-admin fieldset .fonticon-field {
+  min-height: 42px;
+}
+.ac-admin fieldset .form-actions {
+  margin: 10px;
+}
+.ac-admin .filter-wrapper .fieldset-wrapper {
+  padding: 20px;
+}
+.ac-admin input.form-submit {
+  margin-bottom: 0;
+}
+.ac-admin input.form-text {
+  margin: 0;
+}
+.ac-admin div input.form-submit {
+  width: auto;
+}
+.ac-admin a.button {
+  color: #fff !important;
+}
+.ac-admin a.button:hover, .ac-admin a.button:active {
+  color: #fff !important;
+}
+.ac-admin .icon-btn {
+  width: 34px;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+.ac-admin .icon-btn .font-icon {
+  display: block;
+}
+.ac-admin .icon-btn .font-icon:before {
+  width: 100%;
+  margin: 0;
+}
+.ac-admin div.media-widget.form-wrapper .form-type-item {
+  width: 24%;
+  max-width: 230px;
+}
+.ac-admin div.media-widget.form-wrapper .form-item, .ac-admin div.media-widget.form-wrapper div.media-widget.form-wrapper {
+  padding: 0 !important;
+  display: inline-block;
+  border: none;
+}
+.ac-admin div.media-widget.form-wrapper .media-item {
+  margin-left: 0;
+}
+.ac-admin div.media-widget.form-wrapper .button {
+  position: relative;
+  z-index: 2;
+}
+.ac-admin div.media-widget.form-wrapper a.remove {
+  padding: 10px 12px;
+  line-height: 1 !important;
+  height: auto !important;
+}
+.ac-admin .acquia-wysiwyg-enabled {
+  position: relative;
+  margin: 20px 0 0;
+  clear: both;
+}
+.ac-admin .acquia-wysiwyg-enabled .form-type-textarea {
+  border-bottom: 0;
+}
+.ac-admin .acquia-wysiwyg-enabled .form-type-textarea .form-label, .ac-admin .acquia-wysiwyg-enabled .form-type-textarea .element-inner {
+  display: block;
+  clear: both;
+  width: 100%;
+}
+.ac-admin .acquia-wysiwyg-enabled .form-type-textarea .el {
+  padding: 0;
+}
+.ac-admin .text-format-wrapper .filter-help {
+  text-align: right;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.ac-admin .text-format-wrapper .form-type-select {
+  padding: 0;
+  width: 100%;
+}
+.ac-admin .text-format-wrapper .description {
+  padding: 10px;
+}
+.ac-admin .acquia-wysiwyg-enabled .wysiwyg-toggle-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ac-admin .acquia-wysiwyg-enabled .wysiwyg-toggle-wrapper a {
+  height: 18px;
+  font: 12px/18px Arial,Helvetica,sans-serif normal;
+  margin: 5px 5px 0 0;
+  padding: 4px 5px 2px;
+  float: right;
+  cursor: pointer;
+  border: 1px solid #DFDFDF;
+  background-color: #F4F4F4;
+  border-bottom-color: #F4F4F4;
+  color: #999;
+  position: relative;
+  z-index: 10;
+  border-bottom-color: 0;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.ac-admin input.field-colorpicker {
+  padding-left: 36px;
+}
+.ac-admin .field-suffix .upload-btn {
+  position: absolute;
+  right: -95px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 12px;
+  padding: 0 4px;
+  margin: 0;
+}
+
+/** Misc Styles
+------------------------------------------------*/
+.ac-admin .vertical-tabs-pane .fieldset-wrapper > div:first-child {
+  padding-top: 15px !important;
+}
+
+.floated-items .form-item, .floated-items .ac-admin div.media-widget.form-wrapper, .ac-admin .floated-items div.media-widget.form-wrapper {
+  width: auto;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.acquia-hidden {
+  display: none !important;
+}
+
+.form-item, .ac-admin div.media-widget.form-wrapper {
+  position: relative;
+}
+
+.form-item label, .ac-admin div.media-widget.form-wrapper label {
+  clear: both;
+}
+
+.dependent-field {
+  -webkit-animation: fadeIn 0.3s 1 ease;
+  /* Safari 4+ */
+  -moz-animation: fadeIn 0.3s 1 ease;
+  /* Fx 5+ */
+  -o-animation: fadeIn 0.3s 1 ease;
+  /* Opera 12+ */
+  animation: fadeIn 0.3s 1 ease;
+  /* IE 10+ */
+}
+
+.ac-reset {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  margin-top: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 1000px;
+  background-color: #FA0808;
+  font-size: 11px;
+  line-height: 12px;
+  text-align: center;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.field-suffix .ac-reset {
+  right: 1px;
+  bottom: 5px;
+  top: auto;
+}

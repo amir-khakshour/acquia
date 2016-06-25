@@ -1,0 +1,21 @@
+/*-------------------------------------------------------------------------*/
+/* DiamondLayers Typography Styles
+/*-------------------------------------------------------------------------*/
+.ac-font-admin{
+  @extend %ac-font-admin;
+  &:before{
+    @extend %ac-font-admin;
+  }
+}
+
+.ac-font-fontello{
+  @extend %ac-font-fontello;
+}
+
+body.mceContentBody{
+  font-size: 20px;
+}
+
+.admin-icon:before{
+  @extend %ac-font-admin;
+}

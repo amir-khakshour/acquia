@@ -1,0 +1,6 @@
+name = DiamondLayers Portfolio Blocks
+description = DiamondLayers Portfolio Blocks;e.g., Related works, Gallery, ...
+core = 7.x
+
+dependencies[] = ac_portfolio
+package = DiamondLayers

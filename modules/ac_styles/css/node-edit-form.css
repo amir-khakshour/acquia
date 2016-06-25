@@ -1,0 +1,16 @@
+/** Node edit form layout */
+#ac-node-page-layout .el { margin-top: 15px; }
+
+.ac-admin .acquia-layout-selection-wrapper.ac-sel { display: inline-block; margin: 0 20px 20px 0; text-align: center; text-transform: capitalize; width: 100px; height: 100px; vertical-align: top; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel.on .second-sidebar i, .ac-admin .acquia-layout-selection-wrapper.ac-sel.on .default i { background-position: 0 -40px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel.on .first-sidebar i { background-position: 0 -121px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel.on .full-width-no-topbar-footer i, .ac-admin .acquia-layout-selection-wrapper.ac-sel.on .full-width-no-footer i, .ac-admin .acquia-layout-selection-wrapper.ac-sel.on .full-width i { background-position: 0 -202px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel.on .no-sidebars i { background-position: 0 -283px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel.on .three-columns i { background-position: 0 -365px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel .form-item { display: none; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel i { width: 75px; height: 40px; display: inline-block; vertical-align: top; background: url(../img/page-layouts.png); margin-bottom: 10px; position: relative; border: 0; top: 0; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel .first-sidebar i { background-position: 0 -81px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel .full-width-no-topbar-footer i, .ac-admin .acquia-layout-selection-wrapper.ac-sel .full-width-no-footer i, .ac-admin .acquia-layout-selection-wrapper.ac-sel .full-width i { background-position: 0 -161px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel .no-sidebars i { background-position: 0 -242px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel .three-columns i { background-position: 0 -324px; }
+.ac-admin .acquia-layout-selection-wrapper.ac-sel .text { display: block; }

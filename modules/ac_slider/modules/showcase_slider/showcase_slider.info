@@ -1,0 +1,6 @@
+name = DiamondLayers  - Showcase Slider
+core = 7.x
+description = Vertical Showcase Slider with jQuery and CSS Transitions.
+dependencies[] = ac_slider
+package = DiamondLayers
+

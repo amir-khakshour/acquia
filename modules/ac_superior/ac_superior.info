@@ -1,0 +1,8 @@
+name = DiamondLayers Superior
+description = "Allows for modifing theme registry before any modules"
+core = 7.x
+
+dependencies[] = acquia
+package = DiamondLayers
+
+

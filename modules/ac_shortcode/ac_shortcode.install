@@ -1,0 +1,50 @@
+<?php
+/**
+ * @file - Install file
+ */
+
+/**
+ * Implements hook_install()
+ */
+function ac_shortcode_install() {
+  set_acquia_media_types();
+}
+
+///**
+// * Implements hook_update_N()
+// */
+//function ac_shortcode_update_7200() {
+//
+//}
+
+function set_acquia_media_types() {
+  if (module_exists('media')) {
+    $default_types = variable_get('media__file_extensions');
+    $types = array('webm', 'ogg', 'mp4');
+    foreach($types as $type) {
+      if (!strstr($default_types, $type)) {
+        $default_types .= ' ' .$type;
+      }
+    }
+    media_variable_set('media__file_extensions', $default_types);
+  }
+}
+
+
+/**
+ * Create DiamondLayers shortcodes cache table.
+ */
+function ac_shortcode_update_7301() {
+  if (!db_table_exists('cache_acquia_sliders')) {
+    drupal_install_schema('ac_shortcode');
+  }
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function ac_shortcode_schema() {
+  $schema = array();
+  $schema['cache_ac_shortcode'] = drupal_get_schema_unprocessed('system', 'cache');
+  return $schema;
+}

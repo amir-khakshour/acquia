@@ -1,0 +1,27 @@
+/** DiamondLayers Tooltip
+--------------------------------------------------*/
+.acquia-tooltip {
+  width: 260px;
+  position: absolute;
+  padding: 10px;
+  background: #000;
+  background: rgba(0,0,0,.8);
+  color: #eee;
+  font: normal normal normal 12px/16px Arial, sans-serif;
+  text-align: left;
+  z-index: 6000;
+  @include box-shadow(0px 2px 10px -2px black);
+  span{
+    display: block;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    margin-left: -7px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid black;
+    @include opacity(60);
+  }
+}

@@ -1,0 +1,22 @@
+$debug-grid: false !default;
+
+@mixin grid-background {
+  @if $debug-grid == true {
+    @include susy-grid-background;
+  }
+}
+
+%container {
+  @include container;
+  @include grid-background;
+}
+
+%ac-table{
+  display: table;
+  width: 100%;
+}
+
+%ac-cell{
+  display: table-cell;
+  vertical-align: top;
+}

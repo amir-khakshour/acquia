@@ -1,0 +1,30 @@
+/* Core */
+
+.ac-megamenu{
+  position: relative;
+}
+.ac-megamenu .nav,
+.ac-megamenu .ac-block ul, .ac-megamenu .ac-block .nav {
+  padding: 0;
+}
+.ac-megamenu .ac-block ul li, .ac-megamenu .ac-block .nav li {
+  list-style: none;
+}
+.ac-megamenu .block-view-demo .item-list ul li{
+  border-bottom:1px solid #444;
+}
+.ac-megamenu .dropdown-submenu:hover .dropdown-menu{
+  display:none;
+}
+@media (max-width: 979px) {
+  .ac-megamenu .nav-collapse .dropdown-menu .views-field-field-image a{
+    border-top:0 none;
+  }
+  #user-login-form .item-list li a{
+    border:0 none;
+  }
+  .ac-megamenu .nav-collapse, .ac-megamenu .nav-collapse.collapse{
+    z-index: 999;
+  }
+}
+/* End Core */

@@ -1,0 +1,22 @@
+.form-type-ac-commerce-fancy-buttons .form-item {
+  display: inline-block;
+  margin-left: 10px;
+}
+.form-type-ac-commerce-fancy-buttons input {
+  display: none;
+}
+.form-type-ac-commerce-fancy-buttons .option {
+  display: inline-block;
+  height: 2.2em;
+  line-height: 2.1em;
+  padding: 0 10px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.form-type-ac-commerce-fancy-buttons .ajax-progress {
+  display: none;
+}

@@ -1,0 +1,386 @@
+/* The Menu
+---------------------*/
+#ac-megamenu-admin-mm-container {
+  width: 100%;
+}
+
+
+/* Global Menu Inner padding ---*/
+.ac-megamenu .mega-inner {
+  padding: 10px;
+}
+
+
+/* Menu Grid ---*/
+.ac-megamenu .row-fluid + .row-fluid {
+  margin-top: 10px;
+  border-top: 0;
+}
+
+.ac-megamenu .row-fluid [class*="span"] {
+  border: 1px dotted #ccc;
+  border-radius: 3px;
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+  background: white;
+}
+
+
+/* The Nav ---*/
+.ac-megamenu .span12.mega-col-nav .mega-inner {
+  padding: 10px;
+}
+
+.ac-megamenu .nav {
+  list-style: none;
+}
+
+.ac-megamenu .nav > li {
+  float: left;
+  margin-right: 20px;
+}
+
+.ac-megamenu .nav > li > a,
+.ac-megamenu .nav > li > span {
+  border: 1px solid #ddd;
+  padding: 8px 20px;
+  background: #f2f2f2;
+  font-weight: bold;
+  border-radius: 3px;
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+}
+
+/* The caret */
+.ac-megamenu .mega-nav .dropdown-submenu > a::after {
+  margin-right: -10px;
+}
+
+
+/* Dropdown ---*/
+.ac-megamenu .dropup, .dropdown {
+  position: relative;
+}
+
+.ac-megamenu .dropdown-menu::before,
+.ac-megamenu .dropdown-menu::after {
+  display: none !important; /* Hide the Arrow */
+}
+
+.ac-megamenu .dropdown-menu {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+  min-width: 200px;
+  background: #f2f2f2;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  /* Fixed overlap with the Joomla Toolbar */
+}
+
+.ac-megamenu .dropdown-menu .dropdown-menu {
+  margin-top: 0;
+  margin-left: 11px;
+}
+
+.ac-megamenu .dropdown-submenu.mega-align-right .dropdown-menu {
+  margin-left: 0;
+  margin-right: 11px;
+}
+
+.ac-megamenu .mega-nav li {
+  margin-bottom: 5px;
+}
+
+.ac-megamenu .mega-nav li:last-child {
+  margin-bottom: 0;
+}
+
+.ac-megamenu .mega-nav li > a,
+.ac-megamenu .mega-nav li > span {
+  padding: 5px 20px 5px 10px;
+  border: 1px dotted #ddd;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #999999;
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+}
+
+
+/* The group ---*/
+.ac-megamenu .mega-nav .mega-group > .mega-group-title,
+.ac-megamenu .dropdown-menu .mega-nav .mega-group > .mega-group-title {
+  padding: 5px 20px 5px 10px;
+  cursor: pointer;
+}
+
+.ac-megamenu .mega-group-ct {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0 0;
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+  border-radius: 3px;
+  background: #f2f2f2;
+}
+
+.ac-megamenu .mega-group-ct > .row-fluid > [class*="span"] > .mega-inner {
+  padding: 10px;
+}
+
+
+/* Module in Menu ---*/
+.ac-megamenu .ac-block {
+  pointer-events: none;
+  cursor: default;
+  position: relative;
+  margin: 0;
+  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -moz-transition: all 0.1s ease 0s;
+}
+
+.ac-megamenu .ac-block:after {
+  display: block;
+  position: absolute;
+  background: #eeeeee;
+  right: -10px;
+  bottom: -10px;
+  content: "Block";
+  width: 60px;
+  padding: 2px 0;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #999999;
+  border-radius: 3px 0 0 0;
+  border: 1px dotted #ddd;
+  border-width: 1px 0 0 1px;
+}
+
+.ac-megamenu .ac-block .block-inner {
+  opacity: .3;
+  font-size: 12px;
+}
+
+.ac-megamenu .ac-block .block-title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.ac-megamenu .ac-block .block-ct {
+  overflow: hidden;
+  zoom: 1;
+}
+
+/* Reset List Style in Module */
+.ac-megamenu .ac-block ul,
+.ac-megamenu .ac-block .nav,
+.ac-megamenu .dropdown-menu .nav {
+  margin: 0 0 0 15px;
+}
+.ac-megamenu .ac-block ul li,
+.ac-megamenu .ac-block .nav li,
+.ac-megamenu .dropdown-menu .nav li {
+  list-style: disc;
+  display: list-item;
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.ac-megamenu .ac-block ul li a,
+.ac-megamenu .ac-block .nav li a,
+.ac-megamenu .dropdown-menu .ac-block li a {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  background: none;
+  font: inherit;
+  white-space: normal;
+}
+.ac-megamenu .ac-block ul li a:hover,
+.ac-megamenu .ac-block .nav li a:hover,
+.ac-megamenu .dropdown-menu .ac-block li a:hover,
+.ac-megamenu .ac-block ul li a:active,
+.ac-megamenu .ac-block .nav li a:active,
+.ac-megamenu .dropdown-menu .ac-block li a:active,
+.ac-megamenu .ac-block ul li a:focus,
+.ac-megamenu .ac-block .nav li a:focus,
+.ac-megamenu .dropdown-menu .ac-block li a:focus,
+.ac-megamenu .ac-block ul li a:visited,
+.ac-megamenu .ac-block .nav li a:visited,
+.ac-megamenu .dropdown-menu .ac-block li a:visited {
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+
+.ac-megamenu [class*="span"].hover .ac-block:after,
+.ac-megamenu [class*="span"].selected .ac-block:after {
+  border-style: solid;
+  border-color: #666666;
+  background: #ffbb00;
+  color: #fff;
+}
+
+/* Fix Form display problem in Modules */
+.ac-megamenu .ac-block .control-group {
+  margin-bottom: 5px;
+}
+
+.ac-megamenu .ac-block .controls {
+  margin-left: 3px;
+}
+
+
+/* Open Item ---*/
+.ac-megamenu .nav > li.open > a,
+.ac-megamenu .open > a {
+  background: #333333 !important;
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+/* Hover Item ---*/
+.ac-megamenu .nav-child.hover,
+.ac-megamenu ul[class*="level"] > li > a.hover,
+.ac-megamenu ul[class*="level"] > li > span.hover,
+.ac-megamenu .row-fluid [class*="span"].hover {
+  background-color: #fffbf0;
+  color: #333333 !important;
+  border: 1px solid #666666 !important;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.ac-megamenu ul[class*="level"] > li > a:hover,
+.ac-megamenu ul[class*="level"] > li > a:focus,
+.ac-megamenu ul[class*="level"] > li > a:active {
+  background-color: #fffbf0 !important;
+  color: #333333 !important;
+  text-decoration: none !important;
+  text-shadow: 0 1px 1px #fff !important;
+}
+
+/* The caret */
+.ac-megamenu .mega-nav li a.hover:after,
+.ac-megamenu .mega-nav li a.selected:after {
+  border-left-color: #333333;
+}
+
+
+/* Selected Item ---*/
+.ac-megamenu .selected {
+  background-color: #fffbf0 !important;
+  color: #333333 !important;
+  border: 1px solid #666666 !important;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  text-shadow: 0 1px 1px white !important;
+  background-repeat: no-repeat;
+}
+
+/* The caption ---*/
+.ac-megamenu .m-caption {
+  color: #999;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+
+/* Fix for Joomla! Default Admin Template
+--------------------------------------------------*/
+#ac-megamenu-admin .dropdown-menu a {
+  white-space: normal;
+}
+#ac-megamenu-admin .row-fluid [class*="span"] {
+  margin-left: 2.12766%;
+}
+#ac-megamenu-admin .row-fluid [class*="span"]:first-child {
+  margin-left: 0;
+}
+
+/* Fix right spacing for chzn chosen in Megamenu Admin UI */
+#ac-megamenu-admin ul.chzn-results {
+  margin-right: 0;
+  float: none;
+}
+
+/* Fix submenu auto open on hover */
+#ac-megamenu-admin .dropdown-submenu:hover .dropdown-menu {
+  display: none;
+}
+
+#ac-megamenu-admin .dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+#ac-megamenu-admin-mm-ac #toolbox-loading {
+  background-image: url('../images/ajax-loader.gif');
+  width: 220px;
+  height: 19px;
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -110px;
+}
+
+#ac-megamenu-admin-mm-ac #toolbox-message {
+  color: red;
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -110px;
+}
+
+/* Megamenu Responsive */
+@media (max-width: 767px) {
+.ac-megamenu .mega-inner {
+    padding: 10px 20px;
+  }
+.ac-megamenu .row-fluid,
+.ac-megamenu .mega-dropdown-menu,
+.ac-megamenu .row-fluid [class*="span"] {
+    width: 100% !important;
+    min-width: 100% !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+  }
+.ac-megamenu .row-fluid + .row-fluid {
+    padding-top: 10px;
+    border-top: 1px solid #eeeeee;
+  }
+.ac-megamenu .hidden-collapse,
+.ac-megamenu .always-show .caret,
+.ac-megamenu .sub-hidden-collapse > .nav-child,
+.ac-megamenu .sub-hidden-collapse .caret,
+.ac-megamenu .sub-hidden-collapse > a:after,
+.ac-megamenu .always-show .dropdown-submenu > a:after {
+    display: none !important;
+  }
+.ac-megamenu .m-caption {
+    display: none !important;
+  }
+}

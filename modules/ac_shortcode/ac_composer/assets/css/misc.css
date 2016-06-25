@@ -1,0 +1,8 @@
+div.db_ac_iconlist .db-visual-sc { padding: 10px; }
+
+div.ac-iconlist-item { clear: both; margin-top: 10px; cursor: pointer; padding: 10px; }
+div.ac-iconlist-item:hover { border-color: #333333; }
+
+.iconlist_icon { -webkit-border-radius: 100em; -moz-border-radius: 100em; -ms-border-radius: 100em; -o-border-radius: 100em; border-radius: 100em; background-color: #333; padding: 15px; color: #fff; display: inline-block; float: left; margin-right: 20px; }
+.iconlist_icon span { display: block; vertical-align: middle; font-size: 18px; line-height: 18px; width: 18px; height: 18px; }
+.iconlist_icon span:before { margin: 0; }

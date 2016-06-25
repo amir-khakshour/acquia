@@ -1,0 +1,99 @@
+<?php
+//$Id
+/**
+ *
+ */
+
+/**
+ * Implementing hook_theme()
+ */
+function ac_demo_theme(){
+	$items = array();
+	$path = drupal_get_path('module', 'ac_demo') . '/theme';
+	$items['demo_panel'] = array(
+		'variables' => array(),
+		'template' => 'ac-demo-panel',
+		'path' => $path,
+	);
+	return $items;
+}
+
+/**
+ * @TODO document here
+ */
+function ac_blog_preprocess_demo_panel(&$vars){
+	acquia_include('skin', 'ac_skin');
+	$vars['skins'] = array();
+	foreach (acquia_theme_skin_info() as $skin => $info) {
+		$item = array();
+		if (isset($info['uri']) && isset($info['screenshot']) && is_string($info['screenshot'])) {
+			$item['scr'] = file_create_url($info['uri'] . $info['screenshot']);
+		}else{
+			continue;
+		}
+		$item['name']= $info['name'];
+		$item['description'] = $info['description'];
+		$item['accent-color'] = isset($info['accent-color']) ? $info['accent-color'] : '#019CDE';
+		$vars['skins'][$skin] = $item;
+	}
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function ac_demo_page_build(&$page) {
+	// Performance: Skip this entirely for AJAX requests.
+	// Skip in admin section
+	if (path_is_admin(current_path())) {
+		return;
+	}
+
+	global $user, $language;
+	$path = drupal_get_path('module', 'ac_demo');
+	$page['page_bottom']['ac_demo'] = array(
+		'#attached' => array(),
+	);
+	$attached = &$page['page_bottom']['ac_demo']['#attached'];
+	$options = array('group' => CSS_THEME, 'every_page' => TRUE, 'weight' => 100000);
+
+	$attached['css'][$path . '/css/ac_demo.css'] = $options;
+	$attached['js'][$path . '/js/ac_demo.js'] = $options;
+
+	$page['page_bottom']['ac_demo']['#markup'] = theme('demo_panel');
+
+	// add default skin based on user cookie
+
+	$default_skin = isset($_COOKIE['acUserSkin']) ? $_COOKIE['acUserSkin'] : variable_get('ac_default_skin', 'dark-turquoise');
+	//ac_demo_get_skin_css_files();
+	$uri = ac_demo_get_skin_uri($default_skin);
+	$attached['css'][$uri . 'skin.css'] = $options;
+	$attached['css'][$uri . 'custom-skin.css'] = $options;
+}
+
+/**
+ *
+ */
+function ac_demo_get_skin_uri($skin){
+	$cache = &drupal_static(__FUNCTION__, array());
+	if (!isset($cache[$skin])) {
+		acquia_include('skin', 'ac_skin');
+		$skins = acquia_theme_skin_info();
+		$cache[$skin] = $skins[$skin]['uri'];
+	}
+	return $cache[$skin];
+}
+
+
+/**
+ * Implements hook_page_build().
+ */
+function ac_demo_css_alter(&$css) {
+	$path = drupal_get_path('theme', variable_get('ACQUIA_THEME_NAME')) . '/css';
+	if (isset($css[variable_get('acquia_theme_custom_css', drupal_get_path('theme', variable_get('ACQUIA_THEME_NAME')) . '/css/skin.css')])){
+		unset($css[variable_get('acquia_theme_custom_css', drupal_get_path('theme', variable_get('ACQUIA_THEME_NAME')) . '/css/skin.css')]);
+	}
+
+	if (isset($css[variable_get('acquia_theme_custom_skin_css', drupal_get_path('theme', variable_get('ACQUIA_THEME_NAME')) . '/css/custom-skin.css')])){
+		unset($css[variable_get('acquia_theme_custom_skin_css', drupal_get_path('theme', variable_get('ACQUIA_THEME_NAME')) . '/css/custom-skin.css')]);
+	}
+}

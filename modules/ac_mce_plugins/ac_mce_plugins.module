@@ -1,0 +1,179 @@
+<?php
+/**
+ * @file ac_mce_plugins.module
+ *	module for adding shortcode plugins to wysiwyg editor
+ */
+
+// module image assets path
+define('AC_MCE_PLUGINS_IMG_ASSETS_DIR', drupal_get_path('module', 'ac_mce_plugins') . '/img');
+
+/**
+ * Return an array of native editor plugins.
+ *
+ * Only to be used for native (internal) editor plugins.
+ *
+ * @see hook_wysiwyg_include_directory()
+ *
+ * @param $editor
+ *   The internal name of the currently processed editor.
+ * @param $version
+ *   The version of the currently processed editor.
+ *
+ * @return
+ *   An associative array having internal plugin names as keys and an array of
+ *   plugin meta-information as values.
+ */
+function ac_mce_plugins_wysiwyg_plugin($editor, $version) {
+  $plugins = array();
+  switch ($editor) {
+    case 'tinymce':
+			$path = drupal_get_path('module', 'ac_mce_plugins');
+
+			$plugins['shortcodes'] = array(
+			'path' => $path . '/plugins/shortcodes',
+			'filename' => 'shortcodes.js',
+			'extensions' => array('shortcodes' => t('DiamondLayers Shortcodes')),
+	    'buttons' => array('shortcodes' => t('DiamondLayers Shortcodes')),
+			'url' => 'http://aquiathemes.net',
+			'internal' => FALSE,
+			'load' => TRUE,
+			);
+		break;
+	}
+
+  return $plugins;
+}
+
+/**
+ * Register a directory containing Wysiwyg plugins.
+ *
+ * @param $type
+ *   The type of objects being collected: either 'plugins' or 'editors'.
+ * @return
+ *   A sub-directory of the implementing module that contains the corresponding
+ *   plugin files. This directory must only contain integration files for
+ *   Wysiwyg module.
+ */
+function ac_mce_plugins_wysiwyg_include_directory($type) {
+  switch ($type) {
+    case 'plugins':
+      // You can just return $type, if you place your Wysiwyg plugins into a
+      // sub-directory named 'plugins'.
+      return $type;
+  }
+}
+
+/**
+ * Implements hook_wysiwyg_editor_settings_alter().
+ */
+function ac_mce_plugins_wysiwyg_editor_settings_alter(&$settings, $context) {
+  if ($context['profile']->editor == 'tinymce') {
+    // change skin to acquia version
+    $settings['theme'] = 'advanced';
+    $settings['skin'] = 'light';
+    $settings['forced_root_block'] = FALSE;
+    $settings['force_br_newlines'] = FALSE;
+    $settings['force_p_newlines'] = TRUE;
+  }
+}
+
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function ac_mce_plugins_element_info_alter(&$types) {
+  $types['text_format']['#pre_render'][] = 'ac_mce_plugins_pre_render_text_format';
+}
+
+/**
+ * Process a text format widget to load and attach editors.
+ *
+ * The element's #id is used as reference to attach client-side editors.
+ */
+function ac_mce_plugins_pre_render_text_format($element) {
+	$loaded = &drupal_static(__FUNCTION__);
+	
+  if (!isset($element['format']) || !empty($element['value']['#disabled'])) {
+    return $element;
+  }
+	
+  $format_field = &$element['format'];
+  $field = &$element['value'];
+  $settings = array(
+    'field' => $field['#id'],
+  );
+
+	$profiles = wysiwyg_profile_load_all();
+	
+	if (!isset($loaded)) {
+		$sc = array();
+		$loaded = false;
+		// Determine the available text formats.
+		foreach ($format_field['format']['#options'] as $format_id => $format_name) {
+			if (isset($profiles[$format_id]) &&
+					$profiles[$format_id]->editor == 'tinymce' &&
+					isset($profiles[$format_id]->settings['buttons']['shortcodes']) &&
+					!empty($profiles[$format_id]->settings['buttons']['shortcodes'])
+					){
+				$loaded = true;
+				$sc[$format_id] = ac_mce_plugins_get_tags_js_settings($format_id);
+			}
+		}
+	}
+
+	
+	if ($loaded && path_is_admin(current_path())) {
+		// Add modal resources and shortcode list
+		acquia_include('utility');
+		acquia_include('utility', 'ac_mce_plugins');
+		acquia_load_resources('admin');
+		acquia_load_resources('admin-shortcodes');
+		acquia_load_resources('modal');
+		drupal_add_js(drupal_get_path('module', 'ac_mce_plugins') . '/js/ac_mce_plugins.js');
+		add_shortcode_btn_globals($sc);
+		$loaded = false;
+	}
+
+	// add assets
+	return $element;
+}
+
+
+function ac_mce_plugins_get_tags_js_settings($format_id, $reset = FALSE) {
+	$data = &drupal_static(__FUNCTION__, array(), $reset);
+	unset($data);
+	
+  if (!isset($data[$format_id])) {
+		$cid = 'ac_mce_plugins:tags_js_settings:' .$format_id;
+    if (!$reset && ($cache = cache_get($cid)) && !empty($cache->data)) {
+      $data[$format_id] = $cache->data;
+    }else {
+			acquia_include('utility', 'ac_shortcode');
+			
+			$attrs = array('title', 'group', 'group_mn', 'order', 'modal', 'tinymce');
+			$data[$format_id] = array();
+			$required_attrs_len = count($attrs);
+			$shortcodes = ac_shortcode_list_all_enabled($format_id);
+
+			foreach($shortcodes as $tag => $shortcode) {
+				if(!isset($shortcode['js callback']) || (isset($shortcode['hidden']) && $shortcode['hidden'] == true)) {
+					continue;
+				}
+				ac_shortcode_add_sc_files($shortcode);
+				if (isset($shortcode['js callback']) && function_exists($shortcode['js callback'])) {
+					$shortcode += $shortcode['js callback']();
+				}
+				
+				foreach($attrs as $attr) {
+					if (isset($shortcode[$attr])) {
+						$data[$format_id][$tag][$attr] = $shortcode[$attr];
+					}
+				}
+				$data[$format_id][$tag]['shortcode'] = $tag;
+			}
+			cache_set($cid, $data[$format_id]);
+		}
+	}
+	
+	return $data[$format_id];
+}

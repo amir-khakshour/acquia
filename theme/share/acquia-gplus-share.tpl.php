@@ -1,0 +1,1 @@
+<a href="https://plus.google.com/share?url=<?php print $link ?>" title="<?php print $title ?>" data-toggle='tooltip' onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="font-icon icon-gplus"></span></a>

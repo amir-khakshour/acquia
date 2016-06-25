@@ -1,0 +1,27 @@
+
+input.field-colorpicker{
+    width: 75px !important;
+}
+
+/** Overriding **/
+.vertical-tabs .form-type-textfield input{
+    width: auto;
+}
+
+/** DiamondLayers Specific Styles**/
+.floated-items .form-item {
+    width: auto;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+
+.form-item label{
+    clear: both;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}

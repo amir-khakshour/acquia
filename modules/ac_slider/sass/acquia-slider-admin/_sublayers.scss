@@ -1,0 +1,459 @@
+
+/**************************************************/
+/*                    SUBLAYERS                   */
+/**************************************************/
+
+.notfirst {
+	width: auto !important;
+	padding-right: 0px !important;
+	color: #999 !important;
+}
+
+.ac-sublayers td {
+	height: 38px;
+	padding: 0px !important;
+}
+
+
+.ac-sublayers tr {
+	cursor: pointer;
+}
+
+
+.ac-sublayer-wrapper {
+	position: relative;
+}
+
+.ac-sublayer-number {
+	display: block;
+	width: 30px;
+	height: 20px;
+	float: left;
+	margin: 7px;
+	border-radius: 10px;
+	border: 1px solid #cdcdcd;
+	background-color: #dfdfdf;
+	text-align: center;
+	color: #818181;
+	font: normal normal normal 13px/20px Arial, serif;
+	box-shadow: inset 0px 0px 2px #CCC;
+}
+
+.ac-highlight {
+	display: block;
+	margin: 7px 7px 0px 0px;
+	float: left;
+	text-align: center;
+}
+
+.ac-highlight input {
+	width: auto
+}
+
+.ac-icon-eye {
+	width: 16px;
+	height: 16px;
+	display: block;
+	float: left;
+	margin: 11px 7px 0px 0px;
+	background: transparent url(../img/sprite.png) 0px -893px no-repeat;
+}
+
+.ac-icon-eye.active {
+	background: transparent url(../img/sprite.png) 0px -919px no-repeat;
+}
+
+.ac-icon-lock {
+	width: 16px;
+	height: 16px;
+	display: block;
+	float: left;
+	margin: 11px 7px 0px 0px;
+	background: transparent url(../img/sprite.png) 0px -865px no-repeat;
+}
+
+.ac-icon-lock.active {
+	background: transparent url(../img/sprite.png) 0px -837px no-repeat;
+}
+
+.ac-icon-duplicate {
+	display: block;
+	float: left;
+	margin: 6px 7px 0px 0px;
+}
+
+.ac-sublayer-title {
+	float: left;
+	margin: 0px;
+	margin-top: 7px;
+	font: normal normal normal 12px/14px Arial, serif;
+	color: #333;
+	background-color: transparent !important;
+	border: 1px solid transparent !important;
+}
+
+.ac-sublayer-title:hover, .ac-sublayer-title:focus {
+	border: 1px solid #7F9AB7 !important;
+	background-color: transparent !important;
+}
+
+.ac-sublayers tr.active .ac-sublayer-wrapper {
+	border-top: 1px solid #ecf3fc;
+	border-bottom: 0px;
+	background: #d8eafa; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d8eafa 0%, #c4daf6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8eafa), color-stop(100%,#c4daf6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d8eafa 0%,#c4daf6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d8eafa 0%,#c4daf6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d8eafa 0%,#c4daf6 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #d8eafa 0%,#c4daf6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8eafa', endColorstr='#c4daf6',GradientType=0 ); /* IE6-9 */
+}
+
+.ac-sublayer-pages {
+	display: none;
+}
+
+.ac-sublayer-pages tr {
+	cursor: default;
+}
+
+.ac-sublayer-page td {
+	padding: 5px 0px !important;
+}
+
+.ac-sublayers tr.active .ac-sublayer-pages {
+	display: block;
+}
+
+.ac-sublayers .active .ac-sublayer-number {
+	border: 1px solid #7f9ab7;
+	background-color: #b8cfe9;
+	box-shadow: inset 0px 0px 2px #b2c8e1;
+}
+
+.ac-sublayers .active .ac-sublayer-title {
+	color: #475e77;
+}
+
+.ac-sublayers .ui-sortable-helper {
+	box-shadow: 0px 8px 5px -4px rgba(0,0,0,0.1), 0px -8px 5px -4px rgba(0,0,0,0.1);
+}
+
+.ac-sublayer-nav {
+	width: 600px;
+	display: none;
+	position: absolute !important;
+	top: 12px;
+	right: 5px;
+	text-align: right;
+}
+
+.ac-sublayer-nav a {
+	display: inline-block;
+	height: 30px;
+	padding: 0px 10px;
+	border: 1px solid transparent;
+	border-bottom: 0px;
+	text-decoration: none;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	font: normal normal normal 13px/30px Arial, serif;
+}
+
+.ac-sublayer-nav a.active {
+	border: 1px solid #b8cfe9;
+	border-bottom: 0px;
+	background-color: #fff;
+}
+
+.ac-sublayer-nav a.remove {
+	width: 10px;
+	height: 10px;
+	padding: 0px;
+	margin: 0px 10px;
+	position: relative;
+	top: -2px;
+	border: 1px solid #ad1714;
+	font: normal normal normal 10px/10px Arial, serif;
+	color: #FFF;
+	background-color: #db1b17;
+	border-radius: 6px;
+	text-align: center;
+	-webkit-box-shadow:inset 1px 1px 0px rgba(255,255,255,0.2),1px 1px 0px #fff;
+	-moz-box-shadow:inset 1px 1px 0px rgba(255,255,255,0.2),1px 1px 0px #fff;
+	box-shadow:inset 1px 1px 0px rgba(255,255,255,0.2),1px 1px 0px #fff;
+}
+
+.ac-sublayers .active .ac-sublayer-nav {
+	display: block;
+}
+
+.ac-sublayer-pages {
+	background-color: #fff;
+	cursor: default;
+}
+
+.ac-sublayer-pages .ac-sublayer-page {
+	display: none;
+}
+
+.ac-sublayer-pages .ac-sublayer-page.active {
+	display: block;
+}
+
+.ac-sublayer-wrapper {
+	width: 100%;
+}
+
+/* SUBLAYER BASIC */
+
+.ac-sublayer-basic {
+	border-bottom: 1px solid #E3E3E3;
+}
+
+div .ac-sublayer-basic select {
+	display: none;
+}
+
+.ac-sublayer-types {
+	padding-top: 10px;
+	text-align: center;
+}
+
+.ac-type {
+	display: inline-block;
+	width: 60px;
+	height: 45px;
+	padding-top: 10px;
+	color: #333;
+	text-align: center;
+	font: normal normal normal 11px/16px Arial, serif;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.ac-type.active {
+	border-radius: 3px;
+	border: 1px solid #b3cce9;
+	background: #d5e9fa; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d5e9fa 0%, #c6dbf7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d5e9fa), color-stop(100%,#c6dbf7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d5e9fa 0%,#c6dbf7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d5e9fa 0%,#c6dbf7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d5e9fa 0%,#c6dbf7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #d5e9fa 0%,#c6dbf7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5e9fa', endColorstr='#c6dbf7',GradientType=0 ); /* IE6-9 */
+}
+
+.ac-type span {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+.ac-icon-video {
+	background: transparent url(../img/video.png) 0 0 no-repeat;
+}
+
+.ac-icon-img {
+	background: transparent url(../img/sprite.png) 0px -457px no-repeat;
+}
+
+.ac-icon-div {
+	background: transparent url(../img/sprite.png) 0px -482px no-repeat;
+}
+
+.ac-icon-p {
+	background: transparent url(../img/sprite.png) 0px -509px no-repeat;
+}
+
+.ac-icon-span {
+	background: transparent url(../img/sprite.png) 0px -536px no-repeat;
+}
+
+.ac-icon-h1 {
+	background: transparent url(../img/sprite.png) 0px -563px no-repeat;
+}
+
+.ac-icon-h2 {
+	background: transparent url(../img/sprite.png) 0px -590px no-repeat;
+}
+
+.ac-icon-h3 {
+	background: transparent url(../img/sprite.png) 0px -617px no-repeat;
+}
+
+.ac-icon-h4 {
+	background: transparent url(../img/sprite.png) 0px -644px no-repeat;
+}
+
+.ac-icon-h5 {
+	background: transparent url(../img/sprite.png) 0px -671px no-repeat;
+}
+
+.ac-icon-h6 {
+	background: transparent url(../img/sprite.png) 0px -698px no-repeat;
+}
+
+.layer-content-items .ac-item {
+	width: 500px;
+	margin: 0px auto;
+	margin-top: 20px;
+	text-align: left;
+	min-height: 70px
+}
+
+.layer-content-items .ac-html-code {
+	width: 620px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+.ac-html-code h5 {
+	margin: 0px 0px 10px 0px;
+	font-size: 1em;
+}
+
+.ac-html-code textarea {
+	width: 100%;
+	height: 100px;
+}
+
+.ac-image-uploader img,
+.ac-video-data img {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #999;
+	padding: 5px;
+	margin-right: 10px;
+	float: left;
+	border-radius: 3px;
+}
+
+.ac-video-data p,
+.ac-image-uploader p {
+	margin: 0px;
+	padding: 10px 0px;
+	text-align: center;
+	color: #999;
+	font: normal normal normal 11px/12px Arial, serif;
+	text-align: justify;
+}
+
+.ac-image-uploader input {
+	width: 425px;
+}
+/* SUBLAYER OPTIONS */
+
+.ac-sublayer-options td {
+	color: #999;
+}
+
+.ac-sublayer-options td.right {
+	padding-right: 10px !important;
+	text-align: right;
+}
+
+.ac-sublayer-options input, .ac-sublayer-options select {
+	width: 80px;
+}
+
+.ac-sublayer-options td:first-child {
+	width: 150px;
+	padding-right: 10px !important;
+	text-align: right;
+	color: #333;
+}
+
+/* SUBLAYER LINK */
+
+.ac-sublayer-link td {
+	color: #999;
+}
+
+.ac-sublayer-link .url {
+	width: 400px;
+}
+
+.ac-sublayer-link input {
+	width: 400px;
+}
+
+.ac-sublayer-link td:first-child {
+	width: 150px;
+	padding-right: 10px !important;
+	text-align: right;
+	color: #333;
+}
+
+/* SUBLAYER STYLE */
+
+.ac-sublayer-style td {
+	color: #999;
+}
+
+.ac-sublayer-style td  input {
+	width: 100px;
+}
+
+.ac-sublayer-style td.right {
+	padding-right: 10px !important;
+	text-align: right;
+}
+
+.ac-sublayer-style input {
+	width: 80px;
+}
+
+.ac-sublayer-style td:first-child {
+	width: 150px;
+	padding-right: 10px !important;
+	text-align: right;
+	color: #333;
+}
+
+.ac-sublayer-style textarea {
+	width: 98%;
+	height: 40px;
+	margin: 10px 0px;
+}
+
+
+/* SUBLAYER ATTRIBUTES */
+
+.ac-sublayer-attributes td {
+	color: #999;
+}
+
+.ac-sublayer-attributes td.right {
+	padding-right: 10px !important;
+	text-align: right;
+}
+
+.ac-sublayer-attributes input {
+	width: 120px;
+}
+
+.ac-sublayer-attributes td:first-child {
+	width: 150px;
+	padding-right: 10px !important;
+	text-align: right;
+	color: #333;
+}
+
+/* SUBLAYER HTML */
+
+.ac-sublayer-html {
+	padding: 10px;
+}
+
+.ac-sublayer-html h5 {
+	margin: 0px 10px 10px 0px;
+	cursor: default !important;
+}
+
+.ac-sublayer-html textarea {
+	width: 100%;
+	height: 100px;
+}

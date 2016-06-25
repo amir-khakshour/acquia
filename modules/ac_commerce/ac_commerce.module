@@ -1,0 +1,588 @@
+<?php
+/**
+ * @file
+ *
+ * DiamondLayers Commerce
+ */
+// AJAX URL for ac_commerce
+@define('AC_COMMERCE_FAVORITES_FLAG_MN', 'add_to_favorites'); // Flag - Add to favorites
+@define('COMMERCE_EXTRA_QUANTITY_INCREASE', 1);
+@define('COMMERCE_EXTRA_QUANTITY_DECREASE', -1);
+@define('AC_COMMERCE_ADMIN_PATH', ACQUIA_MENU_PATH . '/ac-commerce');
+
+/* ***************************************** */
+/* INCLUDES                                  */
+/* ***************************************** */
+require_once (dirname(__FILE__) . '/includes/theme.inc');
+require_once (dirname(__FILE__) . '/includes/styles.inc');
+
+/**
+ * Implements hook_init().
+ */
+function ac_commerce_init() {
+}
+
+/**
+ * Implements hook_hook_info().
+ */
+function ac_commerce_hook_info() {
+  $hooks = array(
+    'ac_commerce_prices_alter' => array(
+      'group' => 'field',
+    ),
+  );
+
+  return $hooks;
+}
+
+/**
+ * Implements hook_menu()
+ *
+ */
+function ac_commerce_menu() {
+  $items = array();
+  $module_path = drupal_get_path('module', 'ac_commerce');
+  $items[AC_COMMERCE_ADMIN_PATH] = array(
+    'title' => t('DiamondLayers Store Settings'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ac_store_settings'),
+    'access arguments' => array('administer acquia store'),
+    'file path' => $module_path . '/includes',
+    'file' => 'admin.inc',
+    'description' => t('Manage store'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ac_commerce_permission() {
+  return array(
+    'administer diamond store' => array(
+      'title' => t('administer diamond store settings'),
+    ),
+  );
+}
+
+/**
+ * Implementing hook_css_alter()
+ */
+function ac_commerce_css_alter(&$css){
+  // override fivestar css defenitions
+  $path = drupal_get_path('module', 'fivestar') .'/css/fivestar.css';
+  if (isset($css[$path])) {
+    unset($css[$path]);
+  }
+}
+
+/**
+ * Implements hook_field_formatter()
+ */
+function ac_commerce_field_formatter_info() {
+  $formatters = array();
+
+  $formatters['ac_commerce_price_formatted_sale'] = array(
+    'label' => t('Formatted amount with sale price'),
+    'field types' => array('commerce_price'),
+    'settings' => array(
+      'calculation' => 'calculated_sell_price',
+      'prices' => array('list', 'price', 'savings'),
+      'savings' => 'both',
+      'show_labels' => TRUE,
+    ),
+  );
+
+  $formatters['ac_commerce_price_formatted_sale_inline'] = array(
+    'label' => t('Formatted amount with sale price (inline)'),
+    'field types' => array('commerce_price'),
+    'settings' => array(
+      'calculation' => 'calculated_sell_price',
+      'prices' => array('list', 'price'),
+      'savings' => 'percentage',
+      'show_labels' => FALSE,
+    ),
+  );
+
+  return $formatters;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function ac_commerce_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'] + field_info_formatter_settings($display['type']);
+
+  // Add the default calculation type selection option.
+  $form = commerce_price_field_formatter_settings_form($field, $instance, $view_mode, $form, $form_state);
+
+  // Add the price display settings form.
+  $form['prices'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Prices to display'),
+    '#options' => array(
+      'list' => t('List price'),
+      'price' => t('Price'),
+      'savings' => t('You save'),
+    ),
+    '#default_value' => $settings['prices'],
+  );
+
+  $form['savings'] = array(
+    '#type' => 'radios',
+    '#title' => t('Savings display method'),
+    '#options' => array(
+      'amount' => t('The amount saved'),
+      'percentage' => t('The percentage saved'),
+      'both' => t('Both the amount and percentage saved'),
+    ),
+    '#default_value' => $settings['savings'],
+  );
+
+  $form['show_labels'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show Price Labels'),
+    '#default_value' => $settings['show_labels'],
+  );
+
+  return $form;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function ac_commerce_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'] + field_info_formatter_settings($display['type']);
+
+  $summary = array();
+
+  // Add the default calculation text to the summary.
+  $summary[] = commerce_price_field_formatter_settings_summary($field, $instance, $view_mode);
+
+  // Add rows for specific settings.
+  $prices = array(
+    'list' => t('List price'),
+    'price' => t('Price'),
+    'savings' => t('You save'),
+  );
+
+  $prices_shown = implode(', ', array_intersect_key($prices, drupal_map_assoc(array_values($settings['prices']))));
+  if (!empty($prices_shown)) {
+    $summary[] = t('Showing: !prices', array('!prices' => $prices_shown));
+  }
+  else {
+    $summary[] = t('Not showing any prices.');
+  }
+
+  if (!empty($settings['show_labels'])) {
+    $summary[] = t('Labels shown');
+  }
+  else {
+    $summary[] = t('No labels');
+  }
+
+
+  switch ($settings['savings']) {
+    case 'amount':
+      $summary[] = t('Savings displayed as the amount.');
+      break;
+
+    case 'percentage':
+      $summary[] = t('Savings displayed as the percentage.');
+      break;
+
+    case 'both':
+      $summary[] = t('Savings displayed as the amount and percentage.');
+      break;
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_prepare_view().
+ */
+function ac_commerce_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  commerce_price_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, $items, $displays);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function ac_commerce_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'] + field_info_formatter_settings($display['type']);
+
+  $tax_module_exists = module_exists('commerce_tax');
+
+  // Theme the display of the price based on the display type.
+  if (in_array($display['type'], array('ac_commerce_price_formatted_sale', 'ac_commerce_price_formatted_sale_inline'))) {
+    // exit if no display prices
+    if (empty($settings['prices'])) {
+      return $element;
+    }
+
+    // remove prices not selected
+    $settings['prices'] = array_filter($settings['prices']);
+
+    // exit if no prices selected
+    if (empty($settings['prices'])) {
+      return $element;
+    }
+
+    // store prices count
+    $prices_count = count($settings['prices']);
+
+    // determine if labels are shown
+    $show_labels = !empty($settings['show_labels']);
+
+    // determine theme
+    $item_theme = $display['type'];
+    $display_type = 'node_view';
+    if ($item_theme == 'ac_commerce_price_formatted_sale_inline') {
+      $display_type = 'teaser_view';
+    }
+    // Loop through each price value in this field.
+    foreach ($items as $delta => $item) {
+      $difference = 0;
+      $base_price_component = commerce_price_component_total($item, 'base_price');
+      $base_currency = commerce_currency_load($base_price_component['currency_code']);
+
+      if ($base_price_component) {
+        // calculate included tax amount on base amount
+        $included_tax_amount = 0;
+        foreach ($item['data']['components'] as $component) {
+          if (!empty($component['included']) && !empty($component['price']['data']['tax_rate'])) {
+            $included_tax_amount += commerce_currency_convert($component['price']['amount'], $component['price']['currency_code'], $base_price_component['currency_code']);
+          }
+        }
+        $base_price_component['amount'] += $included_tax_amount;
+
+        // Calculate the difference between the base price and calculated price.
+        $difference = $base_price_component['amount'] - commerce_currency_convert($item['amount'], $item['currency_code'], $base_price_component['currency_code']);
+
+        // Get decimal value for rounding
+        $difference_decimal = commerce_currency_amount_to_decimal($difference, $base_price_component['currency_code']);
+
+        // Round per currency rounding_step
+        $difference_decimal = commerce_currency_round($difference_decimal, $base_currency);
+
+        // Update difference amount
+        $difference = commerce_currency_decimal_to_amount($difference_decimal, $base_price_component['currency_code']);
+      }
+
+      // determine price direction
+      $price_direction = $difference > 0 ? 'down' : ($difference < 0 ? 'up' : 'unchanged');
+
+      // format prices
+      acquia_include('price', 'ac_commerce');
+      $formatted_prices = array();
+      foreach ($settings['prices'] as $price_type) {
+        switch ($price_type) {
+          case 'list':
+            // Only show the list price if the current price is lower.
+            if ($difference > 0 || $prices_count == 1) {
+              $formatted_prices[$price_type] = array(
+                'label' => t('List price'),
+                'amount' => $base_price_component['amount'],
+                'currency_code' => $base_price_component['currency_code'],
+                'formatted' => ac_commerce_currency_format($base_price_component['amount'], $base_price_component['currency_code'], $entity, TRUE, $display_type),
+              );
+            }
+            break;
+
+          case 'price':
+            $formatted_prices[$price_type] = array(
+              'label' => t('Price'),
+              'amount' => $item['amount'],
+              'currency_code' => $item['currency_code'],
+              'formatted' => ac_commerce_currency_format($item['amount'], $item['currency_code'], $entity, TRUE, $display_type),
+            );
+            break;
+
+          case 'savings':
+            // Only show the savings if the current price is lower than the list
+            // price; i.e. if there actually are savings.
+            if ($difference > 0) {
+              $percentage = round(($difference / $base_price_component['amount']) * 100) . '%';
+
+              $formatted_prices[$price_type] = array(
+                'label' => t('You save'),
+                'amount' => $difference,
+                'currency_code' => $item['currency_code'],
+                'formatted' => ac_commerce_currency_format($difference, $item['currency_code'], $entity),
+              );
+
+              if (!empty($base_price_component['amount'])) {
+                $difference_percent = $difference / $base_price_component['amount'];
+                $formatted_prices[$price_type]['percent'] = array(
+                  'value' => $difference_percent,
+                  'formatted' => round($difference_percent * 100) . '%',
+                );
+              }
+            }
+            break;
+        }
+      } // /settings price type loop
+
+      // allow other to alter the formatted prices
+      $context = array(
+        'settings' => $settings,
+        'entity_type' => $entity_type,
+        'entity' => $entity,
+        'field' => $field,
+        'instance' => $instance,
+        'langcode' => $langcode,
+        'display' => $display,
+      );
+
+      drupal_alter('ac_commerce_prices', $formatted_prices, $context);
+
+      // set savings
+      if (!empty($formatted_prices['savings']) && !empty($settings['prices']['savings'])) {
+        switch ($settings['savings']) {
+          case 'percentage':
+            if (!empty($formatted_prices['savings']['percent']['formatted'])) {
+              $formatted_prices['savings']['formatted'] = $formatted_prices['savings']['percent']['formatted'];
+            }
+            else {
+              $formatted_prices['savings']['formatted'] = '';
+            }
+
+            break;
+
+          case 'both':
+            if (!empty($formatted_prices['savings']['percent']['formatted'])) {
+              $formatted_prices['savings']['formatted'] .= ' (' . $formatted_prices['savings']['percent']['formatted'] . ')';
+            }
+            break;
+        }
+      }
+
+      // build price elements only formatted values
+      $price_elements = array();
+      foreach ($formatted_prices as $price_type => $price_data) {
+        // build prices array with rendered price
+        if (isset($price_data['formatted'])) {
+          $price_elements[$price_type] = array('#markup' => $price_data['formatted']);
+
+          // add label
+          if ($show_labels) {
+            $price_elements[$price_type]['#price_label'] = !empty($price_data['label']) ? $price_data['label'] : '';
+          }
+        }
+      }
+
+      $element[$delta] = array(
+        '#theme' => $item_theme,
+        '#prices' => $price_elements,
+        '#price_direction' => $price_direction,
+        '#attached' => array(
+          'css' => array(drupal_get_path('module', 'ac_commerce') . '/css/ac_commerce_price_formatted_sale.css'),
+        ),
+      );
+    } // /item loop
+
+  } // /type switch
+
+  return $element;
+}
+
+/**
+ * Implements hook_flag_default_flags()
+ */
+function ac_commerce_flag_default_flags() {
+  $flags = array();
+  $flags[AC_COMMERCE_FAVORITES_FLAG_MN] = array(
+    'name' => AC_COMMERCE_FAVORITES_FLAG_MN,
+    'entity_type' => 'node',
+    'title' => t('Favorites'),
+    'global' => 0,
+    'types' => array(
+      0 => 't_shirts',
+    ),
+    'flag_short' => t('Add to my favorites'),
+    'flag_long' => t('Add to my favorites'),
+    'flag_message' => t('Item added to your favorites'),
+    'unflag_short' => t('Remove from my favorites'),
+    'unflag_long' => t('Remove from my favorites'),
+    'unflag_message' => t('Item removed from your favorites'),
+    'unflag_denied_text' => '',
+    'link_type' => 'toggle',
+    'weight' => 0,
+    'show_in_links' => array(
+      'full' => 'full',
+      'teaser' => 'teaser',
+      'rss' => 0,
+      'search_index' => 0,
+      'search_result' => 0,
+    ),
+    'show_as_field' => 0,
+    'show_on_form' => 0,
+    'access_author' => '',
+    'show_contextual_link' => 0,
+    'i18n' => 0,
+    'api_version' => 3,
+  );
+  return $flags;
+}
+
+
+/**
+ * Implements hook_form_id_form_alter().
+ *
+ * Alters the attribute options in the Field UI for eligible fields attached
+ * to commerce_product.
+ */
+function ac_commerce_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
+  $field = $form['#field'];
+  $instance = $form['#instance'];
+
+  // Add our "Rendered term" option for taxonomy_term attributes.
+  // @todo Support entityreference
+  if (empty($form['locked']) && $instance['entity_type'] == 'commerce_product' &&
+    commerce_cart_field_attribute_eligible($field) && $field['type'] == 'taxonomy_term_reference') {
+    $form['instance']['commerce_cart_settings']['attribute_widget']['#options']['ac_commerce_fancy_buttons'] = t('Rendered Buttons');
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Adds relevant JS and CSS to the add to cart form.
+ */
+function ac_commerce_form_alter(&$form, &$form_state, $form_id) {
+  $str = 'commerce_cart_add_to_cart_form_';
+
+  if (drupal_substr($form_id, 0, drupal_strlen($str)) == $str) {
+    $form['#attached']['css'][] = drupal_get_path('module', 'ac_commerce') . '/css/widgets.css';
+    $form['#attached']['js'][] = drupal_get_path('module', 'ac_commerce') . '/js/widgets.js';
+    if (isset($form['quantity']) && $form['quantity']['#type'] == 'textfield') {
+      $form['quantity']['#theme_wrappers'] = array('ac_commerce_quantity_plusminus', 'form_element');
+    }
+    $form['submit']['#prefix'] = '<div class="add-to-cart-wrapper">';
+    $form['submit']['#prefix'] .= '<a href="#" onclick="Drupal.ac_commerce_add_to_cart(); return false;" class="add-to-cart-clone ac-button ac-bg_color-sw ac-style-sw ac-type-sw">'
+      .'<i class="ac-font-icon bag"></i>'
+      .'<i class="label">' .t("Add to shopping bag") .'</i>'
+      .'</a>';
+    $content['submit']['#suffix'] = '</div>';
+  }
+
+  // Quantity fields from views
+  if ($form_id == 'views_form_commerce_cart_form_default') {
+    if (isset($form['edit_quantity'])) {
+      $form['#attached']['css'][] = drupal_get_path('module', 'ac_commerce') . '/css/widgets.css';
+      $form['#attached']['js'][] = drupal_get_path('module', 'ac_commerce') . '/js/widgets.js';
+      foreach ($form['edit_quantity'] as $key => $value) {
+        if (is_numeric($key) && drupal_substr($key, 0, 1) != '#' && is_array($value)) {
+          $form['edit_quantity'][$key]['#theme_wrappers'] = array('ac_commerce_quantity_plusminus', 'form_element');
+        }
+      }
+    }
+  }
+
+}
+
+
+/**
+ * Implements hook_element_info().
+ */
+function ac_commerce_element_info() {
+  // Add an element type similar to radios but using a custom process function
+  // to display the render of the base field as description of the radio button.
+  return array(
+    'ac_commerce_fancy_buttons' => array(
+      '#input' => TRUE,
+      '#process' => array('ac_commerce_process_radios'),
+      '#theme_wrappers' => array('radios'),
+      '#pre_render' => array('form_pre_render_conditional_form_element'),
+    ),
+  );
+}
+
+
+
+/**
+ * Process function for the commerce_fancy_attributes element.
+ *
+ * Each radio button gets a description containing the rendered term.
+ * This description is hidden by default. Then, if JS is enabled,
+ * the radio button and label are hidden, the rendered term in the
+ * description is shown and made clickable.
+ */
+function ac_commerce_process_radios($element, &$form_state, $complete_form = NULL) {
+  if (isset($element['#options']) && count($element['#options']) > 0) {
+    $tids = array_keys($element['#options']);
+    $terms = entity_load('taxonomy_term', $tids);
+    $render_terms = entity_view('taxonomy_term', $terms, 'add_to_cart_form');
+    $render_terms = $render_terms['taxonomy_term'];
+
+    $weight = 0;
+    foreach ($element['#options'] as $key => $choice) {
+      // Maintain order of options as defined in #options, in case the element
+      // defines custom option sub-elements, but does not define all option
+      // sub-elements.
+      $weight += 0.001;
+      $element += array($key => array());
+      // Generate the parents as the autogenerator does, so we will have a
+      // unique id for each radio button.
+      $parents_for_id = array_merge($element['#parents'], array($key));
+      // Render only the visible children of the render array, to prevent
+      // unneeded markup.
+      $render = array();
+      foreach (element_get_visible_children($render_terms[$key]) as $child) {
+        $render[$child] = $render_terms[$key][$child];
+      }
+      $output = drupal_render($render);
+
+      $default_value = isset($element['#default_value']) ? $element['#default_value'] : NULL;
+      // This is the currently selected radio, wrap the rendered term into
+      // a div with a special class so that it's themable.
+      if ($key == $default_value) {
+        $output = '<div class="description-selected">' . $output . '</div>';
+      }
+
+      $element[$key] += array(
+        '#type' => 'radio',
+        '#title' => $choice,
+        // The key is sanitized in drupal_attributes() during output from the
+        // theme function.
+        '#return_value' => $key,
+        '#default_value' => $default_value,
+        '#attributes' => $element['#attributes'],
+        '#parents' => $element['#parents'],
+        '#id' => drupal_html_id('edit-' . implode('-', $parents_for_id)),
+        '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
+        '#weight' => $weight,
+        '#description' => $output,
+      );
+    }
+  }
+  return $element;
+}
+
+
+/**
+ * Implements hook_node_view_alter()
+ * @param $build
+ */
+function ac_commerce_node_view_alter(&$build) {
+  // Remove the read more link
+  if (isset($build['links']['flag'])) {
+    $build['flags'] = array();
+    foreach ($build['links']['flag']['#links'] as $id => $link){
+      $build['flags']['#markup'] = '<div class="flag-'.$id.'">'.$link['title'].'</div>';
+    }
+    unset($build['links']['flag']);
+    unset($build['links']['comment']);
+  }
+
+  if (variable_get('ac_commerce_product_page_show_brand_info', TRUE) && isset($build[variable_get('ac_commerce_brand_field', 'field_brand')])) {
+    $field = $build[variable_get('ac_commerce_brand_field', 'field_brand')];
+    $term = $field['#items'][0];
+    $build['brand'] = array('#markup' => theme('ac_commerce_brand_info', array('term' => $term['taxonomy_term'], 'language' => $build['#node']->language)));
+  }
+}
+

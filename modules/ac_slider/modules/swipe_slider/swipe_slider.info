@@ -1,0 +1,6 @@
+name = DiamondLayers  - Swipe Slider
+core = 7.x
+description = Implements Content Swipe Slide builder tool.
+dependencies[] = ac_slider
+package = DiamondLayers
+

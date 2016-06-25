@@ -1,0 +1,20 @@
+body #branding ul.tabs li a { font-size: 12px; padding: 0 10px; }
+
+.skin-group-title { padding: 10px 20px; font-weight: lighter; }
+
+/** Skin Generator **/
+#page .form-item-acquia-skin-skin .element-inner { display: block; width: 100%; margin-top: 30px; }
+#page .form-item-acquia-skin-skin .element-inner .el { max-width: 100%; }
+
+.ac-skin-selection-wrapper { display: inline-block; vertical-align: top; margin: 10px 0; width: 130px; text-align: center; }
+.ac-skin-selection-wrapper.active .skin-accent-title { font-weight: bold; }
+.ac-skin-selection-wrapper .ac-skin-sel { display: block; width: 100px; margin: 0 auto 10px; position: relative; }
+.ac-skin-selection-wrapper .ac-skin-sel img { display: block; max-width: 100%; height: auto; }
+.ac-skin-selection-wrapper .ac-skin-screenshot { display: block; }
+.ac-skin-selection-wrapper .form-item { display: none !important; }
+
+.skin-accent-color, .skin-accent-title { display: inline-block; vertical-align: middle; }
+
+.skin-accent-color { display: none; width: 15px; height: 15px; border-radius: 100px; margin-right: 5px; }
+
+.skin-accent-title { font-size: 14px; text-transform: capitalize; }

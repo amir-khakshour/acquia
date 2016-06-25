@@ -1,0 +1,199 @@
+// Make sure links dont have outline
+.db-content-level .db_tabs_nav li,
+.db_accordion_section .db_accordion_header,
+.db_tour_next_prev_nav {
+  a:focus {
+    outline: none;
+  }
+}
+
+/** Tabs/Tour Common **/
+.db-content-level {
+  .db_tour_tabs_wrapper,
+  .db_tabs_nav {
+    padding: 0;
+  }
+  
+  .db_tabs_nav {
+    margin: 0;
+    padding-left: 0 !important;
+    text-indent: inherit !important;
+    #content & { //#content for twenty ten theme
+      margin: 0;
+    }
+    li {
+      background-color: @vc_tab_bg;
+      white-space: nowrap;
+      padding: 0;
+      .no_bullet_fix();
+      
+      &.ui-tabs-active,
+      &:hover {
+        background-color: @vc_tab_bg_active;
+      }
+      &.ui-tabs-active a {
+        cursor: default;
+      }
+    }
+  }
+  
+  .db_tour_tabs_wrapper {
+    .db_ui-tabs-hide {
+      display: none;
+    }
+  }
+}
+
+/** Tabs/Tour/Accordion Common **/
+.db-content-level {
+  .db_tour_tabs_wrapper .db_tabs_nav a,
+  .db_accordion_header a {
+    border-bottom: none;
+    text-decoration: none;
+    display: block;
+    
+    padding: 0.5em 1em;
+  }
+  .db_accordion_wrapper .db_accordion_header,
+  &.db_tabs .db_tour_tabs_wrapper .db_tab {
+    background-color: @vc_tab_bg_active;
+  }
+  .db_tour_tabs_wrapper .db_tabs_nav li,
+  .db_accordion_wrapper .db_accordion_header {
+    .db_transition();
+  }
+  
+  .db_tour_tabs_wrapper .db_tab,
+  .db_accordion_wrapper .db_accordion_content {
+    padding: 1em;
+    
+    > .db-content-level:last-child,
+    .db_row:last-child > div > div.db_wrapper .db-content-level:last-child {
+      margin-bottom: 0; // remove bottom margin for last content element in the last row
+    }
+  }
+}
+
+
+/** Tabs **/
+.db_tabs {
+  .db_tabs_nav {
+    li {
+      float: left;
+      margin: 0 1px 0 0;
+    }
+  }
+}
+
+/** Tour **/
+.db_tour {
+  .db_tabs_nav {
+    float: left;
+    width: @tour_nav_width;
+    li {
+      margin: 0 0 1px 0;
+    }
+  }
+  .db_tour_tabs_wrapper .db_tab {
+    .db_box_sizing();
+    border: none;    
+    float: left;
+    width: @tour_slides_width;
+    padding: 0 0 0 @vc_margin_bottom_gold;
+  }
+}
+.db_tour_next_prev_nav {
+  margin-left: @tour_nav_width;
+  padding-left: @vc_margin_bottom_gold;
+  font-size: @vc_smaller_font;
+  
+  a {
+    border-bottom: 1px dotted;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+  
+  span {
+    width: 48%;
+    display: inline-block;
+    padding-top: 1em;//10px;
+    float: left;
+    
+    &.db_next_slide {
+      text-align: right;
+      float: right;
+    }
+  }
+}
+
+/** Accordion **/
+.db_accordion {
+  .db_accordion_wrapper {
+    .db_accordion_header { //h3
+      margin: 0 0 1px 0;
+      padding-top: 0;
+      position: relative;
+      
+      text-transform: none;
+      font-weight: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      
+      a {
+        padding-left: 1em;
+      }
+    }
+    
+    .ui-state-default,
+    .ui-state-active {
+      .ui-icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url(../images/toggle_open.png);
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 0.7em;
+        top: 0.7em;
+      }
+    }
+    .ui-state-active .ui-icon {
+      background-image: url(../images/toggle_close.png);
+    }    
+  }
+}
+
+/* tabs_tour_accordion responsive rules */
+@media (max-width: @vc_responsive_max_w) {
+  .vc_responsive {
+    .db_tour .db_tour_tabs_wrapper .db_tabs_nav,
+    .db_tour .db_tab,
+    .db_tour_next_prev_nav {
+  	  width: 100%;
+  	  float: none;
+  	  margin-left: 0;
+    }
+    .db_tour_next_prev_nav {
+      width: auto;
+      padding: 0 1em;
+    }
+    
+    #content .db_tour .db_tour_tabs_wrapper .db_tabs_nav {
+  	  margin-bottom: 1em;
+    }
+    
+    //Tabs + Tour
+    .db_tour {
+      .db_tab {
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+    }
+  }
+}

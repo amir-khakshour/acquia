@@ -1,0 +1,6 @@
+name = DiamondLayers  - flexslider
+core = 7.x
+description = Implements flexslider slide builder tool.
+dependencies[] = ac_slider
+package = DiamondLayers
+

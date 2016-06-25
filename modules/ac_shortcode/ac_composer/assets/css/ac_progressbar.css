@@ -1,0 +1,66 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_progressbar\.scss}line{font-family:\000033}}
+div.progressbar_progress {
+  border: 1px solid #CFCFCF;
+  height: 20px;
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_progressbar\.scss}line{font-family:\0000310}}
+  div.progressbar_progress .progress {
+    display: block;
+    height: 100%;
+    background-color: #2bc253;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2bc253), color-stop(1, #54f054));
+    background-image: -moz-linear-gradient(center bottom, #2bc253 37%, #54f054 69%);
+    position: relative;
+    overflow: hidden;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_progressbar\.scss}line{font-family:\0000319}}
+    div.progressbar_progress .progress:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      z-index: 1;
+      -webkit-background-size: 50px 50px;
+      -moz-background-size: 50px 50px;
+      background-size: 50px 50px;
+      -webkit-animation: move 2s linear infinite;
+      -moz-animation: move 2s linear infinite;
+      -webkit-border-top-right-radius: 8px;
+      -webkit-border-bottom-right-radius: 8px;
+      -moz-border-radius-topright: 8px;
+      -moz-border-radius-bottomright: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      -webkit-border-top-left-radius: 20px;
+      -webkit-border-bottom-left-radius: 20px;
+      -moz-border-radius-topleft: 20px;
+      -moz-border-radius-bottomleft: 20px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      overflow: hidden; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_progressbar\.scss}line{font-family:\0000351}}
+.progressbar_title {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+  height: 30px;
+  line-height: 25px;
+  font-size: 11px; }
+
+@keyframes move {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 50px 50px; } }

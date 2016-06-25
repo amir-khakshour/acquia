@@ -1,0 +1,166 @@
+<?php
+/**
+ * @file main module file
+ */
+// Required CSS/JS libraries
+require_once (dirname(__FILE__) . '/includes/styles.inc');
+
+// Define machine name for elastic slider
+@define('ELASTIC_SLIDER_MN', 'elastic_slider');
+
+/**
+ * Implements hook_theme()
+ */
+function elastic_slider_theme() {
+	$module_path = drupal_get_path('module', 'elastic_slider');
+	$themes = array();
+
+	$themes['elastic_slider_slides_edit'] = array(
+		'template' => 'elastic_slider_slides_edit',
+    'variables' => array('slid' => null),
+		'path' => $module_path . '/templates/admin',
+		'file' => 'theme.admin.inc',
+	);
+
+	$themes['elastic_slider'] = array(
+		'template' => 'elastic_slider.block',
+    'variables' => array('slid' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+	
+	return $themes;
+}
+
+/**
+ * Implementation of hook_ac_slider_info() 
+ */ 
+function elastic_slider_ac_sliders_info() {
+	return array(
+	ELASTIC_SLIDER_MN => array(
+		'#title' => t('elastic_slider'),
+		'#description' => t('elastic_slider'),
+		'#class' => 'elasticSlider',
+		'#file' => 'slider.inc',
+  	'#path' => drupal_get_path('module', 'elastic_slider') . '/utility',
+		'#slides' => array(
+			'#edit' => 'elastic_slider_slides_edit', // slides edit form
+		),
+		'#import_export' => array(
+			'#import' => 'elastic_slider_import_data', // import function
+			'#export' => 'elastic_slider_export_slider', // export slider function
+		),
+		'#theme' => 'elastic_slider',
+	));
+}
+
+/**
+ * implementing hook_library()
+ */
+function elastic_slider_library() {
+	$libs_path = acquia_variable_get('libs_path', 'sites/all/libraries');
+	$path = drupal_get_path('module', 'elastic_slider');
+	
+  $libraries['elastic_slider'] = array(
+    'title' => 'elastic_slider',
+    'website' => 'http://tympanus.net/',
+		'version' => '1.0',
+    'js' => array(
+      $libs_path . '/elastic-slider/js/jquery.eislideshow.js' => array(),
+    ),
+  );
+
+  return $libraries;
+}
+
+
+/**
+ * export slider data
+ */
+function elastic_slider_export_slider($slider, $slides) {
+	$export = array();
+	foreach ($slides as $slide) {
+	  $export['layers'][] = array('sublayers' => $slide->layers, 'properties' => $slide->settings);
+	}
+	$export['properties'] = $slider->settings;
+	$export = array($export);
+	return base64_encode(json_encode($export));
+}
+
+/**
+ * import slider data
+ * @param string $data
+ * 		Encoded elastic_slider data
+ * @param string $machine_name
+ * 		machine name of the new importing slider.
+ * 
+ * @return array $slider
+ */
+function elastic_slider_import_data($data, $type = 'elastic_slider', $machine_name) {
+	$slider = array();
+  $sublayers = array();
+	
+	if ($data = base64_decode($data)) {
+		$data = @array_shift(json_decode($data));
+	}
+	
+	if (!is_object($data) || !isset($data->layers) || !isset($data->properties)) {
+		return false;
+	}
+	
+	$data->properties = (array) $data->properties;
+
+	$slider['title'] = isset($data->properties['title']) ? $data->properties['title'] : t('elastic_slider: no title');
+	$slider['machine_name'] = $machine_name;
+	$slider['description'] = isset($data->description) ? $data->description : '';
+	$slider['type'] = 'elastic_slider';
+	$slider['settings'] = $data->properties;
+	$slider['slides'] = array();
+	// modify layers to be compatible with 
+	foreach($data->layers as $lid => $layer) {
+		foreach($layer->sublayers as $sublayer) {
+				$sublayers[] = (array) $sublayer;
+		}
+	  $slider['slides'][] = array('layers' => $sublayers, 'position' => $lid, 'settings' => (array)$layer->properties);
+	}
+
+	return $slider;
+}
+
+/**
+ * slides edit form
+ */
+function elastic_slider_slides_edit($slid) {
+	acquia_include('utility');
+	acquia_include('utility', 'elastic_slider');
+	acquia_include('slider', 'ac_slider');
+	acquia_include('slider', 'elastic_slider');
+	
+	// add admin resources
+	acquia_load_resources();
+	elastic_slider_load_resources('admin');
+	elastic_slider_load_resources('slider');	
+	// register actions
+	elasticSlider::register_settings();
+  $slider = acquiaSlider::get_by_id($slid);
+
+	return theme('elastic_slider_slides_edit', array('slid' => $slid));
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function elastic_slider_ac_shortcode_include_directory($plugin) {
+  if ($plugin == 'shortcodes') {
+    return 'shortcodes';
+  }
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function elastic_slider_ac_composer_include_directory($plugin) {
+  if ($plugin == 'composer') {
+    return 'composer';
+  }
+}

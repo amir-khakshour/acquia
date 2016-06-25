@@ -1,0 +1,27 @@
+@stop_standalone_compiling: @vc_grey;
+/* Toggle / FAQ
+---------------------------------------------------------- */
+.db_toggle,
+#content h4.db_toggle {
+	background: url(../images/toggle_open.png) no-repeat left center;
+	padding-left: 25px;
+	clear: both;
+	margin-top: 0;
+}
+.db_toggle_title_active,
+#content h4.db_toggle_title_active {
+	background: url(../images/toggle_close.png) no-repeat left center;
+}
+	.db_toggle:hover {
+		cursor: pointer;
+	}
+
+.db_toggle_content {
+	display: none;
+	overflow: hidden;
+	padding: 0px 0px 0px 25px;
+	margin-top: 1em;
+}
+	.db_toggle_open {
+		display: block;
+	}

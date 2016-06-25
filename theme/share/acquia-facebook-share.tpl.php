@@ -1,0 +1,1 @@
+<a href="http://www.facebook.com/sharer.php?u=<?php print $link ?>" title="<?php print $title ?>" class="product_share_facebook" data-toggle='tooltip' onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=220,width=600');return false;"><span class="font-icon icon-facebook"></span></a>

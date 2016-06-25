@@ -1,0 +1,246 @@
+<?php
+/**
+ * @file
+ * Install/uninstall functions for the Delta blocks module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function ac_blog_uninstall() {
+  // unistall taxonomy and terms
+  acquia_include('taxonomy');
+  _ac_remove_taxonomy_by_name(AC_BLOG_CAT_MN);
+  //_ac_blog_delete_vars();
+}
+
+/**
+ * Delete module variables
+ */
+function _ac_blog_delete_vars() {
+  variable_del('ac_blog_taxonomy_mn');
+  variable_del('ac_blog_thumb_style');
+  variable_del('ac_blog_gallery_style');
+  variable_del('ac_blog_image_frame');
+  variable_del('ac_blog_image_effect');
+}
+
+/**
+ * Implements hook_install().
+ */
+function ac_blog_install() {
+  _ac_blog_create_taxonomy();
+  _ac_blog_add_user_fields();
+  //_ac_blog_set_default_vars();
+}
+
+/**
+ * Create a taxonomy and attach a field to it.
+ */
+function _ac_blog_add_user_fields() {
+   // Check if our field is not already created.
+  if (!field_info_field('field_biography')) {
+    $t = get_t();
+    $field = array(
+      'field_name' => 'field_biography', 
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => 0,
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => 0,
+      'type' => 'text_long',
+    );
+    field_create_field($field);
+    // Create the instance on the bundle.
+    $instance = array(
+      'bundle' => 'user',
+      'default_value' => NULL,
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'user',
+      'field_name' => 'field_biography',
+      'label' => $t('Biography'),
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => 0,
+        'user_register_form' => 0,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => 5,
+        ),
+        'type' => 'text_textarea',
+        'weight' => 7,
+      ), 
+    );
+    field_create_instance($instance);
+  }
+}
+
+ /**
+ * Create a taxonomy and attach a field to it.
+ */
+function _ac_blog_create_taxonomy() {
+ 
+ // Build Blog Category taxonomy
+ acquia_include('taxonomy');
+  $t = get_t();
+  
+  $vocab = new stdClass();
+  $vocab->name = $t('Blog Category');
+  $vocab->machine_name = AC_BLOG_CAT_MN;
+  $vocab->description = $t('This taxonomy is for categorizing your blog items.');
+  $vocab->heirarchy = 1;
+  $vocab->module = 'ac_blog';
+  $vocab->weight = 1;
+  taxonomy_vocabulary_save($vocab);
+
+  if (!field_info_field(AC_BLOG_CAT_FIELD)) {
+    // Create a taxonomy field and use the taxonomy entity we created earlier
+    $field = array(
+      'field_name' => AC_BLOG_CAT_FIELD,
+      'type' => 'taxonomy_term_reference',
+      'label' => $t('Blog Category'),
+      'cardinality' => -1,
+      'settings' => array(
+        'allowed_values' => array(
+          array(
+            'vocabulary' => AC_BLOG_CAT_MN,
+            'parent' => 0
+          )
+        )
+      )
+    );
+    field_create_field($field);
+    
+    // Add the field to the content type as a HTML select box.
+    $instance = array(
+      'field_name' => AC_BLOG_CAT_FIELD,
+      'entity_type' => 'node',
+      'bundle' => 'blog',
+      'label' => $t('Blog Category'),
+      'description' => '',
+      'required' => TRUE,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => -10,
+      ),
+    );
+    field_create_instance($instance);
+  }
+
+  if (!field_info_field(AC_BLOG_TAGS_FIELD)) {
+    // Create blog tags field
+    $field = array(
+      'field_name' => AC_BLOG_TAGS_FIELD,
+      'type' => 'taxonomy_term_reference',
+      'label' => $t('Blog Category'),
+      'cardinality' => -1,
+      'settings' => array(
+        'allowed_values' => array(
+          array(
+            'vocabulary' => AC_BLOG_TAGS_MN,
+            'parent' => 0
+          )
+        )
+      )
+    );
+    field_create_field($field);
+    
+    // Add the field to the content type as a HTML select box.
+    $instance = array(
+      'field_name' => AC_BLOG_TAGS_FIELD,
+      'entity_type' => 'node',
+      'bundle' => 'blog',
+      'label' => $t('Blog tags'),
+      'description' => '',
+      'required' => TRUE,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => -10,
+      ),
+    );
+    field_create_instance($instance);
+  }
+  $vid = _ac_get_taxonomy_vid_by_name(AC_BLOG_CAT_MN);
+  // create dummy categories
+  $terms = array('Technology', 'Fashion', 'Brand Identity');
+  foreach ($terms as $name) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+  }
+}
+
+/**
+ * _ac_blog_set_default_vars.
+ */
+function _ac_blog_set_default_vars() {
+  $t = get_t();
+
+  variable_set('ac_blog_thumb_style', 'rectangle-medium');
+  variable_set('ac_blog_slideshow_style', 'default-image');
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Enabling Like flag for portfolio nodes
+ */
+function ac_blog_enable() {
+  //// Load the flag API in case we want to use it when enabling.
+  //include_once(drupal_get_path('module', 'flag') . '/flag.module');
+  //
+  //if (!flag_get_flags()) {
+  //  $flag = flag_flag::factory_by_entity_type('node');
+  //  $configuration = ac_blog_flag_default_flags();
+  //  $flag->form_input($configuration[ac_blog_LIKE_FLAG_MN]);
+  //  $flag->save();
+  //
+  //  // Clear the flag cache so the new permission is seen by core.
+  //  drupal_static_reset('flag_get_flags');
+  //
+  //  // Grant permissions.
+  //  $permissions = array('flag '.ac_blog_LIKE_FLAG_MN, 'unflag '.ac_blog_LIKE_FLAG_MN);
+  //  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, $permissions);
+  //}
+}

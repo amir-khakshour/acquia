@@ -1,0 +1,325 @@
+<?php
+/**
+ * @file main acquia slider module file
+ */
+define('SLIDER_LIST_PATH', ACQUIA_MENU_PATH . '/ac-slider');
+/**
+ * @file main module file
+ */
+
+/**
+ * Implements hook_menu()
+ *
+ */
+function ac_slider_menu() {
+	$items = array();
+	$module_path = drupal_get_path('module', 'ac_slider');
+
+	$items[SLIDER_LIST_PATH] = array(
+		'title' => t('DiamondLayers Sliders'),
+		'page callback' => 'ac_slider_admin_overview',
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'description' => t('Manage all sliders'),
+	);
+	
+	$items[SLIDER_LIST_PATH . '/manage'] = array(
+		'title' => t('Manage'),
+		'type' => MENU_DEFAULT_LOCAL_TASK,
+		'weight' => 0,
+  );
+	
+	$items[SLIDER_LIST_PATH . '/import-export'] = array(
+		'title' => t('Import & Export'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_slider_import_export_form'),
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'description' => t('Import and Export slider'),
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 2,
+	);
+
+	$items[SLIDER_LIST_PATH . '/export-data'] = array(
+		'page callback' => 'ac_slider_export_data',
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'type' => MENU_CALLBACK,
+	);
+
+	$items[SLIDER_LIST_PATH . '/create'] = array(
+		'title' => 'Add new DiamondLayers Slider',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_slider_configure_form'),
+		'access arguments' => array('administer ac_slider'),
+		'type' => MENU_LOCAL_ACTION,
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+	);
+	
+	$items[SLIDER_LIST_PATH . '/%ac_slider_ids'] = array(
+		'description' => 'Edit existing slider and reorganize slides.',
+		'page callback' => 'ac_slider_manage',
+		'page arguments' => array(3),
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'type' => MENU_NORMAL_ITEM,
+	);
+	
+	$items[SLIDER_LIST_PATH . '/%ac_slider_ids/edit'] = array(
+		'title' => t('Edit'),
+		'description' => t('Re-organize slides and configure slides.'),
+		'page callback' => 'ac_slider_manage',
+		'access callback' => 'user_access',
+		'page arguments' => array(3, 4),
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 2,
+	);
+
+	$items[SLIDER_LIST_PATH . '/slider/delete/confirm'] = array(
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('confirm_delete_form'),
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'type' => MENU_CALLBACK,
+
+	);
+	
+	$items[SLIDER_LIST_PATH . '/slide/delete'] = array(
+		'page callback' => 'delete_slide',
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'type' => MENU_CALLBACK,
+	);
+	
+	$items[SLIDER_LIST_PATH . '/%ac_slider_ids/clone'] = array(
+		'description' => t('Create new slider from existing slider.'),
+		'page callback' => 'ac_slider_clone',
+		'page arguments' => array(3),
+		'access arguments' => array('administer ac_slider'),
+		'file path' => $module_path . '/includes',
+		'file' => 'ac_slider.admin.inc',
+		'type' => MENU_CALLBACK,
+	);
+	
+	return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ac_slider_permission() {
+  return array(
+    'administer ac_slider' => array(
+      'title' => t('Administer acquia sliders'),
+      'description' => t('Administer acquia sliders.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme()
+ *
+ */
+function ac_slider_theme() {
+	$module_path = drupal_get_path('module', 'ac_slider');
+	$themes = array();
+
+	$themes['ac_slider_overview'] = array(
+		'file' => 'includes/ac_slider.admin.inc',
+	);
+	
+	$themes['ac_slider_frontend'] = array(
+    'variables' => array(
+      'slider' => NULL,
+      'slid' => array(),
+    ),
+	);
+
+	return $themes;
+}
+
+/**
+ * Implementation of hook_ac_slider_info() 
+ */ 
+function ac_slider_ac_sliders_info() {
+
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function ac_slider_block_info() {
+	acquia_include('slider', 'ac_slider');
+	
+  $blocks = array();
+  $sliders = acquiaSlider::get_all();
+
+  if (!empty($sliders)) {
+    foreach ($sliders as $slider) {
+      $id_block = $slider->slid;
+      $blocks[$id_block] = array();
+      $blocks[$id_block]['info'] = !empty($slider->title) ? '[acquiaSlider] ' . $slider->title : t('[acquiaSlider] #') . $id_block;
+      $blocks[$id_block]['cache'] = DRUPAL_NO_CACHE;
+    }
+  }
+	
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+/**
+ * Implements hook_block_view().
+ */
+function ac_slider_block_view($delta = '') {
+  $blocks = array();
+  if (is_numeric($delta)) {
+		acquia_include('utility', 'ac_slider');
+		acquia_include('slider', 'ac_slider');
+    if ($slider = acquiaSlider::get_by_id((int)$delta)) {
+				$blocks['subject'] = isset($slider->settings['disable_title']) && $slider->settings['disable_title'] == 'on' ? '' : $slider->title;
+				$blocks['content']['#theme'] = 'ac_slider_frontend';
+				$blocks['content']['#slider'] = $slider;
+				$blocks['content']['#slider_type'] = $slider->type;
+				$blocks['content']['#slid'] = $delta;	
+    }
+  }
+
+  return $blocks;
+}
+
+function theme_ac_slider_frontend($vars){
+	$slider = $vars['slider'];
+	$slid = $vars['slid'];
+	$cids = array(
+		'content' => ac_slider_generate_cid($slid),
+		'js' => ac_slider_generate_cid($slid, 'js'),
+		'css' => ac_slider_generate_cid($slid, 'css'),
+	);
+
+	$_cids = $cids;
+	$cache_hits = cache_get_multiple($cids, 'cache_acquia_sliders');
+
+	if (!empty($cache_hits) && isset($cache_hits[$_cids['content']]->data)) {
+		$content = $cache_hits[$_cids['content']]->data;
+		
+		if (isset($cache_hits[$_cids['js']]->data) && !empty($cache_hits[$_cids['js']]->data)) {
+			foreach ($cache_hits[$_cids['js']]->data as $file => $options){
+				drupal_add_js($file, $options);
+			}
+		}
+		
+		if (isset($cache_hits[$_cids['css']]->data) && !empty($cache_hits[$_cids['css']]->data)) {
+			foreach ($cache_hits[$_cids['css']]->data as $file => $options){
+				drupal_add_css($file, $options);
+			}
+		}
+	}else{
+		$css_start = drupal_add_css();
+		$js_start = drupal_add_js();
+		$content = theme(get_slider_info($slider->type, null, '#theme'), array('slider' => $slider->type, 'slid' => $slid));
+		$js = array_diff_key(drupal_add_js(), $js_start);
+		$css = array_diff_key(drupal_add_css(), $css_start);
+		cache_set($_cids['content'], $content, 'cache_acquia_sliders');
+		cache_set($_cids['js'], $js, 'cache_acquia_sliders');
+		cache_set($_cids['css'], $css, 'cache_acquia_sliders');
+	}
+	
+	return $content;
+}
+
+/**
+ * Assemble the cache_id to use for a given block.
+ *
+ * The cache_id string reflects the viewing context for the current block
+ * instance, obtained by concatenating the relevant context information
+ * (user, page, ...) according to the block's cache settings (BLOCK_CACHE_*
+ * constants). Two block instances can use the same cached content when
+ * they share the same cache_id.
+ *
+ * Theme and language contexts are automatically differentiated.
+ *
+ * @param $block
+ * @return
+ *   The string used as cache_id for the block.
+ */
+function ac_slider_generate_cid($slid, $key = 'content') {
+  global $user;
+
+  // User 1 being out of the regular 'roles define permissions' schema,
+  // it brings too many chances of having unwanted output get in the cache
+  // and later be served to other users. We therefore exclude user 1 from
+  // block caching.
+  if (variable_get('block_cache', FALSE)) {
+		acquia_include('utility');
+    // Start with common sub-patterns: block identification, theme, language.
+    $cid_parts[] = 'ac_slider';
+    $cid_parts[] = $slid;
+    $cid_parts[] = $key;
+    $cid_parts = array_merge($cid_parts, acquia_render_cid_parts());
+
+    return implode(':', $cid_parts);
+  }
+}
+
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ */
+function ac_slider_contextual_links_view_alter(&$element, &$items) {
+	acquia_include('utility', 'ac_slider');
+  if (isset($element['#element']['#block']) && isset($element['#element']['#slider_type']) && in_array($element['#element']['#slider_type'], array_keys(get_slider_types())) && is_numeric($element['#element']['#block']->delta)) {
+    $id = $element['#element']['#block']->delta;
+    $element['#links']['edit-slider'] = array(
+        'title' => t('Edit slider'),
+        'href' => url(SLIDER_LIST_PATH . '/'.$id.'/edit', array('absolute' => TRUE)),
+    );
+  }
+}
+
+/**
+ * Implements hook_load for wildcard
+ */
+function  ac_slider_ids_load($ids) {
+	if (is_numeric($ids)) {
+		$ids = array($ids);
+	}
+	elseif (preg_match('/^([0-9]+,){1,5}[0-9]+$/', $ids)) {
+		$ids = explode(',', $ids);
+	}
+	return $ids;
+}
+
+
+/**
+ * implementing hook_library()
+ */
+function ac_slider_library() {
+	$libs_path = acquia_variable_get('libs_path', 'sites/all/libraries');
+	$path = drupal_get_path('module', 'ac_slider');
+
+	$libraries['acquia_slider.admin'] = array(
+    'title' => 'elastic_slider',
+    'website' => 'http://aquiathemes.net',
+		'version' => '1.0',
+    'js' => array(
+      $path . '/js/admin.js' => array(),
+    ),
+    'css' => array(
+      $path . '/css/acquia-slider-admin.css' => array(),
+    ),
+  );
+
+  return $libraries;
+}

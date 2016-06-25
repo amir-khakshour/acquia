@@ -1,0 +1,332 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\000032}}
+#db-wrapper {
+  /* Composer templates */
+  /** Composer Shortcode View **/
+  /* Accordion */
+  /** Tabs **/
+  /** Tabs **/ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\000033}}
+  #db-wrapper #db_visual_composer i.icon {
+    vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\000036}}
+  #db-wrapper #db-empty-blocks {
+    margin-top: -200px;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000310}}
+  #db-wrapper .composer-switch {
+    height: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000313}}
+  #db-wrapper .db-navbar li.vc_dropdown .vc_dropdown-menu {
+    max-width: 305px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000316}}
+  #db-wrapper .db-navbar {
+    z-index: 999; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000318}}
+    #db-wrapper .db-navbar .vc_logo {
+      margin-top: 8px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000322}}
+  #db-wrapper .db-content {
+    position: relative;
+    z-index: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000326}}
+  #db-wrapper h3.hndle {
+    text-align: left !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000329}}
+  #db-wrapper img {
+    max-width: 100%;
+    height: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000339}}
+  #db-wrapper #db_visual_composer > .hndle {
+    background-color: #F9FAFC;
+    font-size: 16px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MzIzYyIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyODMyM2MiIHN0b3Atb3BhY2l0eT0iMC4wNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(40, 50, 60, 0)), color-stop(100%, rgba(40, 50, 60, 0.05)));
+    background-image: -moz-linear-gradient(top, rgba(40, 50, 60, 0) 0%, rgba(40, 50, 60, 0.05) 100%);
+    background-image: -webkit-linear-gradient(top, rgba(40, 50, 60, 0) 0%, rgba(40, 50, 60, 0.05) 100%);
+    background-image: linear-gradient(to bottom, rgba(40, 50, 60, 0) 0%, rgba(40, 50, 60, 0.05) 100%); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000345}}
+  #db-wrapper h3.ui-accordion-header {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    text-transform: lowercase;
+    font-weight: normal; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000353}}
+  #db-wrapper .db-navbar .vc_dropdown-menu, #db-wrapper .db-navbar .vc_dropdown-menu ul {
+    margin-left: 0;
+    margin-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000357}}
+  #db-wrapper .db-navbar li a.button {
+    line-height: 28px;
+    height: 28px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000363}}
+  #db-wrapper .helper-block {
+    border: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000365}}
+    #db-wrapper .helper-block td {
+      padding: 0;
+      border: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000368}}
+      #db-wrapper .helper-block td:first-child {
+        width: 70px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000375}}
+  #db-wrapper .db_templates_list {
+    margin-top: -15px;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000378}}
+    #db-wrapper .db_templates_list li {
+      padding: 0 5px;
+      margin: 5px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000384}}
+  #db-wrapper .db-label {
+    display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000386}}
+    #db-wrapper .db-label label {
+      display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000392}}
+  #db-wrapper h3.ui-accordion-header {
+    text-transform: capitalize; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000396}}
+  #db-wrapper .ac-full-height {
+    height: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\0000399}}
+  #db-wrapper .ac-no-icon {
+    background-image: none;
+    padding: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003105}}
+  #db-wrapper .toggled > .bottom-controls {
+    display: none; }
+
+/** Global **/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003111}}
+body .ui-widget-content {
+  border: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003114}}
+body .ui-widget {
+  background: transparent; }
+
+/** Shortcodes styles **/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003121}}
+.db_vc_text_separator .db_element_title {
+  text-indent: -999em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003125}}
+.db_vc_text_separator div.textfield {
+  top: -15px; }
+
+/* Add element grid icons
+---------------------------------------------------------- */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003132}}
+.modal-header .close {
+  margin-top: 5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003135}}
+.db_bootstrap_modals [class^="icon-db"],
+.db_bootstrap_modals [class*=" icon-db"] {
+  background-image: url(../composer/vc/elements_icons/sprite.png);
+  width: 16px;
+  height: 16px;
+  margin-top: -1px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003144}}
+.icon-db-application-icon-large {
+  background-position: 0 -18px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003147}}
+.icon-db-application-plus {
+  background-position: 0 -36px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003150}}
+.icon-db-balloon-facebook-left {
+  background-position: 0 -54px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003153}}
+.icon-db-balloon-twitter-left {
+  background-position: 0 -72px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003156}}
+.icon-db-film-youtube {
+  background-position: 0 -90px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003159}}
+.icon-db-images-stack {
+  background-position: 0 -108px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003162}}
+.icon-db-information-white {
+  background-position: 0 -126px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003165}}
+.icon-db-layer-shape-text {
+  background-position: 0 -144px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003168}}
+.icon-db-layout_sidebar {
+  background-position: 0 -162px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003171}}
+.icon-db-map-pin {
+  background-position: 0 -180px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003174}}
+.icon-db-slideshow {
+  background-position: 0 -198px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003177}}
+.icon-db-toggle-small-expand {
+  background-position: 0 -216px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003180}}
+.icon-db-ui-accordion {
+  background-position: 0 -234px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003183}}
+.icon-db-ui-button {
+  background-position: 0 -252px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003186}}
+.icon-db-ui-separator-label {
+  background-position: 0 -270px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003189}}
+.icon-db-ui-separator {
+  background-position: 0 -288px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003192}}
+.icon-db-ui-tab-content-vertical {
+  background-position: 0 -306px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003195}}
+.icon-db-ui-tab-content {
+  background-position: 0 -324px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003198}}
+.icon-db-pinterest {
+  background-position: 0 -342px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003201}}
+.icon-db-tweetme {
+  background-position: 0 -360px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003204}}
+.icon-db-single-image {
+  background-position: 0 -378px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003207}}
+.icon-db-call-to-action {
+  background-position: 0 -396px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003210}}
+.icon-db-raw-html {
+  background-position: 0 -414px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003213}}
+.icon-db-raw-javascript {
+  background-position: 0 -432px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003216}}
+.icon-db-flickr {
+  background-position: 0 -450px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003219}}
+.icon-db-contactform7 {
+  background-position: 0 -468px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003222}}
+.icon-db-vc_gravityform {
+  background-position: 0 -486px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003225}}
+.icon-db-layerslider {
+  background-position: 0 -504px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003228}}
+.icon-db-revslider {
+  background-position: 0 -522px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003231}}
+.icon-db-graph {
+  background-position: 0 -540px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003234}}
+.icon-db-wp {
+  background-position: 0 -558px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003237}}
+.icon-db-vc_pie {
+  background-position: 0 -576px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003240}}
+.icon-db-row {
+  background: transparent url(../composer/vc/row_prepend.png) no-repeat center center; }
+
+/** MISC **/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003246}}
+.admin-menu .db-navbar.subnav-fixed {
+  top: 20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003249}}
+.ac-align-left {
+  text-align: left; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003252}}
+.ac-align-center {
+  text-align: center; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003255}}
+.ac-align-right {
+  text-align: right; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003259}}
+.db_ac_team {
+  display: inline-block;
+  margin: 10px !important;
+  min-width: 265px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003266}}
+.ac-testimonial-item {
+  padding: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003268}}
+  .ac-testimonial-item div {
+    margin-bottom: 5px !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003271}}
+  .ac-testimonial-item .author_pic {
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin-right: 20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003280}}
+.db_ac_list ul {
+  list-style: disc !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003284}}
+.db_row_container > .db-ac-col {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003287}}
+.db-sortable.db-full-controll .db-controls {
+  text-align: right;
+  float: right;
+  width: auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003292}}
+.db-sortable.db-full-controll .bottom-controls {
+  text-align: center;
+  float: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003296}}
+.db-ac-col > .db-controls.db-controls-column {
+  text-align: center; }
+
+/** UI Styles **/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003302}}
+.ui-widget-overlay {
+  z-index: 1000; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_composer\.scss}line{font-family:\00003305}}
+.ui-dialog {
+  z-index: 1200; }

@@ -1,0 +1,19 @@
+name = DiamondLayers Mega Menu
+description = Create Megamenu from existing drupal menus
+package = DiamondLayers
+version = VERSION
+core = 7.x
+
+dependencies[] = acquia
+files[] = ac_megamenu.functions.inc
+files[] = ac_megamenu.themes.inc
+files[] = ac_megamenu.ajax.inc
+files[] = ac_megamenu.admin.inc
+files[] = ac_megamenu.module
+
+; Information added by drupal.org packaging script on 2013-08-12
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "ac_megamenu"
+datestamp = "1376297589"
+

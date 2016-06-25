@@ -1,0 +1,7 @@
+name = DiamondLayers Blocks
+description = Exposes a number of core Drupal elements as blocks.
+core = 7.x
+
+dependencies[] = acquia
+package = DiamondLayers
+

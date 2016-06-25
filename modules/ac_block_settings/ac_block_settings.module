@@ -1,0 +1,201 @@
+<?php
+/**
+ * @file
+ * Enhanced control over the CSS Classes of any Block.
+ *
+ * Block Class allows users to add classes to any block through the block's
+ * configuration interface. This implementation is based on an alteration of
+ * the Core block database table to leverage the Core Block API functions,
+ * objects and structure.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function ac_block_settings_permission() {
+  return array(
+      'administer block classes' => array(
+          'title' => t('Administer block classes'),
+          'description' => t('Set CSS classes for blocks.'),
+      ),
+  );
+}
+
+/**
+ * Implements theme_preprocess_block().
+ *
+ * Extend block's classes with any user defined classes.
+ */
+function ac_block_settings_preprocess_block(&$vars) {
+  $block = $vars['block'];
+  if (isset($block->ac_block_settings) && $block->ac_block_settings != '') {
+    $ac_settings = unserialize($block->ac_block_settings);
+
+    // Css Classes
+    if (isset($ac_settings['css_class']) && $ac_settings['css_class'] != '') {
+      $vars['classes_array'] = array_merge($vars['classes_array'], explode(' ', $ac_settings['css_class']));
+    }
+
+    // Hide title
+    if (isset($ac_settings['hide_block_title']) && $ac_settings['hide_block_title']) {
+      $vars['classes_array'][] = 'no-block-title';
+    }
+    // ac_dropdown_menu
+    if (isset($ac_settings['ac_dropdown_menu']) && $ac_settings['ac_dropdown_menu'] == TRUE) {
+      $vars['classes_array'][] = 'ac_dropdown_menu';
+    }
+
+    // ac_dropdown_menu
+    if (isset($ac_settings['ac_superfish']) && $ac_settings['ac_superfish'] == TRUE) {
+      $vars['classes_array'][] = 'ac_superfish';
+      $vars['classes_array'][] = 'dropdownmenu';
+    }
+
+    // ac_dropdown_menu
+    if (isset($ac_settings['block_width']) && !empty($ac_settings['block_width'])) {
+      $vars['classes_array'][] = 'ac-col';
+      $vars['classes_array'][] = $ac_settings['block_width'];
+    }
+
+    // ac_dropdown_menu
+    if (isset($ac_settings['menu_style'])) {
+      $vars['classes_array'][] = $ac_settings['menu_style'];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Extend panel block's classes with any user defined classes.
+ */
+function ac_block_settings_preprocess_panels_pane(&$vars) {
+  if ($vars['pane']->type != 'block') {
+    return;
+  }
+  // Infer the block's $module and $delta from the pane subtype.
+  $block_parts = explode('-', $vars['pane']->subtype);
+  // Load the block based on the block parts.
+  $block = block_load($block_parts[0], $block_parts[1]);
+  // Add a generic 'module type' pane class.
+  $vars['classes_array'][] = drupal_html_class('pane-' . $block->module);
+
+  // Add $ac_settings['css_class'] to the $classes_array.
+  if (isset($block->ac_block_settings) && $block->ac_block_settings != '') {
+    $ac_settings = unserialize($block->ac_block_settings);
+    if (isset($ac_settings['css_class']) && $ac_settings['css_class'] != '') {
+      $vars['classes_array'] = array_merge($vars['classes_array'], explode(' ', $ac_settings['css_class']));
+    }
+  }
+
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Alter block edit form to add configuration field.
+ */
+function ac_block_settings_form_alter(&$form, &$form_state, $form_id) {
+  $add_submit_handler = FALSE;
+
+  if (isset($form['module']) && isset($form['delta'])) {
+    // Load statically cached block object used to display the form.
+    $block = block_load($form['module']['#value'], $form['delta']['#value']);
+    $ac_settings = isset($block->ac_block_settings) ? unserialize($block->ac_block_settings) : array();
+
+    $form['settings']['ac_block_settings'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('DiamondLayers Block Settings'),
+        '#tree' => TRUE,
+        '#weight' => 0,
+    );
+  }
+
+
+  if (user_access('administer block classes') && ($form_id == 'block_admin_configure' || $form_id == 'block_add_block_form')) {
+    acquia_include('options');
+
+    $form['settings']['ac_block_settings']['block_width'] = array(
+        '#type' => 'select',
+        '#title' => t('Block Width'),
+        '#default_value' => isset($ac_settings['block_width']) ? $ac_settings['block_width'] : '',
+        '#description' => t('Customize block width.'),
+        '#options' => array('' => t('---')) + acquia_column_class_to_width(),
+        '#maxlength' => 255,
+    );
+    $form['settings']['ac_block_settings']['css_class'] = array(
+        '#type' => 'textfield',
+        '#title' => t('CSS class(es)'),
+        '#default_value' => isset($ac_settings['css_class']) ? $ac_settings['css_class'] : '',
+        '#description' => t('Customize the styling of this block by adding CSS classes. Separate multiple classes by spaces.'),
+        '#maxlength' => 255,
+    );
+    $form['settings']['ac_block_settings']['hide_block_title'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide block title'),
+        '#default_value' => isset($ac_settings['hide_block_title']) ? $ac_settings['hide_block_title'] : FALSE,
+        '#description' => '',
+        '#maxlength' => 255,
+    );
+    $add_submit_handler = TRUE;
+
+    // add Menu blocks config
+    if (arg(4) == 'menu') {
+      acquia_include('options', 'ac_block_settings');
+
+      $form['settings']['ac_block_settings']['ac_dropdown_menu'] = array(
+          '#type' => 'checkbox',
+          '#title' => t('Add Sidebar Dropdown to this Menu?'),
+          '#default_value' => isset($ac_settings['ac_dropdown_menu']) ? $ac_settings['ac_dropdown_menu'] : '',
+          '#description' => t('Use this setting for sidebar menus only!'),
+          '#maxlength' => 255,
+      );
+
+      $form['settings']['ac_block_settings']['ac_superfish'] = array(
+          '#type' => 'checkbox',
+          '#title' => t('Add Superfish dropdown to this Menu?'),
+          '#default_value' => isset($ac_settings['ac_superfish']) ? $ac_settings['ac_superfish'] : '',
+          '#description' => t('Use this setting for horizontial menus only!'),
+          '#maxlength' => 255,
+      );
+
+      $form['settings']['ac_block_settings']['menu_style'] = array(
+          '#type' => 'select',
+          '#title' => t('Menu Style'),
+          '#default_value' => isset($ac_settings['menu_style']) ? $ac_settings['menu_style'] : '',
+          '#description' => t('apply a style for your menu.'),
+          '#options' => ac_block_settings_menu_styles(),
+          '#maxlength' => 255,
+      );
+
+      $add_submit_handler = TRUE;
+    }
+  }
+
+
+  if ($add_submit_handler) {
+    $form['#submit'][] = 'ac_block_settings_form_submit';
+  }
+}
+
+/**
+ * Helper function: additional submit callback for block configuration pages.
+ *
+ * Save supplied CSS classes.
+ */
+function ac_block_settings_form_submit($form, &$form_state) {
+  if ($form_state['values']['form_id'] == 'block_admin_configure' || $form_state['values']['form_id'] == 'block_add_block_form') {
+    // Only save if value has changed.
+    if (isset($form_state['values']['ac_block_settings']) && user_access('administer blocks')) {
+      db_update('block')
+          ->fields(array('ac_block_settings' => serialize($form_state['values']['ac_block_settings'])))
+          ->condition('module', $form_state['values']['module'])
+          ->condition('delta', $form_state['values']['delta'])
+          ->execute();
+      // Flush all context module cache to use the updated css_class.
+      if (module_exists('context')) {
+        cache_clear_all('context', 'cache', TRUE);
+      }
+    }
+  }
+}

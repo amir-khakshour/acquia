@@ -1,0 +1,9 @@
+name = DiamondLayers Shortcode
+core = 7.x
+description = Provides shortcodes filter framework and API (like WP shortcodes) 
+
+dependencies[] = acquia
+dependencies[] = filter
+
+package = DiamondLayers
+

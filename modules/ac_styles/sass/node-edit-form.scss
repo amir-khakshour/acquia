@@ -1,0 +1,69 @@
+/**
+ * Node edit form layout
+ */
+
+#ac-node-page-layout .el{
+  margin-top: 15px;
+}
+
+.ac-admin .acquia-layout-selection-wrapper.ac-sel{
+  display: inline-block;
+  margin: 0 20px 20px 0;
+  text-align: center;
+  text-transform: capitalize;
+  width: 100px;
+  height: 100px;
+  vertical-align: top;
+  &.on{
+    .default i,
+    .second-sidebar i{
+      background-position: 0 -40px;
+    }
+    .first-sidebar i{
+      background-position: 0 -121px;
+    }
+    .full-width-no-topbar-footer i,
+    .full-width-no-footer i,
+    .full-width i{
+      background-position:0 -202px;
+    }
+    .no-sidebars i{
+      background-position:0 -283px;
+    }
+    .three-columns i{
+      background-position:0 -365px;
+    }
+  }
+  .form-item{
+    display: none;
+  }
+  i{
+    width: 75px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    background: url(../img/page-layouts.png);
+    margin-bottom: 10px;
+    position: relative;
+    border: 0;
+    top: 0;
+  }
+  .first-sidebar i{
+    background-position: 0 -81px;
+  }
+  .full-width-no-topbar-footer i,
+  .full-width-no-footer i,
+  .full-width i{
+    background-position:0 -161px;
+  }
+  .no-sidebars i{
+    background-position:0 -242px;
+  }
+  .three-columns i{
+    background-position:0 -324px;
+  }
+  // Description Text
+  .text{
+    display: block;
+  }
+}

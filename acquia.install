@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function acquia_schema() {
+  $schema['acquia_node_meta'] = array(
+    'description' => 'Stores the meta information of styles for individual paths',
+    'fields' => array(
+      'mid' => array(
+        'description' => 'The individual id of the meta item',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'The id of the node that this meta belongs to',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'meta_key' => array(
+       'description' => 'The meta key',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'meta_value' => array(
+        'description' => 'The meta value',
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+      ),
+    ),
+    'primary key' => array('mid'),
+  );
+  
+  $schema['acquia_video_thumb'] = array(
+    'description' => 'Stores the thumbnail image fid of vimeo/youtube videos',
+    'fields' => array(
+      'ifid' => array(
+        'description' => 'The file id of video thumbnail image',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'vfid' => array(
+        'description' => 'The file id of video file',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array(
+      'vfid' => array('vfid'),
+    ),
+    'foreign keys' => array(
+     'ifid' => array(
+       'table' => 'file_managed',
+       'columns' => array('ifid' => 'fid'),
+      ),
+     'vfid' => array(
+       'table' => 'file_managed',
+       'columns' => array('vfid' => 'fid'),
+      ),
+    ),
+    'primary key' => array('ifid'),
+    'unique keys' => array('ivfid' => array('ifid', 'vfid')),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install()
+ */
+function acquia_install() {
+  $path = acquia_variable_get('upload_location');
+  file_prepare_directory($path, FILE_CREATE_DIRECTORY);
+  // upload the empty thumb image
+  _add_empty_thumb();
+}
+
+/**
+ * Implements hook_uninstall()
+ */
+function acquia_uninstall() {
+}
+
+//
+/**
+ * Add empty thumbnail image to managed files
+ */
+function _add_empty_thumb() {
+  $file = dirname(__FILE__) . '/images/empty-thumb.png';
+  
+  if (!file_exists($file)) {
+    return;
+  }
+  
+  $file_temp = file_get_contents($file);
+  
+  //Saves a file to the specified destination and creates a database entry.
+  $file_temp = file_save_data($file_temp, acquia_variable_get('upload_location') . '/ac-empty-thumb.png', FILE_EXISTS_RENAME);
+  
+  if ($file_temp && isset($file_temp->fid)) {
+    acquia_variable_set('empty_thumb_fid', $file_temp->fid);
+  }
+}

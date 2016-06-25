@@ -1,0 +1,36 @@
+@import "partials/utility";
+
+#db-content{
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+// Icon List Shortcode Composer
+div.db_ac_iconlist .db-visual-sc{
+  padding: 10px
+}
+
+.iconlist_icon{
+ @include border-radius(100em);
+ background-color: #21759b;
+ padding: 15px;
+ color: #fff;
+ display: inline-block;
+ float: left;
+ margin-right: 20px;
+ span{
+  display: block;
+  vertical-align: middle;
+  font-size: 25px;
+  line-height: 25px;
+  width: 25px;
+  height: 25px;
+  &:before{
+    margin: 0
+  }
+ }
+}
+
+.iconbox_icon{
+  @extend .iconlist_icon;
+}

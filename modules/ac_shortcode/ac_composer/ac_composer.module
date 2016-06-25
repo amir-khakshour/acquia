@@ -1,0 +1,362 @@
+<?php
+/**
+ * @file DiamondLayers Visual Composer Module
+ */
+
+/**
+ * Diamond Builder AJAX url
+ */
+if (!defined('ACQUIA_COMPOSER_AJAX_URL')) define('ACQUIA_COMPOSER_AJAX_URL', 'admin/acquia/ac_composer/ajax');
+
+/**
+ * Diamond Builder templates table
+ */
+if (!defined('ACQUIA_COMPOSER_TEMPLATES_TABLE')) define('ACQUIA_COMPOSER_TEMPLATES_TABLE', 'acquia_composer_templates');
+
+/**
+ * Path to Diamond Builder Classes
+ */
+if (!defined('ACQUIA_COMPOSER_CLASSES_PATH')) define("ACQUIA_COMPOSER_CLASSES_PATH", drupal_get_path('module', 'ac_composer') . '/classes');
+
+/**
+ * Path to Diamond Builder Asset
+ */
+if (!defined('ACQUIA_COMPOSER_ASSET_PATH')) define("ACQUIA_COMPOSER_ASSET_PATH", drupal_get_path('module', 'ac_composer') . '/assets');
+
+/**
+ * Path to Diamond Builder - Composer Asset
+ */
+if (!defined('ACQUIA_COMPOSER_COMPOSER_ASSET_PATH')) define("ACQUIA_COMPOSER_COMPOSER_ASSET_PATH", ACQUIA_COMPOSER_ASSET_PATH . '/composer');
+
+/**
+ * Current Diamond Builder version
+ */
+if (!defined('ACQUIA_COMPOSER_VERSION')) define("ACQUIA_COMPOSER_VERSION", '1.0.0');
+
+/**
+ * Path to Diamond Builder Asset
+ */
+if (!defined('ACQUIA_COMPOSER_JQUERY_UI_VERSION')) define("ACQUIA_COMPOSER_JQUERY_UI_VERSION", '1.0.0');
+
+/**
+ * Diamond Builder view Class
+ */
+if (!defined('ACQUIA_COMPOSER_VIEW_CLASS')) define("ACQUIA_COMPOSER_VIEW_CLASS", 'DiamondBuilderView');
+
+/**
+ * Diamond Builder Image style
+ */
+if (!defined('ACQUIA_COMPOSER_IMAGE_STYLE')) define("ACQUIA_COMPOSER_IMAGE_STYLE", 'composer-image-preview');
+
+
+// Required CSS/JS libraries
+require_once (dirname(__FILE__) . '/includes/libs.inc');
+
+// Image API
+require_once (dirname(__FILE__) . '/includes/image.inc');
+
+
+/**
+ * Implements hook_menu().
+ */
+function ac_composer_menu() {
+  $items = array();
+
+  $items[ACQUIA_COMPOSER_AJAX_URL] = array(
+	'title' => t("Global AJAX URL for composer"),
+	'page callback' => 'ac_composer_global_ajax_callback',
+	'access arguments' => array('use composer'),
+	'page arguments' => array(4),
+	'type' => MENU_CALLBACK,
+  );
+
+  $items[ACQUIA_COMPOSER_AJAX_URL. '/%'] = array(
+	'title' => t("Shortcodes AJAX URL for Composer"),
+	'page callback' => 'ac_composer_shortcode_ajax_callback',
+	'access arguments' => array('use composer'),
+	'page arguments' => array(4),
+	'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function ac_composer_permission() {
+  return array(
+	'use composer' => array(
+	  'title' => t('Use Visual Composer'),
+	  'description' => t('Use Visual Composer in add/edit pages.'),
+	),
+  );
+}
+
+/**
+ *
+ *
+ */
+function ac_composer_global_ajax_callback() {
+  $action = isset($_POST['action']) ? $_POST['action'] : '';
+  switch ($action) {
+	// Get icon string from icon integer value
+	case 'db_get_icon_str':
+	  if (!isset($_POST['icon']) || !isset($_POST['icon'])) {
+		return;
+	  }
+	  acquia_include('fonts');
+
+	  print acquia_fontello_glyph_get_code((int)$_POST['icon']);
+	  break;
+
+	// Get Image Thumbnail source from file id
+	case 'db_get_img_src':
+	  if (!isset($_POST['fid']) || !isset($_POST['fid'])) {
+		return;
+	  }
+	  if ($_POST['fid'] == 0) {
+		acquia_include('media');
+		print acquia_get_empty_thumb(ACQUIA_COMPOSER_IMAGE_STYLE);
+	  }else{
+		$file = file_load($_POST['fid']);
+		if (!isset($file->uri)) {
+		  $file->uri = acquia_variable_get('empty_image_uri');
+		}
+
+		$style = ACQUIA_COMPOSER_IMAGE_STYLE;
+		if (isset($_POST['style']) && !empty($_POST['style'])) {
+		  $style = $_POST['style'];
+		}
+		print image_style_url($style, $file->uri);
+	  }
+
+	  break;
+
+	// Delete templates
+	case 'delete_template':
+	  if (!isset($_POST['template_id']) || !isset($_POST['template_id'])) {
+		return;
+	  }
+
+	  // add required composer class files
+	  add_composer_files();
+
+	  $composerTemplate = new DiamondBuilderSavedTemplates();
+	  $composerTemplate->delete($_POST['template_id']);
+	  break;
+
+	// Save templates
+	case 'save_template':
+	  if (!isset($_POST['template']) || !isset($_POST['template_name'])) {
+		return;
+	  }
+
+	  // add required composer class files
+	  add_composer_files();
+
+	  $composerTemplate = new DiamondBuilderSavedTemplates();
+	  $template = array(
+		'template' => nl2br($_POST['template']),
+		'title' => $_POST['template_name'],
+	  );
+	  $composerTemplate->save($template);
+	  // Render all saved tempaltes
+	  $templates = new DiamondBuilderSavedTemplatesMenu();
+	  print $templates->getSavedTempaltesHTML();
+	  break;
+
+	// Load saved template Data
+	case 'db_load_template_shortcodes':
+	  if (!isset($_POST['template_id']) || !is_numeric($_POST['template_id'])) {
+		return;
+	  }
+
+	  // add required composer class files
+	  add_composer_files();
+
+	  $composerTemplate = new DiamondBuilderSavedTemplates();
+	  $template = $composerTemplate->get_template_by_id($_POST['template_id']);
+
+	  print isset($template['template']) ? $template['template'] : '';
+  }
+}
+
+
+/**
+ *
+ *
+ */
+function ac_composer_shortcode_ajax_callback($tag){
+  $action = isset($_POST['action']) ? $_POST['action'] : '';
+  ctools_include('ajax');
+  acquia_include('modal');
+  acquia_include('utility', 'ac_shortcode');
+  acquia_include('utility', 'ac_composer');
+  $shortcode = isset($_POST['shortcode']) ? $_POST['shortcode'] : array();
+
+  $tag_info = ac_shortcode_get_sc_info($tag);
+  if (empty($tag_info)) {
+	return;
+  }
+
+  $include_files = ac_composer_add_sc_composer_files($tag_info);
+
+  $form_state = array(
+	'ajax' => TRUE,
+	'cache' => TRUE,
+	'title' => $tag_info['title'],
+	'build_info' => array('files' => $include_files, 'args' => array()),
+  );
+  if (!empty($shortcode)) {
+	$form_state['values'] = $shortcode;
+  }
+
+  $output = array();
+
+  $form = $tag_info['form callback'];
+  $form_arr = $tag_info['form callback'](array(), $form_state);
+
+  if ( isset($form_arr['#attached']) && isset($form_arr['#attached']['css']) ) {
+	$styles = $form_arr['#attached']['css'];
+	$styles = drupal_get_css($styles);
+	$output[] = ajax_command_prepend('head', $styles);
+  }
+
+  if ( isset($form_arr['#attached']) && isset($form_arr['#attached']['js']) ) {
+	$scripts = $form_arr['#attached']['js'];
+	$scripts = drupal_get_js('header', $scripts);
+	$output[] = ajax_command_prepend('head', $scripts);
+  }
+  $modal = acquia_modal_form_wrapper($form, $form_state);
+  $output[] = array_shift($modal);
+
+  if (!empty($form_state['executed']) && $form_state['clicked_button']['#value'] == t('submit')) {
+	acquia_include('process', 'ac_shortcode');
+	// We'll just overwrite the form output if it was successful.
+	$output = array();
+	$values = $form_state['values'];
+	ac_shortcode_preprocess_values($tag, $values);
+	$values = ac_shortcode_process_shortcode_attrs($tag, $values);
+	//$shortcode = ac_shortcode_create_shortcode($tag, $values);
+	$output[] = ac_composer_command_update_composer($values);
+	$output[] = acquia_modal_command_dismiss();
+  }
+
+  print ajax_render($output);
+}
+
+/**
+ *
+ */
+function ac_composer_command_update_composer($sc) {
+  return array(
+	'command' => 'acquiaUpdateComposer',
+	'output' => $sc,
+  );
+}
+
+function _text_block_form($form, &$form_state) {
+  return array(
+	'content' => array(
+	  '#type' => 'textarea',
+	  '#title' => t('content'),
+	  '#default_value' => '',
+	),
+  );
+}
+
+/**
+ * implementing hook_theme()
+ */
+function ac_composer_theme($existing, $type, $theme, $path) {
+  return array(
+	'backbone_template' => array(
+	  'render element' => 'template',
+	  'file' => 'includes/theme.inc',
+	),
+	// Builder Navbar
+	'builder_nav' => array(
+	  'template' => 'templates/builder-nav',
+	  'variables' => array('submenu_links' => NULL),
+	),
+	// Builder Navbar
+	'builder_shortcodes_modal' => array(
+	  'template' => 'templates/db-elements-list-modal',
+	  'variables' => array('categories' => NULL, 'shortcodes' => NULL),
+	),
+	// Builder Navbar
+	'builder_shortcodes_visual' => array(
+	  'template' => 'templates/db-shortcode-visual',
+	  'variables' => array('shortcode_attrs' => NULL, 'shortcode_inner_attrs' => NULL,  'shortcode_inner' => NULL),
+	),
+	// Composer main content
+	'composer_main_content' => array(
+	  'template' => 'templates/composer-main-content',
+	  'variables' => array(),
+	),
+  );
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function ac_composer_element_info_alter(&$types){
+  $types['text_format']['#pre_render'][] = 'ac_composer_pre_render_text_format';
+}
+
+/**
+ * Process a text format widget to load and attach VC html and js assets.
+ */
+function ac_composer_pre_render_text_format(&$element) {
+  $loaded = &drupal_static(__FUNCTION__);
+  // we leave if element is disabled
+  if (!empty($element['value']['#disabled']) ||
+	!isset($element['#entity_type']) ||
+	$element['#entity_type'] != 'node' ||
+	$element['#field_name'] != 'body') {
+	return $element;
+  }
+
+  $formats = @isset($element['format']['format']['#options']) ? $element['format']['format']['#options'] : array();
+
+  $shortcodes = array();
+  foreach($formats as $fid => $format) {
+	$shortcodes += (array)ac_shortcode_list_all_enabled($fid);
+  }
+
+  add_composer_files();
+  acquia_include('files', 'ac_composer');
+
+  // create shortcode collection and pass it to our Composer layout builder
+  $collection = shortcodes_collection();
+  $collection->setEnabled(array_keys($shortcodes));
+
+  $composerLayout = builder_html();
+  $composerLayout->set('collection', $collection);
+  $composerLayout->set('composer', collect_builder_shortcodes());
+  $element['acquia_composer'] = array(
+	'#markup' => $composerLayout->getHTMLOut(),
+  );
+
+  return $element;
+}
+
+/**
+ * Add composer classes files
+ */
+function add_composer_files() {
+  require_once ACQUIA_COMPOSER_CLASSES_PATH . '/composer.inc';
+  require_once ACQUIA_COMPOSER_CLASSES_PATH . '/layout.inc';
+}
+
+/**
+ * @param array $args
+ * @return DiamondBuilderLayout
+ */
+function builder_html($args = array()) {
+  if (class_exists('DiamondBuilderLayout')) {
+	return new DiamondBuilderLayout($args);
+  }
+}

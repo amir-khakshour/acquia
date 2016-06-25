@@ -1,0 +1,26 @@
+/**
+ * Diamond Builder > Button styles
+ */
+.ac-admin .db-switch{
+  line-height: 42px;
+  height: 42px;
+  @include transition(none);
+  &, &:hover, &:focus{
+    background-color: #4a5966;
+    @include background-image(linear-gradient(to bottom, #758097 0%, #6D7991 0%, rgba(0, 0, 0, 0) 100%));
+    @include text-shadow(rgba(#000, .2) 1px 1px 0);
+  }
+  &.on{
+    background-color: #ED9700;
+    @include background-image(linear-gradient(to bottom, #FFA200 0%, #FFA200 0%, rgba(0, 0, 0, 0) 100%));
+  }
+  .icon{
+    vertical-align: middle;
+    &:before{
+      @extend %ac-font-admin;
+      display: inline-block;
+      margin-right: 14px;
+      content: '\e822';
+    }
+  }
+}

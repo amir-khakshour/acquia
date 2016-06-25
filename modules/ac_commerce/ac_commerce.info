@@ -1,0 +1,16 @@
+name = DiamondLayers Commerce
+description = "Utility module for Drupal commerce"
+core = 7.x
+
+dependencies[] = acquia
+dependencies[] = statistics
+dependencies[] = taxonomy
+dependencies[] = commerce_cart
+dependencies[] = dc_ajax_add_cart
+dependencies[] = commerce_kickstart_product_ui
+dependencies[] = flag
+dependencies[] = fivestar
+
+package = DiamondLayers
+
+

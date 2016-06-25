@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the acquia demo module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function ac_demo_install() {
+  variable_set('ac_demo_enabled', TRUE);
+  variable_set('ac_default_skin', 'dark-turquoise');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ac_demo_uninstall() {
+  variable_del('ac_demo_enabled');
+  variable_del('ac_default_skin');
+}

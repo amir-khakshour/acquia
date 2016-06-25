@@ -1,0 +1,149 @@
+
+/**************************************************/
+/*                  SETTINGS PAGE                 */
+/**************************************************/
+
+#post-body-content {
+	float: none;
+	margin: 0px;
+}
+
+#titlediv {
+	margin-bottom: 10px;
+}
+
+.ac-checkbox {
+	display: inline-block;
+	width: 35px;
+	height: 16px;
+	margin-bottom: -3px;
+	position: relative;
+	background: transparent url(../img/sprite.png) 0px -291px no-repeat;
+}
+
+.ac-checkbox span {
+	display: inline-block;
+	width: 19px;
+	height: 19px;
+	position: absolute;
+	top: -1px;
+	left: 17px;
+	background: transparent url(../img/sprite.png) 0px -343px no-repeat;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+
+.ac-checkbox.on {
+	background: transparent url(../img/sprite.png) 0px -317px no-repeat;
+}
+
+.ac-checkbox.on span {
+	left: -2px;
+}
+
+.ac-box h4 {
+	margin: 0px;
+}
+
+.ac-box td.desc {
+	margin: 0px;
+	color: #898989;
+	font-size: 11px;
+}
+
+.ac-box td div.reset-parent {
+	position: relative;
+	display: inline-block
+}
+
+.reset-parent .selectpicker{
+	bottom: 1px;
+}
+
+
+.ac-box .input, .ac-box select {
+	width: 150px;
+}
+
+.ac-slide-options button {
+	padding: 0px !important;
+	margin: 0px !important;
+	width: 120px;
+}
+
+.ac-slide-options .checkbox, .ac-sublayers .checkbox {
+	width: auto;
+	height: auto;
+}
+
+#ac-icon-basic,
+#ac-icon-general,
+#ac-icon-position,
+#ac-icon-thumb,
+#ac-icon-mobile,
+#ac-icon-alternate,
+#ac-icon-slideshow,
+#ac-icon-preview,
+#ac-icon-appearance,
+#ac-icon-nav,
+#ac-icon-misc,
+#ac-icon-troubleshooting,
+#ac-icon-yourlogo {
+	width: 16px;
+	height: 16px;
+	display: block;
+	float: left;
+	margin: 6px 8px 0px 10px;
+	background:transparent url(../img/sprite.png) no-repeat;
+}
+
+#ac-icon-basic {
+	background-position: 0px -156px;
+}
+
+#ac-icon-general {
+	background-position: 0px -949px;
+}
+
+#ac-icon-position {
+	background-position: 0px -973px;
+}
+
+#ac-icon-thumb {
+	background-position: 0px -999px ;
+}
+
+#ac-icon-mobile {
+	background-position: 0px -1024px;
+}
+
+#ac-icon-alternate {
+	background-position: 0px -1048px;
+}
+
+#ac-icon-slideshow, #ac-icon-preview {
+	background-position: 0px -183px;
+}
+
+#ac-icon-appearance {
+	background-position: 0px -210px;
+}
+
+#ac-icon-nav {
+	background-position: 0px -726px;
+}
+
+#ac-icon-misc {
+	background-position: 0px -237px;
+}
+
+#ac-icon-troubleshooting {
+	background-position: 0px -782px;
+}
+
+#ac-icon-yourlogo {
+	background-position: 0px -264px;
+}

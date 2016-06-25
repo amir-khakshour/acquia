@@ -1,0 +1,411 @@
+/*-------------------------------------------------------------------------*/
+/* Misc DiamondLayers Admin Styles
+/*-------------------------------------------------------------------------*/
+.ac-admin{
+  font-family: $open-sans;
+  strong {
+	font-family: $open-sans!important;
+  }
+  input, select{
+	@extend %input-item-typo;
+	@extend %form-textfield;
+  }
+  div .form-item select{
+	@extend %form-item-label;
+	cursor: pointer;
+	display: block;
+	width: 100%!important;
+  }
+  select, .customSelect{
+	max-width: 300px;
+  }
+  .form-item {
+	margin: 0;
+	padding: 15px;
+	position: relative;
+	border-bottom: 1px solid #eee;
+	&.form-type-textarea .element-inner .el{
+	  max-width: 100%;
+	}
+	input.form-autocomplete, input.form-text, input.form-file{
+	  line-height: 32px;
+	  height: 32px;
+	}
+	.selectpicker{
+	  left: 3px;
+	  bottom: 2px;
+	}
+	.field-suffix{
+	  position: absolute;
+	  @extend %input-item-typo;
+	  bottom: 2px;
+	  right: 5px;
+	}
+	.form-label{
+	  width: 24%;
+	  max-width: 230px;
+	}
+	.form-label, .element-inner{
+	  display: inline-block;
+	  vertical-align: top;
+	}
+	.element-inner{
+	  @extend %clearfix;
+	  width: 74%;
+	  .el {
+		max-width: 360px;
+		position: relative;
+		input, select, textarea, .customSelect {
+		  font-family: $open-sans;
+		  max-width: 100%;
+		  padding-top: 0;
+		  padding-bottom: 0;
+		  @include box-sizing(border-box);
+		  @include transition(border .2s linear);
+		  @include border-radius(3px);
+		  &:focus{
+			border-color: $blue;
+			outline: none;
+		  }
+		}
+	  }
+	}
+	.description{
+	  @extend %description-el;
+	}
+	label, label.option{
+	  @extend %form-item-label;
+	  font-size: 13px!important;
+	}
+  }
+
+  // Radio Form Type
+  .form-type-radio, .form-type-checkbox {
+	display: block;
+	text-align: left;
+  }
+  .form-type-radio .form-radio, .form-type-checkbox .form-checkbox{
+	line-height: 16px;
+	height: 16px;
+	width: 16px;
+  }
+  .fieldset-wrapper{
+	@extend %clearfix;
+	padding: 0;
+  }
+
+  fieldset{
+	/** Root **/
+	border: none!important;
+	margin: 10px 0;
+	padding: 0;
+	// Collapsed Processed
+	&.collapsible {
+	  > legend > .fieldset-legend > .fieldset-title > .font-icon:before{
+		content: '\e803';
+		color: inherit;
+	  }
+	}
+	&.collapsible.collapsed {
+	  > legend > .fieldset-legend > .fieldset-title > .font-icon:before{
+		content: '\e808';
+		color: #AFAFAF;
+	  }
+	}
+
+	legend{
+	  @extend %no-margin-padding;
+	  background: #efefef;
+	  color: #717171;
+	  width: 100%;
+	  padding: 0;
+	}
+	.fieldset-legend{
+	  @extend %no-margin-padding;
+	  font-size: 13px;
+	  display: block;
+	  height: 3em;
+	  line-height: 3em;
+	  background: none!important;
+	  display: block;
+	  position: inherit;
+	  padding: 0!important;
+	  border: 1px solid #EBEFF6;
+	  text-transform: capitalize;
+	}
+	.fieldset-legend .font-icon {
+	  display: inline-block;
+	  width: 18px;
+	  line-height: 32px;
+	  font-size: 12px;
+	  margin: 0 10px 0 20px;
+	  @extend %ac-font-admin;
+	  &:before{
+		content: '\e808';
+	  }
+	}
+
+	.fieldset-title{
+	  @extend %form-item-label-type;
+	  display: block;
+	  height: 3em;
+	  line-height: 3em;
+	  display: block;
+	  color: #575757;
+	  text-decoration: none;
+	  font-weight: bold;
+	  &:hover{
+		background: #f5f5f5;
+		color:#3e3e3e;
+	  }
+	}
+	.fieldset-legend span.summary{
+	  float: left;
+	}
+	.fieldset-description{
+	  margin: 0;
+	  @extend %description-el;
+	  border-bottom: 1px solid #eee;
+	  padding:20px;
+	  font-style: italic;
+	}
+	.fieldset-wrapper{
+	  background: #fff;
+	  border: 1px solid #ebeff6;
+	}
+	.form-wrapper {
+	  border: none;
+	  margin: 0;
+	  padding: 0;
+	}
+
+	.form-wrapper fieldset {
+	  background: transparent;
+	  padding: 0;
+	  margin: 10px 0;
+	  border: none;
+	}
+	.form-wrapper fieldset .fieldset-legend{
+	  @extend %no-margin-padding;
+	}
+
+	.fieldset-wrapper fieldset{
+	  // second level fieldsets
+	  padding: 0!important;
+	  margin: 10px;
+	  background: transparent;
+	  &.collapsed{
+	  	height: auto;
+	  }
+	  .fieldset-wrapper{
+		background: darken(#fff, 1%);
+		.fieldset-wrapper{
+		  background: #fff
+		}
+	  }
+	}
+	.fonticon-field{
+	  min-height: 42px;
+	}
+	.form-actions{
+	  margin: 10px;
+	}
+  }
+
+  textarea.form-textarea{
+	@extend %form-textfield;
+  }
+  .filter-wrapper .fieldset-wrapper{
+	padding: 20px
+  }
+  // Button
+  input.form-submit{
+	margin-bottom: 0;
+  }
+  input.form-text{
+	margin: 0;
+  }
+  a.button, .acquia-button, input#edit-submit, input.form-submit, .icon-btn, a.button.remove{
+	@extend %admin-button-default;
+	&:hover, .icon-btn:hover, &:focus{
+	  @extend %admin-button-default-hover;
+	}
+	&:active{
+	  @extend %admin-button-default-active;
+	}
+  }
+  div input.form-submit{
+	width: auto;
+  }
+
+  a.button{
+	color: #fff !important;
+	&:hover,&:active{
+	  color: #fff !important;
+	}
+  }
+
+  .icon-btn{
+	width: 34px;
+	font-size: 24px;
+	padding: 0;
+	margin: 0;
+	.font-icon{
+	  display:block;
+	  &:before{
+		width:100%;
+		margin: 0
+	  }
+	}
+  }
+
+  // media widget
+  div.media-widget.form-wrapper{
+	@extend %clearfix;
+	@extend .form-item;
+	.form-type-item{
+	  width: 24%;
+	  max-width: 230px;
+	}
+	.form-item{
+	  padding: 0 !important;
+	  display: inline-block;
+	  border: none;
+	}
+	.media-item{
+	  margin-left: 0;
+	}
+	.button {
+	  position: relative;
+	  z-index: 2
+	}
+	a.remove{
+	  padding: 10px 12px;
+	  line-height: 1 !important;
+	  height: auto !important;
+	}
+  }
+
+  .acquia-wysiwyg-enabled{
+	position: relative;
+	margin: 20px 0 0;
+	clear: both;
+	.form-type-textarea{
+	  border-bottom: 0;
+	  .form-label, .element-inner{
+		display: block;
+		clear: both;
+		width: 100%;
+	  }
+	  .el{
+		padding: 0;
+	  }
+	}
+  }
+  .text-format-wrapper{
+	.filter-help{
+	  text-align: right;
+	  position: absolute;
+	  bottom: 20px;
+	  right: 20px;
+	}
+	.form-type-select{
+	  padding: 0;
+	  width: 100%;
+	  .el{
+
+	  }
+	}
+	.description{
+	  padding: 10px;
+	}
+  }
+  // content filter elements
+  .acquia-wysiwyg-enabled .wysiwyg-toggle-wrapper{
+	position: absolute;
+	top: 0;
+	right:0;
+	a{
+	  height: 18px;
+	  font: 12px/18px Arial,Helvetica,sans-serif normal;
+	  margin: 5px 5px 0 0;
+	  padding: 4px 5px 2px;
+	  float: right;
+	  cursor: pointer;
+	  border: 1px solid #DFDFDF;
+	  background-color: #F4F4F4;
+	  border-bottom-color: #F4F4F4;
+	  color: #999;
+	  position: relative;
+	  z-index: 10;
+	  border-bottom-color: 0;
+	  @include border-radius(3px);
+	}
+  }
+
+  input.field-colorpicker{
+	padding-left: 36px;
+  }
+
+  .field-suffix .upload-btn{
+	position: absolute;
+	right: -95px;
+	line-height: 30px;
+	height: 30px;
+	font-size: 12px;
+	padding: 0 4px;
+	margin: 0;
+  }
+}
+
+/** Misc Styles
+------------------------------------------------*/
+.ac-admin .vertical-tabs-pane .fieldset-wrapper > div:first-child{
+  padding-top: 15px!important; // same as form-item
+}
+
+.floated-items .form-item {
+  width: auto;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.acquia-hidden {
+  display: none !important;
+}
+
+.form-item{
+  position: relative;
+}
+.form-item label{
+  clear: both;
+}
+
+.dependent-field{
+  -webkit-animation: fadeIn 0.3s 1 ease; /* Safari 4+ */
+  -moz-animation:    fadeIn 0.3s 1 ease; /* Fx 5+ */
+  -o-animation:      fadeIn 0.3s 1 ease; /* Opera 12+ */
+  animation:         fadeIn 0.3s 1 ease; /* IE 10+ */
+}
+
+.ac-reset {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  margin-top: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 1000px;
+  background-color: #FA0808;
+  font-size: 11px;
+  line-height: 12px;
+  text-align: center;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.field-suffix .ac-reset{
+  right: 1px;
+  bottom: 5px;
+  top: auto;
+}

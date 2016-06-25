@@ -1,0 +1,8 @@
+name = Acquia Demo site utility
+description = "Adds Demo website widgets and utilities"
+core = 7.x
+
+dependencies[] = ac_skin
+package = DiamondLayers
+
+

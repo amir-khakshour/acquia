@@ -1,0 +1,61 @@
+/**
+ * Portfolio admin styles
+ */
+.ac-clone-options-processed{
+ input, .el label{
+   display: none!important;
+ }
+ .element-inner .el{
+   max-width: 100%!important;
+   display: table;
+ }
+ .el .form-item{
+   width: auto;
+   display: table-cell;
+   vertical-align: top;
+ }
+
+ .ac-clone-option{
+   display: inline-block;
+   margin: 0 10px 10px 0;
+   text-align: center;
+   width: 120px;
+   &.on{
+    i{
+      background-position: 0 bottom;
+    }
+   }
+  span{
+    display: block;
+  }
+ }
+ i{
+   display: inline-block;
+   width: 75px;
+   height: 50px;
+ }
+ .ac-val-slideshow i{
+   background: url(../images/admin/slideshow.png);
+ }
+ .ac-val-gallery i{
+   background: url(../images/admin/gallery.png);
+ }
+ .ac-val-list i{
+   background: url(../images/admin/list.png);
+ }
+ .ac-val-left i{
+   background: url(../images/admin/left.png);
+ }
+ .ac-val-right i{
+   background: url(../images/admin/right.png);
+ }
+ .ac-val-before i{
+   background: url(../images/admin/before.png);
+ }
+ .ac-val-after i{
+   background: url(../images/admin/after.png);
+ }
+ .ac-val-disabled i{
+   background: url(../images/admin/no-media.png);
+ }
+}

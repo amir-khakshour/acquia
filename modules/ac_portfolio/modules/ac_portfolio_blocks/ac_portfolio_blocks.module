@@ -1,0 +1,196 @@
+<?php
+/**
+ * @file
+ * Exposes a number of portfolio items as blocks.
+ */
+
+// theme functions
+require_once (dirname(__FILE__) . '/includes/theme.inc');
+
+// Image Styles
+require_once (dirname(__FILE__) . '/includes/styles.inc');
+
+/**
+ * Implements hook_menu()
+ */
+function ac_portfolio_blocks_menu() {
+    $items = array();
+    $module_path = drupal_get_path('module', 'ac_portfolio_blocks');
+
+    $items[AC_PORTFOLIO_ADMIN_PATH . '/related-block'] = array(
+        'title' => t('Related works'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('_related_portfolio_admin_form'),
+        'access arguments' => array('administer ac_portfolio'),
+        'file path' => $module_path . '/includes',
+        'file' => 'admin.inc',
+        'description' => t('admin related works block'),
+        'type' => MENU_LOCAL_TASK,
+        'weight' => 2,
+    );
+
+    $items[AC_PORTFOLIO_ADMIN_PATH . '/recent-block'] = array(
+        'title' => t('Recent works'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('_recent_portfolio_admin_form'),
+        'access arguments' => array('administer ac_portfolio'),
+        'file path' => $module_path . '/includes',
+        'file' => 'admin.inc',
+        'description' => t('admin recent works block'),
+        'type' => MENU_LOCAL_TASK,
+        'weight' => 2,
+    );
+
+    return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function ac_portfolio_blocks_block_info() {
+    $blocks = array();
+
+    $blocks['related-portfolio'] = array(
+        'info' => t('Related Works'),
+        'cache' => DRUPAL_CACHE_PER_PAGE,
+    );
+
+    $blocks['recent-portfolio'] = array(
+        'info' => t('Recent Works'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+
+    $blocks['portfolio-tags'] = array(
+        'info' => t('Portfolio Categories'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+
+    return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function ac_portfolio_blocks_block_view($delta = '', $settings = array()) {
+    $block = array();
+
+    switch ($delta) {
+        case 'related-portfolio':
+            acquia_include('media', 'ac_portfolio');
+            $settings = ac_portfolio_related_settings();
+            $block['subject'] = isset($settings['title']) ? $settings['title'] :t('Related Works');
+            $block['content'] = theme('portfolio_related', array('settings' => $settings));
+            break;
+
+        case 'recent-portfolio':
+            $block['subject'] = empty($settings) ? t('Recent Works') : NULL;
+
+            $settings += array(
+                'view'   => acquia_variable_get('portfolio_recent_view', 'simple-sep'), // Portfolio Thumbs style
+                'style'   => acquia_variable_get('portfolio_recent_style', 'rectangle-hr-large'), // Portfolio Thumbs style
+                'media'   => acquia_variable_get('portfolio_recent_media', TRUE), // Display tags by default
+                'title' => acquia_variable_get('portfolio_recent_title', TRUE), // Display Title link by default
+                'tags'   => acquia_variable_get('portfolio_recent_tags', TRUE), // Display tags by default
+                'date'   => acquia_variable_get('portfolio_recent_date', FALSE), // Hide date by default
+                'proj_link'   => acquia_variable_get('portfolio_recent_proj_link', TRUE), // Display Project link by default
+                'details_link' => acquia_variable_get('portfolio_recent_details_link', TRUE), // Display Details link by default
+                'excerpt' => acquia_variable_get('portfolio_recent_excerpt', FALSE), // Display Subtitle link by default
+                'sorting_tags' => acquia_variable_get('portfolio_recent_sorting_tags', TRUE), // Sorting based on tags
+                'date_format' => acquia_variable_get('portfolio_recent_date_format', 'M j, Y'), // Sorting based on tags
+                'flag' => acquia_variable_get('portfolio_recent_like_enabled', TRUE) ?
+                    flag_get_flag(AC_PORTFOLIO_LIKE_FLAG_MN) :
+                    NULL, // Display flag by default
+            );
+            $block['content'] = theme('portfolio_recent', array('settings' => $settings));
+            $block['settings'] = $settings;
+            break;
+
+        case 'portfolio-tags':
+            $block['subject'] = empty($settings) ? t('Portfolio Categories') : NULL;
+
+            $settings += array(
+                'view'   => acquia_variable_get('portfolio_tags_view', 'list'), // Portfolio tags view
+                NULL, // Display flag by default
+            );
+
+            acquia_include('utility', 'ac_portfolio');
+            $tags = ac_portfolio_get_all_tags();
+            $block['content'] = theme('acquia_tags_view_' . $settings['view'], array('tags' => $tags, 'vocabulary' => AC_PORTFOLIO_TAX_MN));
+            $block['settings'] = $settings;
+            break;
+    }
+
+    return $block;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function ac_portfolio_blocks_block_configure($delta = '') {
+    //// This example comes from node.module.
+    //$form = array();
+    //switch ($delta) {
+    //  case 'related-portfolio':
+    //    module_load_include('inc', 'ac_portfolio_blocks', '/includes/admin');
+    //    return _related_portfolio_admin_form();
+    //
+    //  case 'recent-portfolio':
+    //    module_load_include('inc', 'ac_portfolio_blocks', '/includes/admin');
+    //    return _recent_portfolio_admin_form();
+    //}
+    //return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function ac_portfolio_blocks_block_save($delta, $edit = array()) {
+    //switch ($delta) {
+    //  case 'related-portfolio':
+    //    module_load_include('inc', 'ac_portfolio_blocks', '/includes/admin');
+    //    return _related_portfolio_admin_form_save($edit);
+    //
+    //   case 'recent-portfolio':
+    //    module_load_include('inc', 'ac_portfolio_blocks', '/includes/admin');
+    //    return _recent_portfolio_admin_form_save($edit);
+    //}
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ac_portfolio_blocks_preprocess_block(&$vars) {
+    switch ($vars['block']->delta) {
+        case 'related-portfolio':
+            $vars['attributes_array']['class'][] = 'ac-related-works-wrap';
+            //if (acquia_variable_get('portfolio_related_fullwidth', TRUE)) {
+            $vars['attributes_array']['class'][] = 'ac-full-container-width';
+            //}
+            break;
+
+        case 'recent-portfolio':
+            $vars['attributes_array']['class'][] = 'ac-recent-works-wrap';
+            if (!isset($vars['block']->settings['fullwidth']) || $vars['block']->settings['fullwidth'] == 'true') {
+                $vars['attributes_array']['class'][] = 'ac-full-container-width';
+            }
+
+            if (isset($vars['block']->settings['spaced']) && $vars['block']->settings['spaced'] == 'true') {
+                $vars['attributes_array']['class'][] = 'ac-spaced';
+            }
+            break;
+    }
+}
+
+/**
+ * Render Block
+ */
+function ac_portfolio_blocks_render_block($delta, $settings = array()) {
+    $module = 'ac_portfolio_blocks';
+    $block = module_invoke($module, 'block_view', $delta, $settings);
+    $block['module'] = $module;
+    $block['delta'] = $delta;
+    $block['region'] = NULL;
+    $vars = array('elements' => array('#block' => (object) $block, '#children' => render($block['content'])));
+    return theme('block', $vars);
+}

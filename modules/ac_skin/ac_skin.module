@@ -1,0 +1,100 @@
+<?php
+/**
+ * @file
+ *
+ * Skin Generator for DiamondLayers themes
+ */
+
+// Defult font family if font is nor provided
+define('AC_SKIN_DEFAULT_FONT_FAMILY', ', Helvetica, Arial, Verdana, sans-serif');
+define('ACQUIA_SKINS_CID', 'acquia_theme_skins');
+define('ACQUIA_SKIN_LOGOS_CID', 'acquia_theme_skins_logos');
+define('ACQUIA_SKIN_URL', ACQUIA_MENU_PATH . '/skin');
+define('ACQUIA_SKIN_AJAX_URL', ACQUIA_SKIN_URL . '/ajax');
+
+/**
+ * Implementing hook_acquia_include_directory()
+ */
+function ac_skin_acquia_include_directory($plugin){
+  if ($plugin == 'skin') {
+	return 'skin';
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function ac_skin_menu() {
+
+  acquia_include('utility', 'ac_skin');
+
+  $items[ACQUIA_SKIN_URL] = array(
+	'title' => 'DiamondLayers Skin',
+	'description' => 'Administer DiamondLayers skins.',
+	'position' => 'right',
+	'weight' => -8,
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('ac_skin_generator_form'),
+	'access arguments' => array('access administration pages'),
+	'file' => 'includes/admin.inc',
+  );
+
+  $items[ACQUIA_SKIN_AJAX_URL] = array(
+	'title' => 'DiamondLayers Skin AJAX',
+	'description' => 'Administer DiamondLayers skins.',
+	'position' => 'right',
+	'weight' => -8,
+	'page callback' => 'ac_skin_ajax_callback',
+	'access arguments' => array('access administration pages'),
+	'file' => 'includes/admin.inc',
+	'type' => MENU_CALLBACK,
+  );
+
+  /** generator **/
+  $items[ACQUIA_SKIN_URL . '/generator'] = array(
+	'title' => 'Generator',
+	'description' => 'Administer DiamondLayers generator.',
+	'position' => 'right',
+	'weight' => -8,
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('ac_skin_generator_form'),
+	'access arguments' => array('access administration pages'),
+	'file' => 'includes/admin.inc',
+	'type' => MENU_LOCAL_TASK
+  );
+
+  // generator
+  $items[ACQUIA_SKIN_URL . '/group'] = array(
+	'title' => 'Configuration',
+	'description' => 'Administer DiamondLayers configuration.',
+	'position' => 'right',
+	'weight' => -8,
+	'access arguments' => array('access administration pages'),
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('ac_skin_config_skin_settings_form', 'general'),
+	'file' => 'includes/admin.inc',
+	'type' => MENU_LOCAL_TASK,
+  );
+
+  foreach (ac_skin_get_theme_skin_items() as $group => $attrs) {
+	$items[ACQUIA_SKIN_URL . '/group/'.$group] = array(
+	  'title' => isset($attrs['title']) ? $attrs['title'] : t($group),
+	  'description' => isset($attrs['description']) ? $attrs['description'] : '',
+	  'position' => 'right',
+	  'weight' => -8,
+	  'page callback' => 'drupal_get_form',
+	  'page arguments' => array('ac_skin_config_skin_settings_form', $group),
+	  'access arguments' => array('access administration pages'),
+	  'file' => 'includes/admin.inc',
+	  'type' => MENU_LOCAL_TASK,
+	);
+	if (isset($attrs['weight'])) {
+	  $items[ACQUIA_MENU_PATH . '/skin/group/'.$group]['weight'] = $attrs['weight'];
+	}
+
+  }
+
+  $items[ACQUIA_SKIN_URL . '/group/general']['type'] = MENU_LOCAL_TASK & MENU_DEFAULT_LOCAL_TASK;
+
+  return $items;
+}

@@ -1,0 +1,192 @@
+.db-content-level{
+  &.custom-params .default-param-val{
+    display: none!important;
+  }
+  &.db-ac-image, &.db-ac-img-frame, &.db-img-slider-item, &.db-ac-team, &.db-ac-testimonial{
+    &.default-params .db-img-container{
+      display: none!important;
+    }
+    &.custom-params .ac-icon{
+      display: none;
+    }
+  }
+  .db-img-container{
+    height: 32px;
+    width: 32px;
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+
+// Accordion
+div.db-accordion-tab{
+  padding: 0!important;
+  margin-top: 5px;
+  .db-accordion-content{
+    margin: 0;
+    padding-top: 10px;
+    &.col-empty{
+      padding-top: 85px;
+    }
+  }
+  .section-body{
+    border-top: 1px dashed #E2E2E2;
+    position: relative;
+    padding-top: 42px;
+    >.db-controls .db-controls-i{
+      top: 15px;
+    }
+  }
+}
+
+div.db-accordion{
+  .section-header{
+    margin: 0!important;
+    background: transparent;
+    border: none;
+    &.ui-state-active{
+      .admin-icon{
+        &:before{
+          content: '\e82f';
+        }
+      }
+    }
+    .admin-icon:before, .header-inner{
+      line-height: 38px;
+      height: 38px;
+      padding: 0 15px;
+      display: inline-block;
+    }
+    .header-inner{
+      font-size: 14px;
+    }
+    .admin-icon:before{
+      font-size: 16px;
+    }
+    .ui-icon{
+      display: none;
+    }
+  }
+  .add-tab{
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
+    margin: 10px 0!important;
+    opacity: 0.7;
+    background-color: #fff;
+  }
+}
+
+// Page header
+.db-ac-fancy-header,
+.db-ac-page-header{
+  .header, .visual-icon{
+    margin-bottom: 0!important;
+  }
+  .header{
+    line-height: 32px!important;
+  }
+}
+
+// Row
+.db-row{
+  .db-row{
+    > .db-empty-container{
+      >.db-visual-sc{
+        background: #f5f5f5;
+      }
+    }
+  }
+}
+
+// Progress bars
+.db-ac-progressbar-item{
+  .visual-icon{
+    margin-bottom: 0;
+    &.default-param-val{
+      display: none;
+    }
+  }
+
+  .progressbar_progress{
+    margin-top: 5px;
+  }
+  .progressbar_title h4{
+    margin:3px 0 0!important;
+  }
+}
+
+// Testimonial
+.db-ac-testimonial{
+  .default-param-val{
+    display: none;
+
+  }
+  .header-title{
+    span{
+      font-size: 12px;
+    }
+  }
+}
+
+
+// UI tabs
+div.db-ac-tabs {
+  .ui-tabs-nav{
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    li{
+      background: #e6e6e6;
+      border: 1px solid #E0E0E0;
+      border-bottom: 1px solid transparent;
+      position: relative;
+      z-index: 3;
+      padding: 0;
+      font-size: 1.2em;
+      margin: 0 4px -1px 0 !important;
+      @include border-radius(4px 4px 0 0);
+      &:focus, &:active{
+        outline: none;
+      }
+      &.ui-tabs-active{
+        background: #fff;
+      }
+      a{
+        color: #6f777d;
+        display: block;
+        height: 34px;
+        line-height: 34px;
+        padding: 0 15px;
+        &:focus{
+          @extend %medium-opacity;
+          outline: none;
+        }
+      }
+    }
+    .add_tab {
+      i:before{
+        font-size: 14px;
+      }
+    }
+  }
+  .db-tabs-content{
+    background: #fff;
+  }
+  .db-ac-tab{
+    margin: 0;
+    border: none;
+    padding-top: 45px;
+    border: 1px solid #E0E0E0;
+    >.db-controls .db-controls-i{
+      top: 22px;
+      margin: 0;
+    }
+  }
+}
+
+.db-accordion-tab .section-body > .db-controls .db-controls-i,
+.db-ac-tabs .db-ac-tab > .db-controls .db-controls-i{
+  background: #008FD3;
+}

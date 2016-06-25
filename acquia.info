@@ -1,0 +1,15 @@
+name = Diamond
+core = 7.x
+description = A library of helpful tools by Amir Khakshour.
+
+dependencies[] = ctools
+dependencies[] = media
+dependencies[] = context
+dependencies[] = context_layouts
+dependencies[] = context_omega
+dependencies[] = jquery_update
+dependencies[] = taxonomy
+dependencies[] = image
+dependencies[] = search
+dependencies[] = html5_tools
+package = DiamondLayers

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Implementing hook_install()
+ */
+function ac_commerce_install(){
+  // Increase module's weight to avoid problems with modifying Commerce info.
+  db_update('system')
+    ->fields(array(
+      'weight' => 100,
+    ))
+    ->condition('name', 'ac_commerce', '=')
+    ->execute();
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Enabling Like flag for portfolio nodes
+ */
+function ac_commerce_enable() {
+  // Load the flag API in case we want to use it when enabling.
+  include_once(drupal_get_path('module', 'flag') . '/flag.module');
+
+  if (!flag_get_flags()) {
+    $flag = flag_flag::factory_by_entity_type('node');
+    $configuration = ac_commerce_flag_default_flags();
+    $flag->form_input($configuration[AC_COMMERCE_FAVORITES_FLAG_MN]);
+    $flag->save();
+
+    // Clear the flag cache so the new permission is seen by core.
+    drupal_static_reset('flag_get_flags');
+
+    // Grant permissions.
+    $permissions = array('flag '.AC_COMMERCE_FAVORITES_FLAG_MN, 'unflag '.AC_COMMERCE_FAVORITES_FLAG_MN);
+    user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, $permissions);
+  }
+}

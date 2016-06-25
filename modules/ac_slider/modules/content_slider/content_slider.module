@@ -1,0 +1,215 @@
+<?php
+/**
+ * @file main module file
+ */
+// Required CSS/JS libraries
+require_once (dirname(__FILE__) . '/includes/libs.inc');
+
+// Define machine name for elastic slider
+@define('CONTENT_SLIDER_MN', 'content_slider');
+
+/**
+ * Implements hook_theme()
+ */
+function content_slider_theme() {
+	$module_path = drupal_get_path('module', 'content_slider');
+	$themes = array();
+
+	$themes['content_slider_slides_edit'] = array(
+		'template' => 'content_slider_slides_edit',
+    'variables' => array('slid' => null),
+		'path' => $module_path . '/templates/admin',
+		'file' => 'theme.admin.inc',
+	);
+
+	$themes['content_slider'] = array(
+		'template' => 'content_slider.block',
+    'variables' => array('slid' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+	
+	return $themes;
+}
+
+/**
+ * Implementation of hook_ac_slider_info() 
+ */ 
+function content_slider_ac_sliders_info() {
+	return array(
+	CONTENT_SLIDER_MN => array(
+		'#title' => t('content slider'),
+		'#description' => t('content_slider'),
+		'#class' => 'content_slider',
+		'#file' => 'slider.inc',
+  	'#path' => drupal_get_path('module', 'content_slider') . '/utility',
+		'#slides' => array(
+			'#edit' => 'content_slider_slides_edit', // slides edit form
+		),
+		'#import_export' => array(
+			'#import' => 'content_slider_import_data', // import function
+			'#export' => 'content_slider_export_slider', // export slider function
+		),
+		'#theme' => 'content_slider',
+	));
+}
+
+/**
+ * export slider data
+ */
+function content_slider_export_slider($slider, $slides) {
+	$export = array();
+	foreach ($slides as $slide) {
+	  $export['layers'][] = array('sublayers' => $slide->layers, 'properties' => $slide->settings);
+	}
+	$export['properties'] = $slider->settings;
+	$export['title'] = isset($slider->title) ? $slider->title : '';
+	$export['description'] = isset($slider->description) ? $slider->description : '';
+	$export = array($export);
+	
+	return json_encode($export);
+}
+
+/**
+ * import slider data
+ * @param string $data
+ * 		Encoded content_slider data
+ * @param string $machine_name
+ * 		machine name of the new importing slider.
+ * 
+ * @return array $slider
+ */
+function content_slider_import_data($data, $type = 'content_slider', $machine_name) {
+	$slider = array();
+  $sublayers = array();
+	
+	if ($data = base64_decode($data)) {
+		$data = @array_shift(json_decode($data));
+	}
+	
+	if (!is_object($data) || !isset($data->layers) || !isset($data->properties)) {
+		return false;
+	}
+	
+	$data->properties = (array) $data->properties;
+
+	$slider['title'] = isset($data->properties['title']) ? $data->properties['title'] : t('content_slider: no title');
+	$slider['machine_name'] = $machine_name;
+	$slider['description'] = isset($data->description) ? $data->description : '';
+	$slider['type'] = 'content_slider';
+	$slider['settings'] = $data->properties;
+	$slider['slides'] = array();
+	// modify layers to be compatible with 
+	foreach($data->layers as $lid => $layer) {
+		foreach($layer->sublayers as $sublayer) {
+				$sublayers[] = (array) $sublayer;
+		}
+	  $slider['slides'][] = array('layers' => $sublayers, 'position' => $lid, 'settings' => (array)$layer->properties);
+	}
+
+	return $slider;
+}
+
+/**
+ * slides edit form
+ */
+function content_slider_slides_edit($slid) {
+	acquia_include('utility');
+	acquia_include('utility', 'content_slider');
+	acquia_include('slider', 'ac_slider');
+	acquia_include('slider', 'content_slider');
+	
+	// add admin resources
+	acquia_load_resources();
+	content_slider_load_resources('admin');
+	
+	// register actions
+	content_slider::register_settings();
+  $slider = acquiaSlider::get_by_id($slid);
+
+	return theme('content_slider_slides_edit', array('slid' => $slid));
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function content_slider_ac_shortcode_include_directory($plugin) {
+  if ($plugin == 'shortcodes') {
+    return 'shortcodes';
+  }
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function content_slider_ac_composer_include_directory($plugin) {
+  if ($plugin == 'composer') {
+    return 'composer';
+  }
+}
+
+function content_slider_ac_slider_import_sample() {
+	return array(
+		CONTENT_SLIDER_MN => array(
+			'title' => t('Content Slider'),
+			'import' => 'content_slider_import_samples',
+		)
+	);
+}
+
+function content_slider_import_samples(){
+	acquia_include('utility');
+	acquia_include('slider', 'ac_slider');
+	acquia_include('utility', 'ac_slider');
+	
+	// Base64 encoded, serialized slider export code
+	$path = drupal_get_path('module', 'content_slider'). '/sample_slider/';
+	$sample_slider = json_decode(file_get_contents($path.'sample_slider.json'), true);
+	// Iterate over the sliders
+	foreach($sample_slider as $sliderkey => $slider) {
+		// Iterate over the layers
+		foreach($sample_slider[$sliderkey]['layers'] as $layerkey => $layer) {
+
+			// Convert BG image URI
+			$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['background_fid'] = ''; 
+			if(!empty($sample_slider[$sliderkey]['layers'][$layerkey]['properties']['background'])) {
+				$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['background'] = file_create_url($path .basename($layer['properties']['background']));
+			}
+
+			// Convert thumbnail images URI
+			$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['thumbnail_fid'] = '';
+			if(!empty($sample_slider[$sliderkey]['layers'][$layerkey]['properties']['thumbnail'])) {
+				$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['thumbnail'] = file_create_url($path .basename($layer['properties']['thumbnail']));
+			}
+
+			// Iterate over the sublayers
+			//if(isset($layer['sublayers']) && !empty($layer['sublayers'])) {
+			//	foreach($layer['sublayers'] as $sublayerkey => $sublayer) {
+			//
+			//		// Only IMG sublayers
+			//		$sample_slider[$sliderkey]['layers'][$layerkey]['sublayers'][$sublayerkey]['imageId'] = '';
+			//		if($sublayer['type'] == 'img' || ( isset($sublayer['media']) && $sublayer['media'] == 'img')) {
+			//			$sample_slider[$sliderkey]['layers'][$layerkey]['sublayers'][$sublayerkey]['image_fid'] = '';
+			//			$sample_slider[$sliderkey]['layers'][$layerkey]['sublayers'][$sublayerkey]['image'] = url($path .basename($sublayer['image']), array('absolute' => TRUE));
+			//		}
+			//	}
+			//}
+		}
+		// add setting keys
+		$sample_slider[$sliderkey]['title'] = isset($sample_slider[$sliderkey]['title']) ? $sample_slider[$sliderkey]['title'] : t('Content slider: no title');
+		$sample_slider[$sliderkey]['description'] = '';
+		$sample_slider[$sliderkey]['machine_name'] = machine_name($sample_slider[$sliderkey]['title']);
+
+		// Add slider in database
+		$slider = acquiaSlider::create($sample_slider[$sliderkey]['title'], $sample_slider[$sliderkey]['machine_name'], CONTENT_SLIDER_MN, $sample_slider[$sliderkey]['properties']);
+		if (!$slider) {
+			drupal_set_message(t('acquiaSlider: Import ' . $sample_slider[$sliderkey]['title'] . ' was unsuccessful.'), 'error');
+			return false;
+		}
+		
+		foreach($sample_slider[$sliderkey]['layers'] as $layerkey => $layer) {
+			acquiaSlide::create($slider->slid, $layerkey, $layer['properties'], $layer['sublayers']);
+		}
+
+	}
+}

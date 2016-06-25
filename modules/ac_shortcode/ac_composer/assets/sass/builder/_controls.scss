@@ -1,0 +1,144 @@
+/**
+ * Diamond Builder > Controls
+ */
+.db-control{
+  display: inline-block;
+  border-radius: 2px 2px 0 0;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  color: #747474;
+  &:hover{
+    color: #9D9D9D;
+  }
+  &.col-move{
+    float: left;
+    cursor: move;
+  }
+  .admin-icon:before{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    margin: 0;
+  }
+  // Controls for Row -  Edit Controls
+  .db-row-edit &{
+    float: right;
+    margin: 0 2px;
+  }
+}
+
+/**
+ * Row Controls
+ */
+.db-controls-row{
+  text-align: center;
+  line-height: 1px;
+  position: relative;
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  height: auto;
+  float: none!important;
+  width: 100%!important;
+  &:hover{
+    z-index: 10;
+  }
+  .db-control{
+    background-color: #e6e6e6;
+    height: 24px;
+    width: 30px;
+    line-height: 24px;
+  }
+}
+
+
+.db-row-layouts {
+  display: block;
+  overflow: hidden;
+  float: left;
+  text-align: left;
+  margin-left: 1px;
+  background: #e6e6e6;
+  border: 1px solid transparent;
+  border-radius: 2px 2px 0 0;
+  width: auto!important;
+  &:hover{
+    width: auto;
+    a{
+      display: inline-block;
+    }
+    br{
+      display: block;
+    }
+  }
+  a{
+    display: none;
+    border: none;
+    background-color: transparent;
+    float: left;
+    margin: 2px 1px;
+  }
+  br{
+    display: none;
+  }
+  .set-layout{
+    background-image: url(../builder/layouts/1.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: none;
+    border: none;
+    width: 32px;
+    height: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    &.custom_columns {
+      background-image: none;
+      border-bottom: 1px dotted;
+      font-size: 11px;
+      height: auto;
+      line-height: 12px;
+      padding: 3px;
+      width: auto;
+      text-decoration: none;
+    }
+    &.l_12_12 {
+      background-image: url(../builder/layouts/12_12.gif);
+    }
+    &.l_23_13 {
+      background-image: url(../builder/layouts/23_13.gif);
+    }
+    &.l_13_13_13 {
+      background-image: url(../builder/layouts/13_13_13.gif);
+    }
+    &.l_13_23 {
+      background-image: url(../builder/layouts/13_23.gif);
+    }
+    &.l_14_14_14_14 {
+      background-image: url(../builder/layouts/14_14_14_14.gif);
+    }
+    &.l_23_13 {
+      background-image: url(../builder/layouts/23_13.gif);
+    }
+    &.l_14_34 {
+      background-image: url(../builder/layouts/14_34.gif);
+    }
+    &.l_14_12_14 {
+      background-image: url(../builder/layouts/14_12_14.gif);
+    }
+    &.l_56_16 {
+      background-image: url(../builder/layouts/56_16.gif);
+    }
+    &.l_16_46_16 {
+      background-image: url(../builder/layouts/14_46_16.gif);
+    }
+    &.l_16_16_16_12 {
+      background-image: url(../builder/layouts/16_16_16_12.gif);
+    }
+    &.l_16_16_16_16_16_16 {
+      background-image: url(../builder/layouts/16_16_16_16_16_16.gif);
+    }
+  }
+}

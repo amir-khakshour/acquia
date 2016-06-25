@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../../../../themes/aura/skin/skin.less" description=".ac-sf" line="2820" />
+    <bookmark url="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js" description="addTab" line="716" />
+    <bookmark url="file://$PROJECT_DIR$/../../../../themes/aura/sass/partials/plugins/_popup.scss" description="--------------------------------------------------..." line="1" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5eb6e4d4-f218-4656-b6bb-ab5927d3a669" name="Default" comment="" />
+    <ignored path="ac_shortcode.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ac_shortcode" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="img_frame.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shortcodes/img_frame.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.6296296">
+              <caret line="465" column="30" selection-start-line="465" selection-start-column="30" selection-end-line="465" selection-end-column="30" />
+              <folding>
+                <marker date="1442161174594" expanded="true" signature="2250:2293" placeholder="Select the i..." />
+                <marker date="1442161174594" expanded="true" signature="14521:14580" placeholder="Select the d..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="team.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shortcodes/team.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="274" column="17" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builder.base.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/builder.base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.base.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6149341">
+              <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+              <folding>
+                <element signature="e#357#862#0" expanded="false" />
+                <element signature="e#895#1384#0" expanded="false" />
+                <element signature="e#2406#3001#0" expanded="false" />
+                <element signature="e#2537#2637#0" expanded="false" />
+                <element signature="e#2705#2919#0" expanded="false" />
+                <element signature="e#3036#3477#0" expanded="false" />
+                <element signature="e#3219#3322#0" expanded="false" />
+                <element signature="e#3328#3405#0" expanded="false" />
+                <element signature="e#3512#4363#0" expanded="false" />
+                <element signature="e#3526#3581#0" expanded="false" />
+                <element signature="e#4168#4351#0" expanded="false" />
+                <element signature="e#4405#4618#0" expanded="false" />
+                <element signature="e#4463#4513#0" expanded="false" />
+                <element signature="e#4559#4608#0" expanded="false" />
+                <element signature="e#4661#5346#0" expanded="false" />
+                <element signature="e#5005#5132#0" expanded="false" />
+                <element signature="e#5386#6545#0" expanded="false" />
+                <element signature="e#5832#5994#0" expanded="false" />
+                <element signature="e#6039#6143#0" expanded="false" />
+                <element signature="e#6149#6223#0" expanded="false" />
+                <element signature="e#6265#6394#0" expanded="false" />
+                <element signature="e#6555#6654#0" expanded="false" />
+                <element signature="e#6691#7299#0" expanded="false" />
+                <element signature="e#7005#7289#0" expanded="false" />
+                <element signature="e#7096#7213#0" expanded="false" />
+                <element signature="e#7309#7403#0" expanded="false" />
+                <element signature="e#7438#8067#0" expanded="false" />
+                <element signature="e#7537#7781#0" expanded="false" />
+                <element signature="e#7625#7767#0" expanded="false" />
+                <element signature="e#7810#8055#0" expanded="false" />
+                <element signature="e#7877#7951#0" expanded="false" />
+                <element signature="e#8098#8854#0" expanded="false" />
+                <element signature="e#8237#8536#0" expanded="false" />
+                <element signature="e#8337#8484#0" expanded="false" />
+                <element signature="e#8563#8842#0" expanded="false" />
+                <element signature="e#8864#8979#0" expanded="false" />
+                <element signature="e#9014#9537#0" expanded="false" />
+                <element signature="e#9242#9527#0" expanded="false" />
+                <element signature="e#9321#9464#0" expanded="false" />
+                <element signature="e#9582#9720#0" expanded="false" />
+                <element signature="e#9641#9708#0" expanded="false" />
+                <element signature="e#10157#10194#0" expanded="false" />
+                <element signature="e#10225#10417#0" expanded="false" />
+                <element signature="e#10427#10492#0" expanded="false" />
+                <element signature="e#10525#10762#0" expanded="false" />
+                <element signature="e#10625#10676#0" expanded="false" />
+                <element signature="e#11046#12081#0" expanded="false" />
+                <element signature="e#11094#12051#0" expanded="false" />
+                <element signature="e#11511#11801#0" expanded="false" />
+                <element signature="e#11842#12005#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_views.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ac_composer/assets/sass/builder/_views.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="31.333334">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_visual.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ac_composer/assets/sass/builder/_visual.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.962963">
+              <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.custom.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="593" column="47" selection-start-line="593" selection-start-column="47" selection-end-line="593" selection-end-column="47" />
+              <folding>
+                <element signature="e#2855#3313#0" expanded="false" />
+                <element signature="e#2934#3297#0" expanded="false" />
+                <element signature="e#3026#3277#0" expanded="false" />
+                <element signature="e#3363#3450#0" expanded="false" />
+                <element signature="e#4091#4213#0" expanded="false" />
+                <element signature="e#4460#4540#0" expanded="false" />
+                <element signature="e#4602#4681#0" expanded="false" />
+                <element signature="e#4741#4861#0" expanded="false" />
+                <element signature="e#5251#5385#0" expanded="false" />
+                <element signature="e#6337#6432#0" expanded="false" />
+                <element signature="e#6474#6979#0" expanded="false" />
+                <element signature="e#6631#6955#0" expanded="false" />
+                <element signature="e#7028#7452#0" expanded="false" />
+                <element signature="e#7217#7323#0" expanded="false" />
+                <element signature="e#7507#7735#0" expanded="false" />
+                <element signature="e#7533#7639#0" expanded="false" />
+                <element signature="e#7775#7943#0" expanded="false" />
+                <element signature="e#8233#8561#0" expanded="false" />
+                <element signature="e#8612#8800#0" expanded="false" />
+                <element signature="e#10963#11069#0" expanded="false" />
+                <element signature="e#11111#11938#0" expanded="false" />
+                <element signature="e#11288#11444#0" expanded="false" />
+                <element signature="e#11685#11747#0" expanded="false" />
+                <element signature="e#11753#11860#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/composer-custom-views.js" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/composer-view.js" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/css/ac_composer.css" />
+        <option value="$PROJECT_DIR$/ac_composer/includes/image.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/ac_composer.module" />
+        <option value="$PROJECT_DIR$/classes/model.inc" />
+        <option value="$PROJECT_DIR$/classes/base.inc" />
+        <option value="$PROJECT_DIR$/classes/collection.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/banner.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/carousel.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/code.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/column.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/frame.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/grid.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/img_slider.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/message.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/progressbar.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/quote.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/raw_js.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/social.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/stick.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/tabs.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/utility/files.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/accordion.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/image.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/twitter.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/twitter.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/img_frame.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/row.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.shortcode.js" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/list.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/teaser.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/contact.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/contact_info.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/contact.inc" />
+        <option value="$PROJECT_DIR$/../../../../../../../aura-old/sites/default/settings.php" />
+        <option value="$PROJECT_DIR$/../../../../../../../aura-old/sites/all/modules/acquia/modules/ac_shortcode/shortcodes/twitter.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/raw_html.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/raw_html.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/text_block.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/callout.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/callout.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/text_block.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/templates/composer-main-content.tpl.php" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/sass/builder/_base.scss" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/visibility.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/iconbox.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/sass/builder/_views.scss" />
+        <option value="$PROJECT_DIR$/ac_composer/classes/composer.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/image.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/iconlist.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/icon.inc" />
+        <option value="$PROJECT_DIR$/utility/utility.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/grid.inc" />
+        <option value="$PROJECT_DIR$/templates/ac-shortcode-testimonials--headshot.tpl.php" />
+        <option value="$PROJECT_DIR$/ac_composer/utility/utility.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/button.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/iconlist.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/composer/testimonial.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/builder.utils.js" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/css/js_composer.css" />
+        <option value="$PROJECT_DIR$/ac_shortcode.module" />
+        <option value="$PROJECT_DIR$/templates/ac-shortcode-testimonials--right.tpl.php" />
+        <option value="$PROJECT_DIR$/templates/ac-shortcode-testimonials--left.tpl.php" />
+        <option value="$PROJECT_DIR$/templates/ac-shortcode-testimonials--bottom.tpl.php" />
+        <option value="$PROJECT_DIR$/shortcodes/carousel.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/testimonial.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/header.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/iconbox.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/css/builder.css" />
+        <option value="$PROJECT_DIR$/shortcodes/list.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/classes/layout.inc" />
+        <option value="$PROJECT_DIR$/shortcodes/img_frame.inc" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/builder.base.js" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/sass/builder/_visual.scss" />
+        <option value="$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.base.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="29" />
+    <option name="width" value="1600" />
+    <option name="height" value="844" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../aura-old/sites/all/modules/acquia/modules/ac_shortcode" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ac_composer/classes" />
+      <recent name="$PROJECT_DIR$/ac_composer/assets/sass/builder" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5eb6e4d4-f218-4656-b6bb-ab5927d3a669" name="Default" comment="" />
+      <created>1440483593849</created>
+      <option name="number" value="Default" />
+      <updated>1440483593849</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="29" width="1600" height="844" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286517" sideWeight="0.5077022" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32630098" sideWeight="0.49229783" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js</url>
+          <line>269</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js</url>
+          <line>686</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/iconlist.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="47" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/icon.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/classes/layout.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="731" column="12" selection-start-line="731" selection-start-column="9" selection-end-line="731" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/image.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/row.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/img_frame.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.shortcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/classes/composer.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/twitter.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/text_block.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/text_block.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/tabs.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="30" selection-start-line="181" selection-start-column="30" selection-end-line="181" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="653" column="78" selection-start-line="653" selection-start-column="78" selection-end-line="653" selection-end-column="78" />
+          <folding>
+            <element signature="e#2855#3313#0" expanded="false" />
+            <element signature="e#2934#3297#0" expanded="false" />
+            <element signature="e#3026#3277#0" expanded="false" />
+            <element signature="e#3363#3450#0" expanded="false" />
+            <element signature="e#4091#4213#0" expanded="false" />
+            <element signature="e#4460#4540#0" expanded="false" />
+            <element signature="e#4602#4681#0" expanded="false" />
+            <element signature="e#4741#4861#0" expanded="false" />
+            <element signature="e#5251#5385#0" expanded="false" />
+            <element signature="e#6337#6432#0" expanded="false" />
+            <element signature="e#6474#6979#0" expanded="false" />
+            <element signature="e#6631#6955#0" expanded="false" />
+            <element signature="e#7028#7452#0" expanded="false" />
+            <element signature="e#7217#7323#0" expanded="false" />
+            <element signature="e#7507#7735#0" expanded="false" />
+            <element signature="e#7533#7639#0" expanded="false" />
+            <element signature="e#7775#7943#0" expanded="false" />
+            <element signature="e#8233#8561#0" expanded="false" />
+            <element signature="e#8612#8800#0" expanded="false" />
+            <element signature="e#10963#11069#0" expanded="false" />
+            <element signature="e#11111#11938#0" expanded="false" />
+            <element signature="e#11288#11444#0" expanded="false" />
+            <element signature="e#11685#11747#0" expanded="false" />
+            <element signature="e#11753#11860#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/ac_composer.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/templates/builder-nav.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/css/ac_composer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="309" column="0" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/collection.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="107.333336">
+          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/ac_composer.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.732143">
+          <caret line="48" column="53" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/base.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/carousel.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/code.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/frame.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/grid.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/img_slider.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.185185">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/message.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/progressbar.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.185185">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/quote.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/raw_js.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/social.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.185185">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/stick.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/twitter.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3567073">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/accordion.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0929878">
+          <caret line="145" column="8" selection-start-line="145" selection-start-column="8" selection-end-line="177" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/banner.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13719513">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/utility/files.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27439025">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/includes/image.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17682926">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../aura-old/sites/default/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.772655">
+          <caret line="228" column="39" selection-start-line="228" selection-start-column="39" selection-end-line="228" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../aura-old/sites/all/modules/acquia/modules/ac_shortcode/shortcodes/twitter.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="101" column="7" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/contact.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32876712">
+          <caret line="143" column="27" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/contact.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46575344">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/twitter.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3561644">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/teaser.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63013697">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/list.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38356164">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/img_frame.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.333334">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/row.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.666667">
+          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/tabs.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="30" selection-start-line="181" selection-start-column="30" selection-end-line="181" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/contact_info.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30136988">
+          <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/raw_html.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.444445">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/callout.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.33333334">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/sass/partials/utility/abstractions/_misc.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8082192">
+          <caret line="59" column="30" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/text_block.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32267883">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/iconbox.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/text_block.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="141" column="5" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/sass/builder/_base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34246576">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/templates/composer-main-content.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30136988">
+          <caret line="11" column="59" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/raw_html.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="93" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/less/js_composer.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7272727">
+          <caret line="210" column="3" selection-start-line="210" selection-start-column="3" selection-end-line="210" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/collections/collections.shortcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="39" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/classes/composer.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.017857">
+          <caret line="158" column="27" selection-start-line="158" selection-start-column="27" selection-end-line="158" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/visibility.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.0">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/image.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/iconlist.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="47" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/icon.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/params/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="19" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.shortcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="26" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/quote.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="52" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13719513">
+          <caret line="0" column="934" selection-start-line="0" selection-start-column="934" selection-end-line="0" selection-end-column="934" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/grid.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.642857">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="141" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ac-shortcode-testimonials--headshot.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.9259257">
+          <caret line="8" column="55" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/utility.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6666666">
+          <caret line="307" column="66" selection-start-line="307" selection-start-column="66" selection-end-line="307" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/button.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.625">
+          <caret line="427" column="9" selection-start-line="427" selection-start-column="9" selection-end-line="427" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/iconlist.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.666667">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/testimonial.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.666666">
+          <caret line="61" column="42" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/utility/utility.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.2222223">
+          <caret line="189" column="64" selection-start-line="189" selection-start-column="64" selection-end-line="189" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/composer/column.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.333333">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/column.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.732143">
+          <caret line="100" column="69" selection-start-line="100" selection-start-column="66" selection-end-line="100" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/row.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.block.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="185" column="132" selection-start-line="185" selection-start-column="132" selection-end-line="185" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/less/shortcodes/vc_teaser_grid.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37974682">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/css/js_composer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="344" column="20" selection-start-line="344" selection-start-column="20" selection-end-line="344" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/callout.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ac-shortcode-testimonials--left.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ac-shortcode-testimonials--right.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16438356">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/header.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="186" column="27" selection-start-line="186" selection-start-column="27" selection-end-line="186" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/iconbox.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.875">
+          <caret line="425" column="0" selection-start-line="425" selection-start-column="0" selection-end-line="425" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/css/builder.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5517242">
+          <caret line="651" column="24" selection-start-line="651" selection-start-column="24" selection-end-line="651" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/builder.utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="197" column="37" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/carousel.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="103" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/list.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.9259257">
+          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/classes/layout.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.888889">
+          <caret line="604" column="42" selection-start-line="604" selection-start-column="42" selection-end-line="604" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ac-shortcode-testimonials--bottom.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6666665">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_shortcode.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65753424">
+          <caret line="809" column="0" selection-start-line="809" selection-start-column="0" selection-end-line="817" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/image.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2754777">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/testimonial.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07484076">
+          <caret line="389" column="9" selection-start-line="389" selection-start-column="9" selection-end-line="389" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/img_frame.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6296296">
+          <caret line="465" column="30" selection-start-line="465" selection-start-column="30" selection-end-line="465" selection-end-column="30" />
+          <folding>
+            <marker date="1442161174594" expanded="true" signature="2250:2293" placeholder="Select the i..." />
+            <marker date="1442161174594" expanded="true" signature="14521:14580" placeholder="Select the d..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes/team.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="274" column="17" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/builder.base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="593" column="47" selection-start-line="593" selection-start-column="47" selection-end-line="593" selection-end-column="47" />
+          <folding>
+            <element signature="e#2855#3313#0" expanded="false" />
+            <element signature="e#2934#3297#0" expanded="false" />
+            <element signature="e#3026#3277#0" expanded="false" />
+            <element signature="e#3363#3450#0" expanded="false" />
+            <element signature="e#4091#4213#0" expanded="false" />
+            <element signature="e#4460#4540#0" expanded="false" />
+            <element signature="e#4602#4681#0" expanded="false" />
+            <element signature="e#4741#4861#0" expanded="false" />
+            <element signature="e#5251#5385#0" expanded="false" />
+            <element signature="e#6337#6432#0" expanded="false" />
+            <element signature="e#6474#6979#0" expanded="false" />
+            <element signature="e#6631#6955#0" expanded="false" />
+            <element signature="e#7028#7452#0" expanded="false" />
+            <element signature="e#7217#7323#0" expanded="false" />
+            <element signature="e#7507#7735#0" expanded="false" />
+            <element signature="e#7533#7639#0" expanded="false" />
+            <element signature="e#7775#7943#0" expanded="false" />
+            <element signature="e#8233#8561#0" expanded="false" />
+            <element signature="e#8612#8800#0" expanded="false" />
+            <element signature="e#10963#11069#0" expanded="false" />
+            <element signature="e#11111#11938#0" expanded="false" />
+            <element signature="e#11288#11444#0" expanded="false" />
+            <element signature="e#11685#11747#0" expanded="false" />
+            <element signature="e#11753#11860#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33259425">
+          <caret line="943" column="0" selection-start-line="943" selection-start-column="0" selection-end-line="943" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/sass/builder/_visual.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.962963">
+          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/sass/builder/_views.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="31.333334">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ac_composer/assets/composer/js/backend/views/views.base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6149341">
+          <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+          <folding>
+            <element signature="e#357#862#0" expanded="false" />
+            <element signature="e#895#1384#0" expanded="false" />
+            <element signature="e#2406#3001#0" expanded="false" />
+            <element signature="e#2537#2637#0" expanded="false" />
+            <element signature="e#2705#2919#0" expanded="false" />
+            <element signature="e#3036#3477#0" expanded="false" />
+            <element signature="e#3219#3322#0" expanded="false" />
+            <element signature="e#3328#3405#0" expanded="false" />
+            <element signature="e#3512#4363#0" expanded="false" />
+            <element signature="e#3526#3581#0" expanded="false" />
+            <element signature="e#4168#4351#0" expanded="false" />
+            <element signature="e#4405#4618#0" expanded="false" />
+            <element signature="e#4463#4513#0" expanded="false" />
+            <element signature="e#4559#4608#0" expanded="false" />
+            <element signature="e#4661#5346#0" expanded="false" />
+            <element signature="e#5005#5132#0" expanded="false" />
+            <element signature="e#5386#6545#0" expanded="false" />
+            <element signature="e#5832#5994#0" expanded="false" />
+            <element signature="e#6039#6143#0" expanded="false" />
+            <element signature="e#6149#6223#0" expanded="false" />
+            <element signature="e#6265#6394#0" expanded="false" />
+            <element signature="e#6555#6654#0" expanded="false" />
+            <element signature="e#6691#7299#0" expanded="false" />
+            <element signature="e#7005#7289#0" expanded="false" />
+            <element signature="e#7096#7213#0" expanded="false" />
+            <element signature="e#7309#7403#0" expanded="false" />
+            <element signature="e#7438#8067#0" expanded="false" />
+            <element signature="e#7537#7781#0" expanded="false" />
+            <element signature="e#7625#7767#0" expanded="false" />
+            <element signature="e#7810#8055#0" expanded="false" />
+            <element signature="e#7877#7951#0" expanded="false" />
+            <element signature="e#8098#8854#0" expanded="false" />
+            <element signature="e#8237#8536#0" expanded="false" />
+            <element signature="e#8337#8484#0" expanded="false" />
+            <element signature="e#8563#8842#0" expanded="false" />
+            <element signature="e#8864#8979#0" expanded="false" />
+            <element signature="e#9014#9537#0" expanded="false" />
+            <element signature="e#9242#9527#0" expanded="false" />
+            <element signature="e#9321#9464#0" expanded="false" />
+            <element signature="e#9582#9720#0" expanded="false" />
+            <element signature="e#9641#9708#0" expanded="false" />
+            <element signature="e#10157#10194#0" expanded="false" />
+            <element signature="e#10225#10417#0" expanded="false" />
+            <element signature="e#10427#10492#0" expanded="false" />
+            <element signature="e#10525#10762#0" expanded="false" />
+            <element signature="e#10625#10676#0" expanded="false" />
+            <element signature="e#11046#12081#0" expanded="false" />
+            <element signature="e#11094#12051#0" expanded="false" />
+            <element signature="e#11511#11801#0" expanded="false" />
+            <element signature="e#11842#12005#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

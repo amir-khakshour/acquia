@@ -1,0 +1,10 @@
+name = DiamondLayers Portfolio
+description = Adding Media to your website as portfolio items.
+core = 7.x
+
+dependencies[] = acquia
+dependencies[] = flag
+dependencies[] = session_api
+dependencies[] = fivestar
+package = DiamondLayers
+

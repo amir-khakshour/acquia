@@ -1,0 +1,306 @@
+.customSelect .customSelectBtn {
+  font: 20px 'fontadmin';
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.customSelect, .ac-niceform-wrap {
+  height: 32px;
+  line-height: 32px;
+}
+
+.customSelect, .ac-niceform-wrap {
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  margin-bottom: 5px;
+  padding: 0 6px;
+  width: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.acquia-checkbox span, .customSelect .customSelectBtn, .ac-niceform-wrap .ac-niceform-btn {
+  font-size: 11px;
+  background-color: #f0f0f0;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwZjBmMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f0f0f0), color-stop(100%, #e6e6e6));
+  background: -moz-linear-gradient(top, #f0f0f0, #e6e6e6);
+  background: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+  background: linear-gradient(to bottom, #f0f0f0, #e6e6e6);
+  -moz-box-shadow: 0 1px 0 white inset, 0 1px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 0 white inset, 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 white inset, 0 1px 1px rgba(0, 0, 0, 0.25);
+  -moz-transition: left 0.2s linear;
+  -o-transition: left 0.2s linear;
+  -webkit-transition: left 0.2s linear;
+  transition: left 0.2s linear;
+}
+
+/** DiamondLayers Tooltip
+--------------------------------------------------*/
+.acquia-tooltip {
+  width: 260px;
+  position: absolute;
+  padding: 10px;
+  background: #000;
+  background: rgba(0, 0, 0, 0.8);
+  color: #eee;
+  font: normal normal normal 12px/16px Arial, sans-serif;
+  text-align: left;
+  z-index: 6000;
+  -moz-box-shadow: 0px 2px 10px -2px black;
+  -webkit-box-shadow: 0px 2px 10px -2px black;
+  box-shadow: 0px 2px 10px -2px black;
+}
+.acquia-tooltip span {
+  display: block;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  margin-left: -7px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid black;
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  -webkit-opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+}
+
+/** Color Picker Extra Styles
+--------------------------------------------------*/
+.selectpicker {
+  position: absolute;
+  width: 28px;
+  height: 29px;
+  background: url(../images/select.png);
+  display: inline-block;
+  bottom: 6px;
+  left: 2px;
+  cursor: pointer;
+}
+.selectpicker div {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 29px;
+  background: #fff url(../images/select.png) center;
+}
+
+.ac-colorpicker {
+  padding-left: 36px !important;
+}
+
+/** DiamondLayers Checkbox
+--------------------------------------------------*/
+.acquia-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 1em;
+  margin-top: -5px;
+  vertical-align: middle;
+  background-color: #fa4c38;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  top: 5px;
+  float: left;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 white;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 white;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.acquia-checkbox::before, .acquia-checkbox::after {
+  content: 'ON';
+  display: none;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+.acquia-checkbox::after {
+  content: 'OFF';
+  display: block;
+  right: 0;
+}
+.acquia-checkbox span {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 26px;
+  top: -2px;
+  left: -2px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.acquia-checkbox span::before, .acquia-checkbox span::after {
+  content: '';
+  display: block;
+  height: 15px;
+  width: 3px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -6px;
+  border: 1px solid #cccccc;
+  border-width: 0 1px;
+  -webkit-box-shadow: 1px 0 0 white, 1px 0 0 white inset;
+  box-shadow: 1px 0 0 white, 1px 0 0 white inset;
+}
+
+.acquia-checkbox span::after {
+  margin-left: 2px;
+}
+
+.acquia-checkbox.on {
+  background-color: #2A83ED;
+}
+
+.acquia-checkbox.on::before {
+  display: block;
+}
+
+.acquia-checkbox.on::after {
+  display: none;
+}
+
+.acquia-checkbox.on span {
+  left: 33px;
+}
+
+/** DiamondLayers Fancy Select
+--------------------------------------------------*/
+.customSelect {
+  /* This is the default class that is used */
+  /* Put whatever custom styles you want here */
+  display: block;
+  min-width: 150px;
+}
+.customSelect span {
+  display: block;
+}
+
+.customSelect.customSelectHover {
+  /* Styles for when the select box is hovered */
+}
+
+.customSelect.customSelectOpen {
+  /* Styles for when the select box is open */
+}
+.customSelect.customSelectOpen .customSelectBtn:before {
+  content: '\e803';
+}
+
+.customSelect.customSelectFocus {
+  /* Styles for when the select box is in focus */
+}
+
+.customSelect.customSelectDisabledOption {
+  /* Styles for when the selected item is a disabled one */
+}
+
+.customSelect.customSelectDisabled {
+  /* Styles for when the select box itself is disabled */
+}
+
+.hasCustomSelect {
+  cursor: pointer;
+  -webkit-appearance: menulist-button;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.customSelect {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 !important;
+}
+.customSelect.customSelectOpen {
+  border-color: #2A83ED;
+}
+.customSelect .customSelectInner {
+  padding: 0 6px;
+  position: absolute;
+  width: 300%;
+}
+.customSelect .customSelectBtn {
+  position: absolute;
+  height: 100%;
+  z-index: 2;
+  width: 30px;
+  right: 0;
+  top: 0;
+  line-height: 32px;
+  font-size: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.customSelect .customSelectBtn:before {
+  content: '\e808';
+}
+
+/** Nice file Input
+--------------------------------------------------*/
+/** this is the default class of base file input **/
+.ac-niceform-base {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  cursor: pointer;
+}
+
+/** this is the default class of fake input wrapper **/
+.ac-niceform-wrap {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.ac-niceform-wrap .ac-niceform-fakeinput {
+  /** this is the default class of fake input **/
+  padding-left: 65px;
+}
+.ac-niceform-wrap .ac-niceform-btn {
+  /** this is the default class of fake input button **/
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 3;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}

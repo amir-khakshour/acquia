@@ -1,0 +1,136 @@
+<?php
+/**
+ * @file - Install file
+ */
+
+/**
+ * Implement hook_schema()
+ */
+function ac_slider_schema() {
+  $schema = array();
+  $schema['acquia_sliders'] = array(
+      'description' => 'Slideshows table',
+      'fields' =>  array(
+          'slid' => array(
+              'description' =>  'Primary key for identify a slideshow.',
+              'type' => 'serial',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+          ),
+          'title' => array(
+              'description' => 'The name of slideshow.',
+              'type' => 'text',
+              'size' => 'big',
+              'not null' => TRUE,
+          ),
+          'description' => array(
+              'description' => 'The description about slideshow is created.',
+              'type' => 'varchar',
+              'length' => 1000,
+          ),
+          'machine_name' => array(
+              'description' => 'The machine name of slideshow. The uniquied values.',
+              'type' => 'varchar',
+              'length' => 255,
+              'not null' => TRUE,
+          ),
+					'type' => array(
+              'description' => 'type of slideshow is created.',
+              'type' => 'varchar',
+              'length' => 255,
+              'not null' => TRUE,
+          ),
+          'settings' => array(
+              'description' => 'The common settings for slideshow.',
+              'type' => 'text',
+              'size' => 'big',
+              'not null' => TRUE,
+          ),
+      ),
+      'primary key' => array('slid'),
+  );
+
+  $schema['acquia_slides'] = array(
+      'description' => 'Slides table',
+      'fields' => array(
+          'sid' => array(
+              'type' => 'serial',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+              'description' => 'Primary key for identify a slide.',
+          ),
+          'slid' => array(
+              'type' => 'int',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+              'description' => "Slideshow id contain this slide.",
+          ),
+          'position' => array(
+              'type' => 'int',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+              'description' => 'Order of slide in slideshow.',
+          ),
+          'settings' => array(
+              'type' => 'text',
+              'not null' => TRUE,
+              'size' => 'big',
+              'description' => "Settings for tab",
+          ),
+          'layers' => array(
+              'type' => 'text',
+              'not null' => TRUE,
+              'size' => 'big',
+              'description' => "Items in this slide",
+          ),
+      ),
+      'foreign keys' => array(
+          'acquia_sliders' => array(
+              'table' => 'acquia_sliders',
+              'columns' => array('slid' => 'slid'),
+          ),
+      ),
+      'primary key' => array('sid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install()
+ */
+function ac_slider_install() {
+  $module_path = drupal_get_path('module', 'ac_slider');
+  $default_image = $module_path . '/img/transparent.png';
+  $public_folder = acquia_variable_get('file_path', conf_path() . '/files');
+  copy($default_image,  $public_folder . '/ac_slider_def_bg.jpg');
+}
+
+/**
+ * Implements hook_update_N()
+ */
+function ac_slider_update_7200() {
+  acquia_include('slider', 'ac_slider');
+
+  $sliders = acquiaSlider::get_all();
+
+  foreach ($sliders as $slider) {
+    $slider->machine_name = str_replace('_', '-', $slider->machine_name);
+    $slider->save();
+  }
+}
+
+function ac_slider_cache_schema(){
+  $schema = drupal_get_schema_unprocessed('system', 'cache');
+  $schema['description'] = 'Cache table for DiamondLayers sliders. Used to keep a cache of the HTML output of DiamondLayers sliders.';
+  return $schema;
+}
+
+/**
+ * Add Sliders cache table if not exists
+ */
+function ac_slider_update_7300() {
+  if (!db_table_exists('cache_acquia_sliders')) {
+      db_create_table('cache_acquia_sliders', ac_slider_cache_schema());
+  }
+}

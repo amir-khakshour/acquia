@@ -1,0 +1,208 @@
+/** Demo Styles **/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\000034}}
+.ac-demo-logo-content {
+  max-width: 150px;
+  width: 150px;
+  margin: 0 auto !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000310}}
+#ac-demo-panel {
+  font: 14px/24px "Open Sans", Helvetica, Arial, Verdana, sans-serif !important;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  z-index: 9409;
+  margin-left: -350px;
+  color: #666666; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000319}}
+  #ac-demo-panel .ac-demo-panel-i {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: 0;
+    width: 350px;
+    background-color: #FDFDFD;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000335}}
+  #ac-demo-panel .ac-demo-close-btn a:hover .font-icon:before {
+    color: #333;
+    -webkit-animation: rotation 1.5s infinite linear;
+    -moz-animation: rotation 1.5s infinite linear;
+    -o-animation: rotation 1.5s infinite linear;
+    animation: rotation 1.5s infinite linear; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000343}}
+  #ac-demo-panel .ac-demo-close-btn {
+    position: absolute;
+    top: 300px;
+    left: -48px;
+    margin-top: -95px;
+    z-index: 90;
+    width: 48px;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000354}}
+    #ac-demo-panel .ac-demo-close-btn a {
+      width: 100%;
+      display: block;
+      text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000358}}
+      #ac-demo-panel .ac-demo-close-btn a.toggle {
+        margin-bottom: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000361}}
+      #ac-demo-panel .ac-demo-close-btn a.toggle:after {
+        display: block;
+        width: 70%;
+        content: '';
+        border-bottom: 1px solid #eee8d5;
+        margin: 0 auto;
+        position: relative;
+        margin-bottom: -10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000371}}
+    #ac-demo-panel .ac-demo-close-btn .font-icon {
+      font-size: 22px;
+      display: block;
+      height: 48px;
+      line-height: 48px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000379}}
+  #ac-demo-panel strong {
+    display: block;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #979797;
+    clear: both;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000387}}
+    #ac-demo-panel strong span {
+      background: #fff;
+      position: relative;
+      z-index: 2;
+      padding-right: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\0000393}}
+    #ac-demo-panel strong:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 1;
+      width: 440px;
+      height: 1px;
+      background: #eaeaea; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003106}}
+#ac-demo-panel .ac-demo-close-btn .font-icon {
+  color: #979797; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003110}}
+#ac-demo-panel strong {
+  font: 14px/24px "Open Sans",Helvetica,Arial,Verdana,sans-serif;
+  font-weight: normal; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003114}}
+#ac-demo-skins {
+  padding: 20px 10px 10px 20px;
+  position: relative;
+  z-index: 100; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003118}}
+  #ac-demo-skins .ac-skin-preview {
+    width: 33.33333%;
+    float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003121}}
+    #ac-demo-skins .ac-skin-preview a {
+      display: block;
+      margin: 0 10px 10px 0;
+      position: relative;
+      border: 3px solid #eee; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003127}}
+    #ac-demo-skins .ac-skin-preview.on a, #ac-demo-skins .ac-skin-preview a:hover {
+      border-color: #39f; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003133}}
+#ac-demo-layout-sel {
+  padding: 15px 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003135}}
+  #ac-demo-layout-sel div {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 7px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003144}}
+  #ac-demo-layout-sel .form-item {
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003147}}
+    #ac-demo-layout-sel .form-item.checked label:before {
+      content: '\e91d'; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003153}}
+  #ac-demo-layout-sel input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: -1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003165}}
+    #ac-demo-layout-sel input:checked + label:before {
+      content: '\e91d'; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003168}}
+    #ac-demo-layout-sel input + label:before {
+      content: '';
+      display: inline-block;
+      font-family: "fontello";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      text-decoration: none;
+      line-height: 1;
+      width: 16px;
+      height: 16px;
+      content: '\e91c';
+      margin-right: 5px;
+      vertical-align: middle;
+      -webkit-font-smoothing: antialiased;
+      speak: none; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	PRELOADER
+/*-----------------------------------------------------------------------------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003193}}
+#ac-skin-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fefefe;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 9999999; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003203}}
+#ac-skin-status {
+  width: 74px;
+  height: 74px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -37px 0 0 -37px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_skin\/modules\/ac_demo\/sass\/ac_demo\.scss}line{font-family:\00003212}}
+#ac-skin-spinner {
+  height: 75px;
+  width: 75px;
+  position: relative;
+  border-left: 4px solid rgba(0, 0, 0, 0.1);
+  border-right: 4px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid rgba(26, 187, 156, 0.8);
+  border-radius: 100%; }

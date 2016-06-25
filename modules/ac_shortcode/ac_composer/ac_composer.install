@@ -1,0 +1,49 @@
+<?php
+/**
+ * @file - Install file
+ */
+
+/**
+ * Implement hook_schema()
+ */
+function ac_composer_schema() {
+ 
+  $schema = array();
+
+  /** Visual Composer Template Holder Storage **/
+  $schema['acquia_composer_templates'] = array(
+      'description' => 'Diamond Builder Tempaltes, Storage for saved composer tempaltes.',
+      'fields' =>  array(
+          'tid' => array(
+              'description' =>  'Primary key for identify a template.',
+              'type' => 'serial',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+          ),
+          'title' => array(
+              'description' => 'The name of template.',
+              'type' => 'varchar',
+              'length' => 256,
+              'not null' => TRUE,
+          ),
+          'template' => array(
+              'description' => 'The template content.',
+              'type' => 'text',
+              'size' => 'big',
+          ),
+      ),
+      'primary key' => array('tid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install()
+ */
+function ac_visual_composer_install() {
+
+  // New module weights in core: put devel as the very last in the chain.
+  db_query("UPDATE {system} SET weight = 89 WHERE name = 'ac_composer'");
+
+}

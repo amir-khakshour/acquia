@@ -1,0 +1,253 @@
+<?php
+/**
+ * @file
+ * Exposes a number of core Drupal elements as blocks.
+ */
+
+// DiamondLayers blog taxonomy field machine Name
+define('AC_BLOG_CAT_MN', 'blog');
+
+// DiamondLayers blog taxonomy field machine Name
+define('AC_BLOG_CAT_FIELD', 'field_blog_category');
+
+// Blog taxonomy machine Name
+define('AC_BLOG_TAGS_MN', 'tags');
+
+// Blog taxonomy machine Name
+define('AC_BLOG_TAGS_FIELD', 'field_blog_tags');
+
+// settings path for DiamondLayers blog
+define('AC_BLOG_ADMIN_PATH', ACQUIA_MENU_PATH . '/ac-blog');
+
+// theme functions
+require_once (dirname(__FILE__) . '/includes/theme.inc');
+
+/**
+ * Implements hook_help().
+ */
+function ac_blog_help($path, $arg) {
+  //if ($path == 'admin/help#ac_blog') {
+  //  return '<p>' . t('This module exposes a number of core Drupal elements as blocks.') . '</p>';
+  //}
+}
+
+/**
+ * Implements hook_menu()
+ *
+ */
+function ac_blog_menu() {
+	$items = array();
+	$module_path = drupal_get_path('module', 'ac_blog');
+
+	$items[AC_BLOG_ADMIN_PATH] = array(
+		'title' => t('DiamondLayers Blog'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_blog_settings'),
+		'access arguments' => array('administer ac_blog'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('Manage Blogs'),
+	);
+	
+	$items[AC_BLOG_ADMIN_PATH . '/general'] = array(
+		'title' => t('General Settings'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_blog_settings'),
+		'access arguments' => array('administer ac_blog'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('Manage Blogs'),
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 2,
+	);
+	
+	$items[AC_BLOG_ADMIN_PATH . '/related-news'] = array(
+		'title' => t('Related news'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('_related_news_admin_form'),
+		'access arguments' => array('administer ac_blog'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('admin related news block'),
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 2,
+	);
+
+  return $items;
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function ac_blog_permission() {
+  return array(
+    'administer ac_blog' => array(
+      'title' => t('Administer acquia blog'),
+      'description' => t('Administer acquia blog settings'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function ac_blog_block_info() {
+  $blocks = array();
+  
+	$blocks['related-news'] = array(
+		'info' => t('Related news'),
+		'cache' => DRUPAL_CACHE_PER_PAGE,
+	);
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ac_blog_block_view($delta = '', $settings = array()) {
+  $block = array();
+  
+  switch ($delta) {
+    case 'related-news':
+      $settings += array(
+         'view'   => acquia_variable_get('related_news_view', 'teaser'), // view?
+         'nums'   => acquia_variable_get('related_news_nums', 8), // Number of items
+         'cols'   => acquia_variable_get('related_news_cols', 4), // Columns
+         'style'   => acquia_variable_get('related_news_style', 'rectangle-medium'), // Thumb style
+         'spaced'   => acquia_variable_get('related_news_spaced', TRUE), // Spaced?
+         'padding' => acquia_variable_get('related_news_padding', '20px'), // Padding
+         'media'   => acquia_variable_get('related_news_media', TRUE), // Display media?
+         'title'   => acquia_variable_get('related_news_title', TRUE), // Display title?
+         'author'   => acquia_variable_get('related_news_author', TRUE), // Display author?
+         'tags'   => acquia_variable_get('related_news_tags', TRUE), // Display tags?
+         'date' => acquia_variable_get('related_news_date', TRUE), // Display date?
+      );
+      $block['subject'] = t('Related News');
+      $block['content'] = theme('blog_related', array('settings' => $settings));
+      break;
+  }
+
+  return $block;
+}
+
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ac_blog_preprocess_block(&$vars) {
+  switch ($vars['block']->delta) {
+    case 'related-news':
+      $vars['attributes_array']['class'][] = 'ac-related-news-wrap';
+      break;
+  }
+}
+
+/**
+ * Render Block
+ */
+function ac_blog_render_block($delta, $settings = array()) {
+  $module = 'ac_blog';
+  $block = module_invoke($module, 'block_view', $delta, $settings);
+  $block['module'] = $module;
+  $block['delta'] = $delta;
+  $block['region'] = NULL;
+  $vars = array('elements' => array('#block' => (object) $block, '#children' => render($block['content'])));
+  return theme('block', $vars);
+}
+
+
+/**
+ * Implementation of hook_init().
+ */
+function ac_blog_init() {
+
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function ac_blog_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node_edit_form']) && $form['#node_edit_form'] === TRUE &&
+      isset($form['type']['#value']) && $form['type']['#value'] == 'blog') {
+      module_load_include('inc', 'ac_blog', '/includes/form');
+      _ac_blog_node_form($form, $form_state);
+  }
+}
+
+/**
+ * Implements hook_node_update()
+ */
+function ac_blog_node_update($node) {
+  if ($node->type == 'blog' && isset($node->blog_settings)) {
+    acquia_include('meta');
+    foreach($node->blog_settings as $mkey => $meta){
+      ac_save_node_meta($node, array($mkey => $meta));
+    }
+  }
+}
+
+/**
+ * Implements hook_node_insert()
+ */
+function ac_blog_node_insert($node) {
+  ac_blog_node_update($node);
+}
+
+/**
+ * Submit handler for "Add another thumbnail" button on blog node add/edit form.
+ */
+function _ac_blog_node_form_add_thumb($form, &$form_state) {
+  $form_state['ac_blog_thumb_nums']++;
+  $form_state['rebuild'] = TRUE;
+  return $form['blog_settings']['thumb']['media'];
+}
+
+/**
+ * Submit handler for "Add another preview image" button on blog node add/edit form.
+ */
+function _ac_blog_node_form_add_preview($form, &$form_state) {
+  $form_state['ac_blog_preview_nums']++;
+  $form_state['rebuild'] = TRUE;
+  return $form['blog_settings']['preview']['media'];
+}
+
+/**
+ * Submit Handler for blog node add/edit form
+ */
+function _ac_blog_node_form_submit($form, &$form_state) {
+  $values = isset($form_state['values']) ? $form_state['values'] : array();
+  if (isset($form_state['values']['blog_settings']) && is_array($form_state['values']['blog_settings'])){
+    foreach($form_state['values']['blog_settings'] as &$meta) {
+      if (isset($meta['media']) && is_array($meta['media'])){
+        foreach($meta['media'] as $mid => $media) {
+          if (!isset($media['file']) || $media['file'] == 0) {
+            unset($meta['media'][$mid]);
+          }else {
+            $meta['media'][$mid] = $media['file'];
+          }
+        }
+      }
+      // @TODO remove empty vars
+    }
+  }
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function ac_blog_ac_shortcode_include_directory($plugin) {
+  if ($plugin == 'shortcodes') {
+    return 'shortcodes';
+  }
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function ac_blog_ac_composer_include_directory($plugin) {
+  if ($plugin == 'composer') {
+    return 'composer';
+  }
+}

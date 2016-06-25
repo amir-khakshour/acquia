@@ -1,0 +1,517 @@
+<?php
+/**
+ * @file
+ * Exposes a number of core Drupal elements as blocks.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function ac_blocks_help($path, $arg) {
+  if ($path == 'admin/help#ac_blocks') {
+    return '<p>' . t('This module exposes a number of core Drupal elements as blocks.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_menu()
+ */
+function ac_blocks_menu() {
+  $items = array();
+
+  $items[ACQUIA_MENU_PATH . '/acquia-blocks'] = array(
+    'title' => 'DiamondLayers blocks',
+    'description' => 'Settings for the DiamondLayers blocks module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ac_blocks_admin_settings'),
+    'access arguments' => array('administer acquia blocks'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'includes/ac_blocks.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ac_blocks_permission() {
+  return array(
+    'administer acquia blocks' => array(
+      'title' => t('Administer DiamondLayers blocks'),
+      'description' => t('Manage settings for DiamondLayers blocks module'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function ac_blocks_block_info() {
+  $blocks = array();  
+  foreach (_ac_blocks_get_blocks() as $delta => $info) {
+    if (_ac_blocks_is_enabled($delta)) {
+      $blocks[$delta] = array(
+        'info' => $info['title'],
+        'cache' => $info['cache'],
+      );
+    }
+  }
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ac_blocks_block_view($delta = '') {
+  $blocks = _ac_blocks_get_blocks();
+  if (isset($blocks[$delta]) && _ac_blocks_is_enabled($delta)) {
+    return array(
+      'subject' => '',
+      'content' => ac_blocks_get_content($delta),
+    );
+  }
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function ac_blocks_block_save($delta = '', $edit = array()) {
+  switch ($delta) {
+    case 'branding':
+      variable_set('ac_blocks_branding_site_name_hidden', $edit['ac_blocks_branding_site_slogan_hidden']);
+      variable_set('ac_blocks_branding_site_slogan_hidden', $edit['ac_blocks_branding_site_slogan_hidden']);
+      variable_set('ac_blocks_branding_logo_linked', $edit['ac_blocks_branding_logo_linked']);
+      variable_set('ac_blocks_branding_logo_render', $edit['ac_blocks_branding_logo_render']);
+      variable_set('ac_blocks_branding_site_name_linked', $edit['ac_blocks_branding_site_name_linked']);
+      break;
+      
+    case 'site-name':
+      variable_set('ac_blocks_site_name_linked', $edit['ac_blocks_site_name_linked']);
+      variable_set('ac_blocks_site_name_hidden', $edit['ac_blocks_site_name_hidden']);
+      break;
+      
+    case 'site-slogan':
+      variable_set('ac_blocks_site_slogan_hidden', $edit['ac_blocks_site_slogan_hidden']);
+      break;
+       
+    case 'page-title':
+      variable_set('ac_blocks_page_title_hidden', $edit['ac_blocks_page_title_hidden']);
+      break;
+           
+    case 'logo':
+      variable_set('ac_blocks_logo_linked', $edit['ac_blocks_logo_linked']);
+      break;
+      
+    case 'breadcrumb':
+      variable_set('ac_blocks_breadcrumb_title_hidden', $edit['ac_blocks_breadcrumb_title_hidden']);
+      variable_set('ac_blocks_breadcrumb_current', $edit['ac_blocks_breadcrumb_current']);
+      break;
+      
+    case 'recent-posts':
+      acquia_variable_set('recent_posts_nums', $edit['ac_blocks_recent_posts_nums']);
+      break;
+     
+    case 'recent-tweets':
+      acquia_variable_set('tweetkey', $edit['tweetkey']);
+      acquia_variable_set('tweet_num_items', $edit['tweet_num_items']);
+      break;
+  }
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function ac_blocks_block_configure($delta = '') {
+  $form = array();
+  switch ($delta) {
+    case 'branding':
+      $form['ac_blocks_settings']['ac_blocks_branding_site_name_linked'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Link the site name to your front page'),
+        '#default_value' => variable_get('ac_blocks_branding_site_name_linked', TRUE),
+      );
+      
+      $form['ac_blocks_settings']['ac_blocks_branding_site_name_hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide the site name via CSS'),
+        '#default_value' => variable_get('ac_blocks_branding_site_name_hidden', FALSE),
+      );
+      
+      $form['ac_blocks_settings']['ac_blocks_branding_site_slogan_hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide site slogan via CSS'),
+        '#default_value' => variable_get('ac_blocks_branding_site_slogan_hidden', FALSE),
+      );
+      
+      $form['ac_blocks_settings']['ac_blocks_branding_logo_render'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Show the logo'),
+        '#default_value' => variable_get('ac_blocks_branding_logo_render', TRUE),
+      );
+      
+      $form['ac_blocks_settings']['ac_blocks_branding_logo_linked'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Link the logo to your front page'),
+        '#default_value' => variable_get('ac_blocks_branding_logo_linked', TRUE),
+        '#states' => array(
+          'visible' => array(
+            ':input[name="ac_blocks_branding_logo_render"]' => array('checked' => TRUE),
+          ),
+        ), 
+      );
+      break;
+      
+    case 'site-name':
+      $form['ac_blocks_settings']['ac_blocks_site_name_linked'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Link the site name to your front page'),
+        '#default_value' => variable_get('ac_blocks_site_name_linked', TRUE),
+      );
+      $form['ac_blocks_settings']['ac_blocks_site_name_hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide the site name via CSS'),
+        '#default_value' => variable_get('ac_blocks_site_name_hidden', TRUE),
+      );
+      break;
+      
+    case 'site-slogan':
+      $form['ac_blocks_settings']['ac_blocks_site_slogan_hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide the site slogan via CSS'),
+        '#default_value' => variable_get('ac_blocks_site_slogan_hidden', TRUE),
+      );
+      break;
+           
+    case 'page-title':
+      $form['ac_blocks_settings']['ac_blocks_page_title_hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide page title via CSS'),
+        '#default_value' => variable_get('ac_blocks_page_title_hidden', FALSE),
+      );
+      break;
+
+    case 'recent-posts':
+      $form['ac_blocks_settings']['ac_blocks_recent_posts_nums'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Items'),
+        '#default_value' => acquia_variable_get('recent_posts_nums', 6),
+        '#description' => t('Numer of recent posts to display.'),
+      );
+      break;
+     
+    case 'recent-tweets':
+      $form['ac_blocks_settings']['tweetkey'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Twitter key'),
+        '#default_value' => acquia_variable_get('tweetkey', 'envato'),
+        '#description' => t('Twitter key, which can be a username (prepended with @) a hashtag (prepended with #) or a search keyword (no prefix).'),
+      );
+      $form['ac_blocks_settings']['tweet_num_items'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Items'),
+        '#default_value' => acquia_variable_get('tweet_num_items', 6),
+        '#description' => t('maximum number of tweets to pull from the Twitter result-set. Can\'t be more than 20.'),
+      );
+      break;
+           
+    case 'logo':
+      $form['ac_blocks_settings']['ac_blocks_logo_linked'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Link the logo to your front page'),
+        '#default_value' => variable_get('ac_blocks_logo_linked', TRUE),
+      );
+      break;
+      
+    case 'breadcrumb':
+      $form['ac_blocks_settings']['ac_blocks_breadcrumb_title_hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide the block title via CSS'),
+        '#default_value' => variable_get('ac_blocks_breadcrumb_title_hidden', TRUE),
+      );
+      $form['ac_blocks_settings']['ac_blocks_breadcrumb_current'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Append the current page to the breadcrumb navigation'),
+        '#default_value' => variable_get('ac_blocks_breadcrumb_current', TRUE),
+      );
+      break;
+  }
+  
+  if (!empty($form)) {
+    $form['ac_blocks_settings'] += array(
+      '#type' => 'fieldset',
+      '#title' => t('Block settings'),
+    );
+  }
+  
+  return $form;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ac_blocks_theme() {
+  $path = drupal_get_path('module', 'ac_blocks') . '/theme';
+  
+  return array(
+    'ac_blocks_logo' => array(
+      'variables' => array('logo' => NULL, 'logo_link' => NULL, 'site_name' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_site_name' => array(
+      'variables' => array('site_name' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_site_slogan' => array(
+      'variables' => array('site_slogan' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_branding' => array(
+      'variables' => array('site_name' => NULL, 'site_slogan' => NULL, 'logo' => NULL, 'logo_link' => NULL, 'site_name_hidden' => NULL, 'site_slogan_hidden' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_page_title' => array(
+      'variables' => array('page_title' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+     ),
+    'ac_blocks_breadcrumb' => array(
+      'variables' => array('breadcrumb' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_action_links' => array(
+      'variables' => array('action_links' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_feed_icons' => array(
+      'variables' => array('feed_icons' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_blocks_tabs' => array(
+      'variables' => array('primary' => NULL, 'secondary' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+    'ac_recent_posts' => array(
+      'variables' => array('nodes' => NULL),
+      'file' => 'includes/ac_blocks.theme.inc',
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu_contextual_links_alter().
+ */
+function ac_blocks_menu_contextual_links_alter(&$links, $router_item, $root_path) {
+  $block = array_pop($router_item['map']);
+
+  if (in_array($block, array('site-slogan', 'site-name', 'branding'))) {
+    $links['site-information'] = array(
+      'title' => t('Site information'),
+      'href' => 'admin/config/system/site-information',
+      'localized_options' => array(),
+    );
+  }
+	
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ac_blocks_preprocess_block(&$vars) {
+  if ($vars['block']->delta == 'breadcrumb') {
+    if(variable_get('ac_blocks_breadcrumb_title_hidden', TRUE)) {
+      $vars['title_attributes_array']['class'][] = 'element-invisible';
+    }
+  }
+  
+  if ($vars['block']->delta == 'header-search') {
+    unset($vars['block']->title);
+  } 
+}
+
+/**
+ * Provides individual block content.
+ */
+function ac_blocks_get_content($delta) {
+  $variables = array();
+  switch ($delta) {
+    case 'logo':
+      $variables['logo'] = ac_blocks_logo();
+      $variables['logo_linked'] = variable_get('ac_blocks_logo_linked', TRUE);
+      $variables['site_name'] = filter_xss_admin(variable_get('site_name', 'Drupal'));      
+      return theme('ac_blocks_logo', $variables);
+
+    case 'site-name':
+      $variables['site_name'] = filter_xss_admin(variable_get('site_name'));
+      $variables['site_name_linked'] = variable_get('ac_blocks_site_name_linked', TRUE);
+      $variables['site_name_hidden'] = variable_get('ac_blocks_site_name_hidden', FALSE);
+      return theme('ac_blocks_site_name', $variables);
+
+    case 'site-slogan':
+      $variables['site_slogan'] = filter_xss_admin(variable_get('site_slogan'));
+      $variables['site_slogan_hidden'] = variable_get('ac_blocks_site_slogan_hidden', FALSE);
+      return theme('ac_blocks_site_slogan', $variables);
+      
+    case 'branding':
+      $variables['site_name'] = filter_xss_admin(variable_get('site_name', 'Drupal'));
+      $variables['site_name_linked'] = variable_get('ac_blocks_branding_site_name_linked', TRUE);
+      $variables['site_name_hidden'] = variable_get('ac_blocks_branding_site_name_hidden', FALSE);
+      $variables['site_slogan'] = filter_xss_admin(variable_get('site_slogan', ''));
+      $variables['site_slogan_hidden'] = variable_get('ac_blocks_branding_site_slogan_hidden', FALSE);
+      $variables['logo'] = variable_get('ac_blocks_branding_logo_render', TRUE) ? ac_blocks_logo() : NULL;      
+      $variables['logo_linked'] = variable_get('ac_blocks_branding_logo_linked', TRUE);
+      return theme('ac_blocks_branding', $variables);
+      
+    case 'page-title':
+      $variables['page_title'] = drupal_get_title();
+      $variables['page_subtitle'] = '';
+      $variables['page_title_hidden'] = variable_get('ac_blocks_page_title_hidden', FALSE);
+      return theme('ac_blocks_page_title', $variables);
+      
+    case 'header-search':
+      $form = drupal_get_form('search_block_form');
+      $form['#attributes']['class'][] = 'ac-header-search';
+      $form['#attributes']['class'][] = 'ac-header-search';
+      $form['search_block_form']['#attributes']['placeholder'] = t('type and hit enter...');
+      return drupal_render($form);
+
+    case 'breadcrumb':
+      $variables['breadcrumb_title_hidden'] = variable_get('ac_blocks_breadcrumb_title_hidden', TRUE);
+      $variables['breadcrumb_current'] = variable_get('ac_blocks_breadcrumb_current', TRUE);
+      $variables['breadcrumb'] = drupal_get_breadcrumb();
+      return theme('ac_blocks_breadcrumb', $variables);
+
+    case 'messages':
+      return theme('status_messages');
+
+    case 'tabs':
+      $variables['primary'] = menu_primary_local_tasks();
+      $variables['secondary'] = menu_secondary_local_tasks();
+      return theme('ac_blocks_tabs', $variables);
+
+    case 'action-links':
+      $variables['action_links'] = menu_local_actions();
+      return theme('ac_blocks_action_links', $variables);
+
+    case 'feed-icons':
+      $variables['feed_icons'] = drupal_get_feeds();
+      return theme('ac_blocks_feed_icons', $variables);
+     
+    case 'recent-posts':
+      $variables['nodes'] = node_get_recent(acquia_variable_get('recent_posts_nums', 6));
+      if ($variables['nodes'] = node_get_recent(acquia_variable_get('recent_posts_nums', 6))) {
+        return theme('ac_recent_posts', $variables);
+      }
+      break;
+     
+    case 'recent-tweets':
+      return twitter_pull_render(acquia_variable_get('tweetkey', 'envato'), NULL, acquia_variable_get('tweet_num_items', 6)); 
+  }
+}
+
+/**
+ * @todo
+ */
+function ac_blocks_options() {
+  $output = array();
+  
+  foreach (_ac_blocks_get_blocks() as $block => $info) {
+    $output[$block] = $info['title'];
+  }
+  
+  return $output;
+}
+
+/**
+ * @todo
+ */
+function ac_blocks_logo() {
+  $theme = variable_get('theme_default');
+   
+  if (theme_get_setting('default_logo', $theme)) {
+    $themes = list_themes();
+    $theme_object = $themes[$theme];
+    
+    return file_create_url(dirname($theme_object->filename) . '/logo.png');
+  }
+  else if ($path = theme_get_setting('logo_path', $theme)) {
+    return file_create_url($path);
+  }
+}
+
+/**
+ * Returns a list of ac_blocks blocks.
+ */
+function _ac_blocks_get_blocks() {
+  $items = array(
+    'logo' => array(
+      'title' => t('Logo'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    'site-name' => array(
+      'title' => t('Site name'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    'site-slogan' => array(
+      'title' => t('Site slogan'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    'branding' => array(
+      'title' => t('Branding'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    'page-title' => array(
+      'title' => t('Page title'),
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+    'header-search' => array(
+      'title' => t('Header Search'),
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+    'breadcrumb' => array(
+      'title' => t('Breadcrumb'),
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+    'tabs' => array(
+      'title' => t('Tabs'),
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+    'messages' => array(
+      'title' => t('Messages'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    'action-links' => array(
+      'title' => t('Action links'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    'feed-icons' => array(
+      'title' => t('Feed icons'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    'recent-posts' => array(
+      'title' => t('Recent posts'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+  );
+  
+  if (function_exists('twitter_pull_render')) {
+    $items['recent-tweets'] = array(
+      'title' => t('Recent tweets'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+  }
+  
+  return $items;
+}
+
+/**
+ * Verify if a given block is enabled in the admin settings.
+ */
+function _ac_blocks_is_enabled($delta) {
+  $blocks = variable_get('ac_blocks_toggle', array());
+  
+  if (!empty($blocks[$delta]) || !isset($blocks[$delta])) {
+    return TRUE;
+  }
+  
+  return FALSE;
+}

@@ -1,0 +1,84 @@
+/* Call to action
+---------------------------------------------------------- */
+.db_call_to_action {
+	position: relative;
+	background-color: @vc_call_to_action_bg;
+	padding: 20px;
+	padding: @vc_element_margin_bottom;//@fluidGridGutterWidth;
+	border: 1px solid @vc_call_to_action_border;
+	
+	.db_box_sizing();
+	
+	.db_button {
+		margin: 0;
+		.db_box_sizing();
+	}
+}
+			
+	.cta_align_left .db_button {
+		float: left;
+		//margin-right: 2.5641%;
+	}
+	.cta_align_right .db_button {
+		float: right;
+		//margin-left: 2.5641%;
+	}
+	.cta_align_left .db_button,
+	.cta_align_right .db_button {
+		//max-width: 31.6239%;
+		max-width: @vc_cta_button_w;
+	}
+		
+	.cta_align_left .db_call_text,
+	.cta_align_right .db_call_text {
+		width: 70%;//59.812%;/*65.812%;*/
+		float: left;
+		clear: none;
+	}
+	.cta_align_left .db_call_text {
+		float: right;
+	}
+	
+	.db_call_to_action .db_call_text,
+	#content .db_call_to_action .db_call_text {
+		margin: 0;
+		padding-top: 0;
+	}
+
+.cta_align_bottom {
+	text-align: center;
+	
+	.db_button {
+		position: static;
+		margin-top: @vc_margin_bottom_gold;//@fluidGridGutterWidth;
+		display: inline-block;
+	}
+}
+
+.cta_no_button {
+  .db_call_text {
+    width: auto;
+    float: none;
+  }
+}
+
+/* Call to action responsive rules
+---------------------------------------------------------- */
+@media (max-width: 600px) {
+  .vc_responsive {
+  	.cta_align_left .db_button,
+  	.cta_align_right .db_button {
+  		max-width: 70%;
+  		width: 70%;
+  		float: none;
+  		display: block;
+  		margin: 3% auto;
+  	}
+  	.cta_align_left .db_call_text,
+  	.cta_align_right .db_call_text {
+  		width: auto;
+  		max-width: none;
+  		text-align: center;
+  	}
+  }
+}

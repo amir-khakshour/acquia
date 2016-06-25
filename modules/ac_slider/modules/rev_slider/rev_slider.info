@@ -1,0 +1,6 @@
+name = DiamondLayers  - revolution slider
+core = 7.x
+description = Implements revolution slider tool.
+dependencies[] = ac_slider
+package = DiamondLayers
+

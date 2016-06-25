@@ -1,0 +1,51 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\000031}}
+.font-icon-search {
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\000033}}
+  .font-icon-search .ico-btn {
+    position: absolute;
+    right: 5px;
+    top: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\0000310}}
+.ac-upload {
+  position: relative;
+  width: 152px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\0000313}}
+  .ac-upload div {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 50px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\0000323}}
+  .ac-upload img {
+    border-radius: inherit;
+    width: 150px;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\0000328}}
+  .ac-upload a {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\0000331}}
+  .ac-upload.ac-hovered a {
+    display: block;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: red;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px #333; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-demo\/sites\/all\/modules\/acquia\/modules\/ac_megamenu\/sass\/admin_custom\.scss}line{font-family:\0000346}}
+.ac-megamenu-column {
+  background-repeat: no-repeat !important;
+  background-position: top left;
+  min-width: 14em;
+  *width: 14em; }

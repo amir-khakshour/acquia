@@ -1,0 +1,1 @@
+<a href="mailto:?subject=<?php print $title ?>&body=<?php print strip_tags($excerpt); ?> <?php print $link?>" title="<?php print $title ?>" data-toggle='tooltip' class="product_share_email"><span class="font-icon icon-email"></span></a>

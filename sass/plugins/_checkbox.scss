@@ -1,0 +1,83 @@
+/** DiamondLayers Checkbox
+--------------------------------------------------*/
+.acquia-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 1em;
+  margin-top: -5px;
+  vertical-align: middle;
+  background-color: $danger;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  top: 5px;
+  float:left;
+  @include box-shadow(0 0 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgb(255,255,255));
+  @include border-radius(4px);
+  &::before,
+  &::after {
+	content: 'ON';
+	display: none;
+	width: 50%;
+	position: absolute;
+	top: 0;
+	font-size: 10px;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-align: center;
+  }
+  &::after {
+	content: 'OFF';
+	display: block;
+	right: 0;
+  }
+  span {
+	@extend %small-inner-btn;
+	position: relative;
+	display: block;
+	width: 32px;
+	height: 26px;
+	top: -2px;
+	left: -2px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	&::before,
+	&::after {
+	  content: '';
+	  display: block;
+	  height: 15px;
+	  width: 3px;
+	  position: absolute;
+	  top: 5px;
+	  left: 50%;
+	  margin-left: -6px;
+	  border: 1px solid #cccccc;
+	  border-width: 0 1px;
+	  -webkit-box-shadow: 1px 0 0 white, 1px 0 0 white inset;
+	  box-shadow: 1px 0 0 white, 1px 0 0 white inset;
+	}
+  }
+}
+
+
+.acquia-checkbox span::after {
+  margin-left: 2px;
+}
+
+.acquia-checkbox.on{
+	background-color: $blue;
+}
+
+.acquia-checkbox.on::before {
+  display: block;
+}
+
+.acquia-checkbox.on::after {
+  display: none;
+}
+
+.acquia-checkbox.on span {
+	left: 33px;
+}
+

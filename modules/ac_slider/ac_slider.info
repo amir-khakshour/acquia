@@ -1,0 +1,10 @@
+name = DiamondLayers  - Slider Tools
+core = 7.x
+description = Implements slide builder tool.
+
+dependencies[] = acquia
+
+package = DiamondLayers
+
+; Configuration link
+configure = admin/config/media/acquia_slider

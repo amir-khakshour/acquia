@@ -1,0 +1,22 @@
+.ac-progressbar-item { clear: both; margin-top: 10px; cursor: pointer; padding: 10px; border: 1px dashed #CCCCCC; }
+.ac-progressbar-item:hover { border-color: #333333; }
+
+div.db_ac_progressbar_item .controls { text-align: right; left: auto; width: 60px; right: 10px; }
+
+div.progressbar_progress { border: 1px solid #CFCFCF; height: 20px; float: left; width: 500px; max-width: 100%; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; }
+div.progressbar_progress .progress { height: 100%; -webkit-animation: ac_bg_move 1.2s linear infinite; /* Safari 4+ */ -moz-animation: ac_bg_move 1.2s linear infinite; /* Fx 5+ */ -o-animation: ac_bg_move 1.2s linear infinite; /* Opera 12+ */ animation: ac_bg_move 1.2s linear infinite; /* IE 10+ */ background: #fc0000; -moz-background-size: 6px 6px; background-size: 6px 6px; -webkit-background-size: 6px 5px; background: -webkit-linear-gradient(-45deg, #fc0000 25%, #fe2222 25%, #fe2222 50%, #fc0000 50%, #fc0000 75%, #fe2222 75%, #fe2222); background: -moz-linear-gradient(-45deg, #fc0000 25%, #fe2222 25%, #fe2222 50%, #fc0000 50%, #fc0000 75%, #fe2222 75%, #fe2222); background: -o-linear-gradient(-45deg, #fc0000 25%, #fe2222 25%, #fe2222 50%, #fc0000 50%, #fc0000 75%, #fe2222 75%, #fe2222); background: linear-gradient(-45deg, #fc0000 25%, #fe2222 25%, #fe2222 50%, #fc0000 50%, #fc0000 75%, #fe2222 75%, #fe2222); }
+
+.progressbar_title { display: inline-block; float: left; margin-right: 20px; height: 30px; line-height: 25px; font-size: 11px; }
+
+/*background animation*/
+@-webkit-keyframes ac_bg_move { 0% { background-position: -31px 0; }
+  100% { background-position: 0 0; } }
+
+@-moz-keyframes ac_bg_move { 0% { background-position: -31px 0; }
+  100% { background-position: 0 0; } }
+
+@-o-keyframes ac_bg_move { 0% { background-position: -31px 0; }
+  100% { background-position: 0 0; } }
+
+@keyframes ac_bg_move { 0% { background-position: -31px 0; }
+  100% { background-position: 0 0; } }

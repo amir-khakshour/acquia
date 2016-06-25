@@ -1,0 +1,8 @@
+name = DiamondLayers Skin generator
+description = "Allows for customizing the Skin of Your DiamondLayers theme"
+core = 7.x
+
+dependencies[] = acquia
+package = DiamondLayers
+
+

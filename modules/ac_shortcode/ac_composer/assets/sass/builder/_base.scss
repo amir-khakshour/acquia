@@ -1,0 +1,125 @@
+/**
+ * Diamond Builder > Base styles
+ */
+.db-container{
+  margin-bottom: 20px;
+  padding: 0;
+  line-height: 1;
+  margin-top: 20px;
+  border: 1px solid #e5e5e5;
+  @include box-shadow(0 1px 1px rgba(0,0,0,.04));
+  .inside {
+    position: relative;
+    margin: 15px;
+  }
+  ul{
+    list-style: none;
+  }
+}
+
+.db-title{
+  height: 42px;
+  line-height: 42px;
+  font-size: 1.15em;
+  font-weight: 500;
+  padding: 0 20px;
+  margin: 0;
+  background-color: #EEEEEE;
+  background-color: rgba(245, 245, 245, 0.35);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.db-intro{
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 15px;
+  border: 1px dashed #C1C1C1;
+  .empty &{
+    padding: 100px 0;
+    margin: 0;
+    h2{
+      display: block;
+    }
+    a.button{
+      display: inline-block;
+    }
+  }
+  h2{
+    font-size: 2.1em;
+    margin-bottom: 34px;
+    display: none;
+  }
+  .admin-icon{
+    display: block;
+    float: left;
+  }
+  a.button{
+    line-height: 42px;
+    height: 42px;
+    display: none;
+    span, .admin-icon:before{
+      height: 42px;
+      line-height: 42px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  a.add-element-to-layout{
+    margin-right: 10px;
+    background-color: #aed13b;
+    &, &:hover, &:focus{
+      @include background-image(linear-gradient(to bottom, #aed13b 0%, #C5EE40 0%, rgba(0, 0, 0, 0) 100%));
+    }
+    &:hover, &:focus{
+      background-color: #9ABB31;
+    }
+  }
+  a.db-not-empty-add-element{
+    @extend %small-circled-border;
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 0, 0, 0.09) url(../builder/add-row.png) center center no-repeat;
+    cursor: pointer;
+    border: none !important;
+    display: inline-block;
+  }
+
+  .admin-icon{
+    width: 42px;
+    text-align: center;
+  }
+  .admin-icon-text{
+    &:before{
+      vertical-align: text-bottom;
+      content: 'T';
+      font-family: tahoma;
+      font-size: 32px;
+    }
+  }
+}
+
+
+.db-content.empty{
+  a.db-not-empty-add-element{
+    display: none;
+  }
+}
+
+/**
+ * Visual Composer Loading icon
+ */
+.db-loading{
+  .inner{
+    display: table;
+    text-align: center;
+    margin: 42px auto;
+  }
+  .sk-folding-cube,
+  .loading-text{
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.loading-text{
+  padding-left: 30px;
+}

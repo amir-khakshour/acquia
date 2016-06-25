@@ -1,0 +1,14 @@
+/*-------------------------------------------------------------------------*/
+/* Base DiamondLayers Admin Styles
+/*-------------------------------------------------------------------------*/
+@include at-breakpoint($big-scr) {
+	body div .ac-table{
+		display: table;
+		width: 100%
+	}
+	
+	body div .ac-cell{
+		display: table-cell;
+		vertical-align: middle;
+	}
+}

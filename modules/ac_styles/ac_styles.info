@@ -1,0 +1,15 @@
+name = DiamondLayers Styles
+description = "Allows for customizing the styles of drupal sections"
+core = 7.x
+
+dependencies[] = acquia
+dependencies[] = ac_blocks
+package = DiamondLayers
+
+; Includes
+files[] = includes/base.inc
+files[] = includes/theme.inc
+files[] = includes/context.inc
+files[] = includes/image.api.inc
+files[] = plugins/page_title_section.inc
+

@@ -1,0 +1,226 @@
+<?php
+/**
+ * @file
+ *
+ * Allows for customizable background of header per page
+ */
+
+/*****************************************************************************
+* INCLUDES
+*****************************************************************************/
+// Adds theme functions hooks and overriding
+require_once (dirname(__FILE__) . '/includes/theme.inc');
+
+// Adds context functions hooks and overriding
+require_once (dirname(__FILE__) . '/includes/context.inc');
+ 
+// settings path for DiamondLayers styles
+define('AC_STYLES_ADMIN_PATH', ACQUIA_MENU_PATH . '/ac-styles');
+
+/**
+ * Implements hook_menu()
+ *
+ */
+function ac_styles_menu() {
+	$items = array();
+	$module_path = drupal_get_path('module', 'ac_styles');
+
+	$items[AC_STYLES_ADMIN_PATH] = array(
+		'title' => t('DiamondLayers Styles'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_styles_general_settings'),
+		'access arguments' => array('administer ac_styles'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('Manage DiamondLayers Styles'),
+	);
+	
+	$items[AC_STYLES_ADMIN_PATH . '/general'] = array(
+		'title' => t('General Settings'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_styles_general_settings'),
+		'access arguments' => array('administer ac_styles'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('Manage DiamondLayers Styles'),
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 2,
+	);
+  return $items;
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function ac_styles_permission() {
+  return array(
+    'administer ac_styles' => array(
+      'title' => t('Administer acquia styles'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_node_form_alter()
+ */
+function ac_styles_form_node_form_alter(&$form, &$form_state, $form_id) {
+	if (isset($form['type']) && $form['type']['#value'] .'_node_form' == $form_id) {
+    $node = $form['#node'];
+    // @todo Check if this content type is enabled to use DiamondLayers Node Style
+   	/*$option = variable_get("context_node_default_" . $node->type, '');
+   	if($option == "none") {
+     	return;
+   	}*/
+
+    //if(!empty($option)) {
+			$node = $form_state['node'];
+			$meta = array();
+			
+			if (isset($node->nid)) {
+				$node = node_load($node->nid);
+				$meta = isset($node->nodemeta) ? $node->nodemeta : array();
+			}
+			
+      $form['ac_style'] = array(
+        '#attributes' => array('class' => array('ac-admin')),
+        '#type' => 'fieldset',
+        '#title' => t('DiamondLayers style'),
+        '#description' => t('Here you can style all stylable elements of this node.'),
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#group' => 'additional_settings',
+        '#weight' => 130, 
+        '#tree' => true, 
+      );
+
+			// Load all plugins type "ac_style".
+			ctools_include('plugins');
+			foreach (array_keys(ac_styles_get_styles_plugins()) as $plugin_name) {
+				$values = isset($meta[$plugin_name]) ? $meta[$plugin_name] : array();
+				$plugin = ac_style_get_plugin($plugin_name, array($plugin_name => $values));
+				$form['ac_style'] += $plugin->style_form(array('parents' => array('ac_style', $plugin_name), 'node' => $node));
+			}
+    //}
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function ac_styles_node_insert($node) {
+	ac_styles_node_update($node);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function ac_styles_node_update($node) {
+	if(isset($node->ac_style)) {
+		acquia_include('meta');
+		foreach($node->ac_style as $key => $styles) {
+			ac_save_node_meta($node, array($key => $styles));
+		}
+	}
+}
+
+/**
+ * Implementation of hook_node_view().
+ */
+function ac_styles_node_view($node, $view_mode) {
+	if ($view_mode == 'full') {
+		if (isset($node->nodemeta['node_layout']) && !empty($node->nodemeta['node_layout'])) {
+			$context_mn = $node->nodemeta['node_layout'];
+		}else{
+			$context_mn = variable_get('ac_styles_node_' . $node->type .'_default_context',
+																acquia_variable_get("node_default_layout", "second-sidebar"));
+		}
+			// Load the context
+			$context = context_load($context_mn);
+			// Set the context
+			context_set('context', "context_node", $context);
+	}
+}
+
+/**
+ * Get a plugin handler.
+ */
+function ac_style_get_plugin($key, $values = array(), $reset = FALSE) {
+  $cache = &drupal_static(__FUNCTION__);
+ 
+  if (!isset($cache[$key]) || $reset) {
+    ctools_include('plugins');
+    $plugin = ctools_get_plugins('ac_styles', 'plugins', $key);
+    $class = ctools_plugin_get_class($plugin, 'handler');
+		if ($class == false) {
+			$cache[$key] = NULL;
+		}else {
+			$cache[$key] = new $class($values);
+			// Check that plugin class has ingerited proper 'acquia_styles' class.
+			if (!is_subclass_of($cache[$key], 'acquia_styles')) {
+				$cache[$key] = NULL;
+			}
+		}
+  }
+ 
+  return $cache[$key];
+}
+
+/**
+ * implementing hook_acquia_default_variables()
+ */
+function ac_styles_acquia_default_variables() {
+	$lib_path = 'sites/all/libraries';
+	return array(
+		'hero_style' => 'simple',
+		'hero_bg_type' => 'dark',
+		'hero_bg_repeat' => 'no-repeat',
+		'hero_title_hide' => 0,
+	);
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function ac_styles_ctools_plugin_directory($module, $plugin) {
+  if (($module == 'ac_styles')) {
+    return 'plugins';
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function ac_styles_ctools_plugin_api($module, $api) {
+  if ($module == 'context' && $api == 'plugins') {
+    return array('version' => 3);
+  }
+}
+
+/**
+ * Implementation of hook_ctools_plugin_type().
+ */
+function ac_styles_ctools_plugin_type() {
+  return array(
+    'plugins' => array(
+      'cache' => TRUE,
+      'use hooks' => TRUE,
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_ac_styles_plugins().
+ * 
+ */
+function ac_styles_ac_styles_plugins(){
+	ac_styles_get_styles_plugins();
+}
+
+/**
+ * Get List of available acquia styles plugins
+ */
+function ac_styles_get_styles_plugins(){
+  module_load_include('inc', 'ac_styles', 'includes/plugins');
+  return _ac_styles_plugins();
+}

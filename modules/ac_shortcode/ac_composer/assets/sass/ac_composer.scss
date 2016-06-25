@@ -1,0 +1,307 @@
+@import "partials/utility";
+#db-wrapper {
+  #db_visual_composer i.icon{
+    vertical-align: middle;
+  }
+  #db-empty-blocks{
+    margin-top: -200px;
+    position: relative;
+  }
+  .composer-switch{
+    height: auto;
+  }
+  .db-navbar li.vc_dropdown .vc_dropdown-menu{
+    max-width: 305px;
+  }
+  .db-navbar{
+    z-index: 999;
+    .vc_logo{
+      margin-top: 8px;
+    }
+  }
+  .db-content{
+    position: relative;
+    z-index: 1;
+  }
+  h3.hndle{
+    text-align: left!important;
+  }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  .db_vc_box{
+
+  }
+
+  // header
+  #db_visual_composer {
+    >.hndle{
+      background-color: #F9FAFC;
+      font-size: 16px;
+      @include background-image(linear-gradient(to bottom, rgba(40, 50, 60, 0) 0%, rgba(40, 50, 60, 0.05) 100%));
+    }
+  }
+  h3.ui-accordion-header{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    text-transform: lowercase;
+    font-weight: normal;
+  }
+  .db-navbar{
+    .vc_dropdown-menu, .vc_dropdown-menu ul {
+      margin-left:0;
+      margin-right:0;
+    }
+    li a.button{
+      line-height: 28px;
+      height: 28px;
+    }
+  }
+
+  .helper-block{
+    border: 0px;
+    td{
+      padding: 0;
+      border: 0px;
+      &:first-child{
+        width: 70px;
+      }
+    }
+  }
+
+  /* Composer templates */
+  .db_templates_list{
+    margin-top: -15px;
+    position: relative;
+    li{
+      padding: 0 5px;
+      margin: 5px 0;
+    }
+  }
+  
+  .db-label{
+    display: block;
+    label{
+      display: inline-block
+    }
+  }
+  /** Composer Shortcode View **/
+  /* Accordion */
+  h3.ui-accordion-header{
+    text-transform: capitalize;
+  }
+  /** Tabs **/
+  .ac-full-height{
+    height: auto;
+  }
+  .ac-no-icon{
+    background-image: none;
+    padding: 10px;
+  }
+  
+  /** Tabs **/
+  .toggled > .bottom-controls{
+      display: none;
+    }
+}
+
+/** Global **/
+body .ui-widget-content {
+  border: 0
+}
+body .ui-widget{
+  background: transparent;
+}
+
+/** Shortcodes styles **/
+// vc_text_separator
+.db_vc_text_separator{
+  .db_element_title{
+    text-indent: -999em;
+  }
+
+  div.textfield{
+    top: -15px;
+  }
+}
+
+/* Add element grid icons
+---------------------------------------------------------- */
+.modal-header .close {
+  margin-top: 5px;
+}
+.db_bootstrap_modals [class^="icon-db"],
+.db_bootstrap_modals [class*=" icon-db"] {
+  background-image: url(../composer/vc/elements_icons/sprite.png);
+  width: 16px;
+  height: 16px;
+  margin-top: -1px;
+}
+
+// Modal Icons
+.icon-db-application-icon-large {
+  background-position: 0 -18px;
+}
+.icon-db-application-plus {
+  background-position: 0 -36px;
+}
+.icon-db-balloon-facebook-left {
+  background-position: 0 -54px;
+}
+.icon-db-balloon-twitter-left {
+  background-position: 0 -72px;
+}
+.icon-db-film-youtube {
+  background-position: 0 -90px;
+}
+.icon-db-images-stack {
+  background-position: 0 -108px;
+}
+.icon-db-information-white {
+  background-position: 0 -126px;
+}
+.icon-db-layer-shape-text {
+  background-position: 0 -144px;
+}
+.icon-db-layout_sidebar {
+  background-position: 0 -162px;
+}
+.icon-db-map-pin {
+  background-position: 0 -180px;
+}
+.icon-db-slideshow {
+  background-position: 0 -198px;
+}
+.icon-db-toggle-small-expand {
+  background-position: 0 -216px;
+}
+.icon-db-ui-accordion {
+  background-position: 0 -234px;
+}
+.icon-db-ui-button {
+  background-position: 0 -252px;
+}
+.icon-db-ui-separator-label {
+  background-position: 0 -270px;
+}
+.icon-db-ui-separator {
+  background-position: 0 -288px;
+}
+.icon-db-ui-tab-content-vertical {
+  background-position: 0 -306px;
+}
+.icon-db-ui-tab-content {
+  background-position: 0 -324px;
+}
+.icon-db-pinterest {
+  background-position: 0 -342px;
+}
+.icon-db-tweetme {
+  background-position: 0 -360px;
+}
+.icon-db-single-image {
+  background-position: 0 -378px;
+}
+.icon-db-call-to-action {
+  background-position: 0 -396px;
+}
+.icon-db-raw-html {
+  background-position: 0 -414px;
+}
+.icon-db-raw-javascript {
+  background-position: 0 -432px;
+}
+.icon-db-flickr {
+  background-position: 0 -450px;
+}
+.icon-db-contactform7 {
+  background-position: 0 -468px;
+}
+.icon-db-vc_gravityform {
+  background-position: 0 -486px;
+}
+.icon-db-layerslider {
+  background-position: 0 -504px;
+}
+.icon-db-revslider {
+  background-position: 0 -522px;
+}
+.icon-db-graph {
+  background-position: 0 -540px;
+}
+.icon-db-wp {
+  background-position: 0 -558px;
+}
+.icon-db-vc_pie {
+  background-position: 0 -576px;
+}
+.icon-db-row {
+  background: transparent url(../composer/vc/row_prepend.png) no-repeat center center;
+}
+
+
+/** MISC **/
+.admin-menu .db-navbar.subnav-fixed{
+  top: 20px
+}
+.ac-align-left{
+  text-align: left;
+}
+.ac-align-center{
+  text-align: center;
+}
+.ac-align-right {
+  text-align: right;
+}
+// Inline Shortcodes
+.db_ac_team {
+  display: inline-block;
+  margin: 10px !important;
+  min-width: 265px;
+}
+
+// Testimonials
+.ac-testimonial-item {
+  padding: 10px;
+  div{
+    margin-bottom: 5px!important;
+  }
+  .author_pic{
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+  }
+}
+
+// Fancy List
+.db_ac_list ul{
+  list-style: disc!important;
+}
+
+.db_row_container > .db-ac-col{
+  @include border-radius(6px);
+}
+.db-sortable.db-full-controll .db-controls {
+  text-align: right;
+  float: right;
+  width: auto;
+}
+.db-sortable.db-full-controll .bottom-controls {
+  text-align: center;
+  float: none;
+}
+.db-ac-col > .db-controls.db-controls-column{
+  text-align: center;
+}
+
+// Modal
+/** UI Styles **/
+.ui-widget-overlay{
+  z-index: 1000;
+}
+.ui-dialog{
+  z-index: 1200;
+}

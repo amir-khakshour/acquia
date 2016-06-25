@@ -1,0 +1,259 @@
+<?php
+/**
+ * @file
+ * Exposes a number of core Drupal elements as blocks.
+ */
+
+// DiamondLayers Portfolio machine Name
+define('AC_PORTFOLIO_MN', 'portfolio');
+
+// DiamondLayers Portfolio taxonomy machine Name
+define('AC_PORTFOLIO_TAX_MN', 'portfolio');
+
+// machine name for like flag on portfolio
+define('AC_PORTFOLIO_LIKE_FLAG_MN', 'like');
+
+// DiamondLayers Portfolio category field machine Name
+define('AC_PORTFOLIO_FIELD', 'field_portfolio_category');
+
+// settings path for DiamondLayers Portfolio
+define('AC_PORTFOLIO_ADMIN_PATH', ACQUIA_MENU_PATH . '/ac-portfolio');
+
+// theme functions
+require_once (dirname(__FILE__) . '/includes/theme.inc');
+
+/**
+ * Implements hook_help().
+ */
+function ac_portfolio_help($path, $arg) {
+  //if ($path == 'admin/help#ac_portfolio') {
+  //  return '<p>' . t('This module exposes a number of core Drupal elements as blocks.') . '</p>';
+  //}
+}
+
+/**
+ * Implements hook_menu()
+ *
+ */
+function ac_portfolio_menu() {
+	$items = array();
+	$module_path = drupal_get_path('module', 'ac_portfolio');
+
+	$items[AC_PORTFOLIO_ADMIN_PATH] = array(
+		'title' => t('DiamondLayers Portfolio'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_portfolio_settings'),
+		'access arguments' => array('administer ac_portfolio'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('Manage portfolios'),
+	);
+	
+	$items[AC_PORTFOLIO_ADMIN_PATH . '/general'] = array(
+		'title' => t('General Settings'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ac_portfolio_settings'),
+		'access arguments' => array('administer ac_portfolio'),
+		'file path' => $module_path . '/includes',
+		'file' => 'admin.inc',
+		'description' => t('Manage portfolios'),
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 2,
+	);
+	
+  $items['ac_portfolio_like/%/%/append'] = array(
+    'page callback' => 'ac_portfolio_like_append',
+    'page arguments' => array(1, 2),
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ac_portfolio_permission() {
+  return array(
+    'administer ac_portfolio' => array(
+      'title' => t('Administer acquia portfolio'),
+      'description' => t('Administer acquia portfolio settings'),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function ac_portfolio_init() {
+  if (variable_get('ac_portfolio_like_enabled', TRUE)) {
+    drupal_add_library('system', 'drupal.ajax');
+    ctools_add_js('ac_portfolio.like', 'ac_portfolio');
+  }
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function ac_portfolio_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node_edit_form']) && $form['#node_edit_form'] === TRUE &&
+      isset($form['type']['#value']) && $form['type']['#value'] == AC_PORTFOLIO_MN) {
+      module_load_include('inc', 'ac_portfolio', '/includes/form');
+      _ac_portfolio_node_form($form, $form_state);
+  }
+}
+
+/**
+ * Implements hook_plugins_PLUGIN_preproces_region().
+ */
+function template_preprocess_ac_blocks_page_title(&$vars) {
+  if (empty($vars['page_subtitle']) && arg(0) == 'node') {
+    $node = node_load(arg(1));
+    if (isset($node->type) && $node->type == AC_PORTFOLIO_MN && isset($node->nodemeta['misc']['subtitle'])) {
+      $vars['page_subtitle'] = $node->nodemeta['misc']['subtitle'];
+    }
+  }
+}
+
+/**
+ * Implements hook_node_update()
+ */
+function ac_portfolio_node_update($node) {
+  if ($node->type == AC_PORTFOLIO_MN && isset($node->portfolio_settings)) {
+    acquia_include('meta');
+    foreach($node->portfolio_settings as $mkey => $meta){
+      ac_save_node_meta($node, array($mkey => $meta));
+    }
+  }
+}
+
+/**
+ * Implements hook_node_insert()
+ */
+function ac_portfolio_node_insert($node) {
+  ac_portfolio_node_update($node);
+}
+
+/**
+ * Submit handler for "Add another thumbnail" button on portfolio node add/edit form.
+ */
+function _ac_portfolio_node_form_add_thumb($form, &$form_state) {
+  $form_state['ac_portfolio_thumb_nums']++;
+  $form_state['rebuild'] = TRUE;
+  return $form['portfolio_settings']['thumb']['media'];
+}
+
+/**
+ * Submit handler for "Add another preview image" button on portfolio node add/edit form.
+ */
+function _ac_portfolio_node_form_add_preview($form, &$form_state) {
+  $form_state['ac_portfolio_preview_nums']++;
+  $form_state['rebuild'] = TRUE;
+  return $form['portfolio_settings']['preview']['media'];
+}
+
+/**
+ * Submit Handler for portfolio node add/edit form
+ */
+function _ac_portfolio_node_form_submit($form, &$form_state) {
+  $values = isset($form_state['values']) ? $form_state['values'] : array();
+  if (isset($form_state['values']['portfolio_settings']) && is_array($form_state['values']['portfolio_settings'])){
+    foreach($form_state['values']['portfolio_settings'] as &$meta) {
+      if (isset($meta['media']) && is_array($meta['media'])){
+        foreach($meta['media'] as $mid => $media) {
+          if (!isset($media['file']) || $media['file']['fid'] == 0) {
+            unset($meta['media'][$mid]);
+          }else {
+            $meta['media'][$mid]['fid'] = $media['file']['fid'];
+            unset($meta['media'][$mid]['file']);
+          }
+        }
+      }
+      // @TODO remove empty vars
+    }
+  }
+}
+
+/**
+ * Implements hook_flag_default_flags()
+ */
+function ac_portfolio_flag_default_flags() {
+  $flags = array();
+  // Exported flag: "Like".
+  $flags[AC_PORTFOLIO_LIKE_FLAG_MN] = array(
+    'name' => AC_PORTFOLIO_LIKE_FLAG_MN,
+    'entity_type' => 'node',
+    'title' => 'Like',
+    'global' => 0,
+    'types' => array(
+      0 => AC_PORTFOLIO_MN,
+    ),
+    'flag_short' => 'Like',
+    'flag_long' => 'Like this item',
+    'flag_message' => 'You liked this item',
+    'unflag_short' => 'Unlike this item',
+    'unflag_long' => '',
+    'unflag_message' => 'You Unliked this item',
+    'unflag_denied_text' => '',
+    'link_type' => 'toggle',
+    'weight' => 0,
+    'show_in_links' => array(
+      'full' => 'full',
+      'teaser' => 'teaser',
+      'rss' => 0,
+      'search_index' => 0,
+      'search_result' => 0,
+    ),
+    'show_as_field' => 0,
+    'show_on_form' => 0,
+    'access_author' => '',
+    'show_contextual_link' => 0,
+    'i18n' => 0,
+    'api_version' => 3,
+  );
+  return $flags;
+}
+
+/**
+ * Implements hook_flag_access()
+ */
+function ac_portfolio_flag_access($flag, $entity_id, $action, $account) {
+  if ($flag->name == AC_PORTFOLIO_LIKE_FLAG_MN) {
+    return TRUE;
+  }
+}
+
+/**
+ * 
+ */
+function ac_portfolio_like_append($flag_type, $content_id) {
+  acquia_include('utility', 'ac_portfolio');
+  $like_count = ac_portfolio_get_likes_counts($content_id);
+  
+  $result = array(
+    'contentId' => $content_id,
+    'count' => $like_count,
+    'flag' => AC_PORTFOLIO_LIKE_FLAG_MN,
+  );
+  return drupal_json_output($result);
+}
+
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function ac_portfolio_ac_shortcode_include_directory($plugin) {
+  if ($plugin == 'shortcodes') {
+    return 'shortcodes';
+  }
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function ac_portfolio_ac_composer_include_directory($plugin) {
+  if ($plugin == 'composer') {
+    return 'composer';
+  }
+}

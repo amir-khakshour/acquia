@@ -1,0 +1,35 @@
+%circled-border{
+  @include border-radius(1000px);
+}
+
+%circled-border-hard{
+  @include border-radius(500%);
+}
+
+%square-border{
+  @include border-radius(0);
+}
+
+%full-edge-circled-border{
+  @include border-radius($border-radius);
+}
+
+%full-edge-hard-circled-border{
+  @include border-radius($hard-border-radius);
+}
+
+%full-edge-hard-bottom-circled-border{
+  @include border-radius( 0 0 $hard-border-radius $hard-border-radius);
+}
+
+%large-circled-border{
+  @include border-radius($large-border-radius);
+}
+
+%top-edge-circled-border{
+  @include border-radius($border-radius $border-radius 0 0);
+}
+
+%bottom-edge-circled-border{
+  @include border-radius(0 0 $border-radius $border-radius);
+}

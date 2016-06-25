@@ -1,0 +1,169 @@
+/*-------------------------------------------------------------------------*/
+/* Admin Theme Settings Styles
+/*-------------------------------------------------------------------------*/
+.acquia-theme-options{
+	border: 1px solid $vtabs-border-color;
+	max-width: 100%;
+	position: relative;
+	background: #f1f1f1;
+	z-index: 2;
+	width: 960px;
+	background: $vtabs-bg-color;
+	&.ac-vtabs-enabled{
+		#edit-actions{
+			margin-left: $vtabs-list-width;
+		}
+	}
+	#edit-actions{
+	  padding: 10px;
+	  margin: 0;
+	  text-align: right;
+	  background: $footer-color;
+	  border-top: 1px solid #e0e4e8;
+	}
+	.omega-assets-missing-files{
+		margin: 0;
+	}
+	>.form-wrapper{
+		margin: 0
+	}
+}
+
+/** Vertical Tabs
+--------------------------------------------------*/
+.acquia-theme-options .vertical-tabs{
+	// vertical Tabs
+	background: #f9fafc;
+	display: table;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	margin: 0;
+	border: none;
+	.vertical-tabs-list,
+	.vertical-tabs-panes{
+		display: table-cell;
+		height: 100%;
+		vertical-align: top;
+	}
+	.vtab-pane-legend,
+	.vertical-tabs-list{
+		border-bottom: none;
+		float: none;
+		background: $vtabs-bg-color;
+	}
+	
+	fieldset.vertical-tabs-pane legend.vtab-pane-legend{
+		margin: 0;
+		padding: 10px 0;
+
+		background: transparent!important;
+		color: inherit;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	}
+	/** Vertical Tab Panes **/
+	.vertical-tabs-panes{
+		padding: 10px 15px;
+	}
+	
+	fieldset.vertical-tabs-pane{
+		/** Vertival Tab Pane **/
+		padding: 20px 0;
+		margin: 0;
+		legend{
+			// first legend > main header
+			background: transparent;
+			color: #333;
+			margin-left: 20px;
+			padding-top: 15px;
+			padding-left: 0!important;
+			padding-right: 0!important;
+			margin-left: 0!important;
+			.fieldset-legend{
+				border: none;
+				height: auto;
+				line-height: 22px;
+				font-weight: 500;
+				color: #252525;
+			}
+		}
+		.fieldset-wrapper{
+			background: none;
+			border: none;
+		}
+		fieldset.form-wrapper{
+			/** First level fieldsets In current pane **/
+			padding: 0!important;
+			margin: 0;
+			background: transparent;
+			height: auto;
+		}
+		fieldset.form-wrapper fieldset{
+			margin: 10px;
+			/** Inner level fieldsets In current pane **/
+			&.collapsed legend{
+				background: #fff;
+			}
+			legend{
+				background: #f5f5f5;
+				@extend %border-box-sizing;
+				color: #717171;
+				border: 1px solid #ebeff6;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			.fieldset-legend{
+			  padding: 0;
+			  background: none;
+			}
+		}
+		
+		fieldset.form-wrapper fieldset fieldset{
+			.fieldset-wrapper{
+				background: darken(#fff, 1%);
+				.fieldset-wrapper{
+					background: #fff
+				}
+			}
+		}
+
+	}
+	
+
+	.fieldset-wrapper{
+		padding: 0;
+		.fieldset-wrapper{
+			margin: 0;
+			.fieldset-wrapper{
+				border: 1px solid #e5e5e5
+			}
+		}
+	}
+}
+
+/** toggle vertical tabs **/
+.toggle-view{
+	#ac-options-header,
+	.form-actions{
+		margin: 0!important;
+		border-left:none;
+  }
+	legend{
+		display: block !important;
+	}
+  
+  .toggle-tabs span{
+		@include buttonstyle($danger-dker, $danger);
+  }
+  .vertical-tabs-list{
+		display: none !important;
+  }
+  .vertical-tabs-panes{
+	margin: 0 !important;
+	border:0 !important;
+		fieldset{
+			display: block!important;
+		}
+  }
+}

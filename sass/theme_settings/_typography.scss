@@ -1,0 +1,64 @@
+/*-------------------------------------------------------------------------*/
+/* Typography Extension
+/*-------------------------------------------------------------------------*/
+.ac-preview-wrap{
+	position: relative;
+ .label{
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 5px;
+		background: rgba(0, 0, 0, 0.2);
+		color: #FFF;
+		font-weight: 300;
+		font-size: 11px
+ }
+}
+.ac-font-preview{
+	@extend %highlighted;
+	padding: 30px 10px;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	line-height: 1;
+	color: #333;
+}
+
+.ac-admin{
+	.ac-slider-ui{
+		background: #F8F8F8;
+		border: 1px solid #CCC;
+		width: 83%;
+		margin-right: 15px;
+		border-radius: 25px;
+		height: 15px;
+		vertical-align: middle;
+		margin-top: -5px;
+		.ui-slider-range {
+		 @extend %small-inner-btn;
+		 @extend %no-box-shadow;
+			 border: 0;
+			 top: 0;
+			 height: 100%;
+			 border-radius: 25px;
+		}
+		.ui-slider-handle{
+			@extend %full-edge-circled-border;
+			width: 15px;
+			height: 22px;
+			border: 1px solid #CCC;
+			top: -5px;
+			background: #FFF;
+			&:active{
+				background: #F5F5F5;
+			}
+		}
+	}
+	input.ac-slider{
+		width: 40px!important;
+		text-align: center;
+	}
+	.ac-slider-ui, input.ac-slider{
+		display: inline-block;
+	}
+}

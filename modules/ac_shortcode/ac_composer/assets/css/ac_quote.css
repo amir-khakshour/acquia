@@ -1,0 +1,19 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_quote\.scss}line{font-family:\000033}}
+blockquote.ac-fancy-quote {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  margin: 10px 20px;
+  padding: 10px 0 10px 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/www\/demo\/aura-commerce\/sites\/all\/modules\/acquia\/modules\/ac_shortcode\/ac_composer\/assets\/sass\/ac_quote\.scss}line{font-family:\0000312}}
+  blockquote.ac-fancy-quote .fancy-quote-content:before {
+    display: block;
+    position: absolute;
+    color: #7a7a7a;
+    font-size: 80px;
+    content: "\201C";
+    left: -20px;
+    top: -20px; }

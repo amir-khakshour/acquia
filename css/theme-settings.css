@@ -1,0 +1,339 @@
+.acquia-theme-options .vertical-tabs li.vertical-tab-button a .tab-icon {
+  font: 20px 'fontadmin';
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.ac-admin .ac-slider-ui .ui-slider-range {
+  font-size: 11px;
+  background-color: #f0f0f0;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwZjBmMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f0f0f0), color-stop(100%, #e6e6e6));
+  background: -moz-linear-gradient(top, #f0f0f0, #e6e6e6);
+  background: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+  background: linear-gradient(to bottom, #f0f0f0, #e6e6e6);
+  -moz-box-shadow: 0 1px 0 white inset, 0 1px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 0 white inset, 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 white inset, 0 1px 1px rgba(0, 0, 0, 0.25);
+  -moz-transition: left 0.2s linear;
+  -o-transition: left 0.2s linear;
+  -webkit-transition: left 0.2s linear;
+  transition: left 0.2s linear;
+}
+
+.ac-font-preview {
+  background: #F1F1F1;
+}
+
+.ac-admin .ac-slider-ui .ui-slider-range {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.acquia-styles-list a.acquia-color-scheme, .ac-admin .ac-slider-ui .ui-slider-handle {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Admin Theme Settings Styles
+/*-------------------------------------------------------------------------*/
+.acquia-theme-options .omega-extension .fieldset-wrapper .fieldset-wrapper .form-type-checkbox {
+  text-align: left;
+}
+.acquia-theme-options .omega-extension .fieldset-wrapper .fieldset-wrapper .fieldset-legend {
+  font-size: 13px;
+  display: block;
+  height: 3em;
+  line-height: 3em;
+}
+.acquia-theme-options .omega-extension .fieldset-wrapper .fieldset-wrapper .fieldset-legend .font-icon {
+  display: inline-block;
+}
+.acquia-theme-options .vertical-tabs li.vertical-tab-button {
+  position: relative;
+  z-index: 2;
+  text-transform: capitalize;
+}
+.acquia-theme-options .vertical-tabs li.vertical-tab-button:focus {
+  outline: none;
+}
+.acquia-theme-options .vertical-tabs li.vertical-tab-button a {
+  border-left: none !important;
+  border-right: none;
+  background: #4C5566;
+  padding: 15px 15px;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: color .3s ease-in-out 0s;
+  color: #A7AFBD;
+  font-size: 13px;
+}
+.acquia-theme-options .vertical-tabs li.vertical-tab-button a strong {
+  margin-left: 10px;
+}
+.acquia-theme-options .vertical-tabs li.vertical-tab-button a .tab-icon {
+  display: inline-block;
+  width: 20px;
+  color: inherit;
+  position: relative;
+  bottom: -2px;
+}
+.acquia-theme-options .vertical-tabs li.vertical-tab-button a .tab-icon:before {
+  content: '\e80c';
+}
+.acquia-theme-options li.edit-global .tab-icon:before {
+  content: '\E80B';
+}
+.acquia-theme-options li.edit-skin .tab-icon:before {
+  content: '\e804';
+}
+.acquia-theme-options li.edit-layouts .tab-icon:before {
+  content: '\e812';
+}
+.acquia-theme-options li.edit-development .tab-icon:before {
+  content: '\e80a';
+}
+.acquia-theme-options li.edit-compatibility .tab-icon:before {
+  content: '\e80e';
+}
+.acquia-theme-options li.edit-assets .tab-icon:before {
+  content: '\e815';
+}
+.acquia-theme-options li.edit-header .tab-icon:before {
+  content: '\e810';
+}
+.acquia-theme-options li.edit-shortcodes .tab-icon:before {
+  content: '\e80d';
+}
+.acquia-theme-options .vertical-tab-button a:hover,
+.acquia-theme-options ul.vertical-tabs-list li.selected a, .acquia-theme-options ul li.selected a:hover,
+.acquia-theme-options ul.vertical-tabs-list li.selected a:focus, .acquia-theme-options ul li.selected a:active {
+  background-color: rgba(0, 0, 0, 0.075) !important;
+  color: #fff;
+}
+
+/** Appearence **/
+.has-js .color-scheme-fields {
+  display: none;
+}
+
+.acquia-styles-list a.acquia-color-scheme {
+  display: inline-block;
+  font-family: "Trebuchet MS",sans-serif;
+  padding: 6px 0;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  font-size: 12px;
+  text-decoration: none;
+  margin: 3px 3px 0 0;
+  opacity: 0.3;
+  width: 110px;
+  text-align: center;
+  padding: px 0;
+}
+.acquia-styles-list a.acquia-color-scheme.active {
+  opacity: 1;
+}
+
+#edit-omega-layout.ac-sel {
+  margin-left: 20px;
+}
+#edit-omega-layout.ac-sel input, #edit-omega-layout.ac-sel label {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+#edit-omega-layout.ac-sel .omega-layout-selection-wrapper {
+  display: inline-block;
+}
+#edit-omega-layout.ac-sel img {
+  margin: 0;
+  top: 0;
+  position: relative;
+  height: auto;
+  display: block;
+}
+#edit-omega-layout a.omega-layout-sel {
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  position: relative;
+}
+
+.ac-admin .ac-sel {
+  position: relative;
+}
+.ac-admin .ac-sel.active i {
+  background: url(../images/checkmark.png) no-repeat center center rgba(0, 0, 0, 0.05);
+  border-color: #DF7272;
+}
+.ac-admin .ac-sel i {
+  position: absolute;
+  display: block;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  border: 2px solid transparent;
+}
+
+/** Responsive
+--------------------------------------------------*/
+/** tablet view **/
+@media (min-width: 12em) {
+  .acquia-theme-options .form-actions {
+    margin: 0 0 0 50px;
+  }
+  .acquia-theme-options .form-actions .form-submit {
+    margin-right: 8px;
+  }
+
+  .acquia-theme-options .vertical-tabs .vertical-tab-button a strong {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    padding: 21px 15px;
+    width: 200px;
+    background: #4c5566;
+    border: 1px solid #333;
+    border-width: 1px 1px 1px 0px;
+    margin: 0;
+  }
+  .acquia-theme-options .vertical-tabs .vertical-tab-button a:hover strong {
+    display: block;
+  }
+  .acquia-theme-options .vertical-tabs .vertical-tab-button.selected a:hover strong {
+    display: none;
+  }
+
+  .acquia-theme-options .vertical-tabs .vertical-tabs-list {
+    width: 50px;
+  }
+
+  .acquia-theme-options .vertical-tabs .vertical-tabs-panes {
+    margin: 0 0 0 50px;
+  }
+}
+/** tablet view **/
+@media (min-width: 51em) {
+  .acquia-theme-options .vertical-tabs .vertical-tab-button a strong {
+    display: inline-block !important;
+    width: auto;
+    background: transparent;
+    border: none;
+    position: inherit;
+    left: 0;
+    padding: 0;
+    margin-left: 10px;
+  }
+
+  .acquia-theme-options .vertical-tabs .vertical-tabs-list {
+    width: 200px;
+  }
+
+  .acquia-theme-options #ac-options-header,
+  .acquia-theme-options .vertical-tabs .vertical-tabs-panes,
+  .acquia-theme-options .form-actions {
+    margin: 0 0 0 200px;
+  }
+}
+/*-------------------------------------------------------------------------*/
+/* Typography Extension
+/*-------------------------------------------------------------------------*/
+.ac-preview-wrap {
+  position: relative;
+}
+.ac-preview-wrap .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #FFF;
+  font-weight: 300;
+  font-size: 11px;
+}
+
+.ac-font-preview {
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1;
+  color: #333;
+}
+
+.ac-admin .ac-slider-ui {
+  background: #F8F8F8;
+  border: 1px solid #CCC;
+  width: 83%;
+  margin-right: 15px;
+  border-radius: 25px;
+  height: 15px;
+  vertical-align: middle;
+  margin-top: -5px;
+}
+.ac-admin .ac-slider-ui .ui-slider-range {
+  border: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 25px;
+}
+.ac-admin .ac-slider-ui .ui-slider-handle {
+  width: 15px;
+  height: 22px;
+  border: 1px solid #CCC;
+  top: -5px;
+  background: #FFF;
+}
+.ac-admin .ac-slider-ui .ui-slider-handle:active {
+  background: #F5F5F5;
+}
+.ac-admin input.ac-slider {
+  width: 40px !important;
+  text-align: center;
+}
+.ac-admin .ac-slider-ui, .ac-admin input.ac-slider {
+  display: inline-block;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Skin Extension
+/*-------------------------------------------------------------------------*/
+.ac-bg-sel {
+  margin: 20px 0;
+  text-align: center;
+}
+.ac-bg-sel.flex-sel-size .ac-sel {
+  width: auto;
+  height: auto;
+}
+.ac-bg-sel.flex-sel-size .ac-sel img {
+  display: block;
+}
+.ac-bg-sel .ac-sel {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 10px 0;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+.ac-bg-sel .img-35 {
+  background-color: #D1D1D1;
+}
+.ac-bg-sel .img-36 {
+  background-color: #303030;
+}
+.ac-bg-sel .img-37 {
+  background-color: #D8D8D8;
+}

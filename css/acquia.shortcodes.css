@@ -1,0 +1,102 @@
+.ac-attachment-container div.fieldset-description {
+  margin-top: 7px;
+  line-height: 16px;
+  font-size: 12px;
+  color: gray;
+}
+
+.fonticon-field .fieldset-legend {
+  font-size: 13px;
+  font-weight: normal;
+  color: #333;
+}
+
+.fonticon-field .fieldset-legend {
+  cursor: text;
+  display: inline-block;
+  line-height: 28px;
+  height: 28px;
+}
+
+/** DiamondLayers Icon Field
+--------------------------------------------------*/
+.fonticon-field fieldset {
+  border: none;
+  padding-top: 18px;
+}
+.fonticon-field .fieldset-legend {
+  text-transform: capitalize !important;
+}
+.fonticon-field .ac-attachment-select {
+  height: 300px;
+}
+.fonticon-field .ac-el-container {
+  position: relative;
+}
+.fonticon-field .ico-element {
+  width: 46px;
+  height: 46px;
+  display: table;
+  text-align: center;
+  float: left;
+}
+.fonticon-field .ac-inject-el {
+  font-size: 30px;
+  line-height: 42px;
+  color: #494949;
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.fonticon-field .ac-inject-el:hover {
+  color: #D54E21;
+}
+.fonticon-field .ac-active-el {
+  background-color: #2A83ED !important;
+  color: #fff !important;
+}
+.fonticon-field .ac-inject-el:hover {
+  z-index: 3;
+  -webkit-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  transform: scale(1.3);
+}
+.fonticon-field .invisible {
+  display: none;
+  visibility: hidden;
+}
+
+/** DiamondLayers Image Frames Fields
+--------------------------------------------------*/
+/** MISC fields **/
+.ac-attachment-container > .form-wrapper {
+  padding-top: 0;
+}
+.ac-attachment-container .fieldset-wrapper {
+  border-top: 0px !important;
+}
+.ac-attachment-container div.fieldset-description {
+  font-style: normal !important;
+  margin: 0;
+}
+.ac-attachment-container .ac-el-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #eee;
+  background: #fff;
+  display: block;
+}
+.ac-attachment-container .ps-container {
+  background: #fff;
+  border: 10px solid #eee;
+  width: auto;
+}
+.ac-attachment-container .ps-container .ac-el-container {
+  border: none;
+}
+.ac-attachment-container .ps-container .ps-scrollbar-y {
+  right: 0;
+}

@@ -1,0 +1,9 @@
+<?php
+/**
+ * Implements hook_preprocess_html().
+ */
+function ac_inferior_preprocess_html(&$variables){
+	drupal_add_library('acquia', 'fontello');
+	$vars['attributes_array']['class'][] = 'no-js';
+	$vars['attributes_array']['class'][] = 'main-body';
+}

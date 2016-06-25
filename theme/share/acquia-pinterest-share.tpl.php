@@ -1,0 +1,1 @@
+<a href="http://pinterest.com/pin/create/button/?url=<?php print $link?>&media=&description=<?php print $title?>" title="<?php print $title ?>" data-toggle='tooltip' target="_blank" class="product_share_pinterest"><span class="font-icon icon-pinterest"></span></a>

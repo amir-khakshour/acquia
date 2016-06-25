@@ -1,0 +1,299 @@
+<?php
+/**
+ * @file main module file
+ */
+define("REVSLIDER_TEXTDOMAIN","revSlider");
+define("REVSLIDER_PLUGIN_PATH",  acquia_variable_get('libs_path', 'sites/all/libraries') ."/revolutionslider");
+
+define("YOUTUBE_EXAMPLE_ID", "cXwQjHRZieI");
+define("DEFAULT_YOUTUBE_ARGUMENTS", "hd=1&amp;wmode=opaque&amp;controls=1&amp;showinfo=0;rel=0;");
+define("DEFAULT_VIMEO_ARGUMENTS", "title=0&amp;byline=0&amp;portrait=0;api=1");
+define("REVSLIDER_MN", "rev_slider");
+
+@include_once dirname(__FILE__) . '/includes/rev_slider.utils.inc';
+
+/**
+ * Implements hook_theme()
+ */
+function rev_slider_theme() {
+	$module_path = drupal_get_path('module', 'rev_slider');
+	$themes = array();
+
+	$themes['rev_slider_slides_edit'] = array(
+		'template' => 'rev_slider_slides_edit',
+    'variables' => array('slid' => null),
+		'path' => $module_path . '/templates/admin',
+		'file' => 'theme.admin.inc',
+	);
+
+	$themes['rev_slider'] = array(
+		'template' => 'rev_slider.block',
+    'variables' => array('slid' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+	
+	$themes['rev_slider_slides'] = array(
+    'variables' => array('slide' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+	
+	$themes['rev_slider_slide'] = array(
+		'template' => 'rev_slider_slide',
+    'variables' => array('slide' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+	
+	$themes['rev_slider_sublayers'] = array(
+    'variables' => array('layer' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+	
+	$themes['rev_slider_sublayer'] = array(
+		'template' => 'rev_slider_sublayer',
+    'variables' => array('layer' => NULL),
+		'path' => $module_path . '/templates/block',
+		'file' => 'theme.block.inc',
+	);
+
+	return $themes;
+}
+
+
+/**
+ * Implementation of hook_ac_slider_info() 
+ */ 
+function rev_slider_ac_sliders_info() {
+	
+	return array(
+	REVSLIDER_MN => array(
+		'#title' => t('revolution slider'),
+		'#description' => t('revolution slider'),
+		'#class' => 'revSlider',
+		'#file' => 'slider.inc',
+  	'#path' => drupal_get_path('module', 'rev_slider') . '/utility',
+		'#slides' => array(
+			'#edit' => 'rev_slider_slides_edit',
+		),
+		'#import_export' => array(
+			'#import' => 'rev_slider_import_data',
+			'#export' => 'rev_slider_export_slider',
+		),
+		'#theme' => 'rev_slider',
+	));
+}
+
+/**
+ * implementing hook_library()
+ */
+function rev_slider_library() {
+	$libs_path = acquia_variable_get('libs_path', 'sites/all/libraries');
+	$path = drupal_get_path('module', 'rev_slider');
+	
+  $libraries['revolutionslider'] = array(
+    'title' => 'revolution slider',
+    'website' => 'http://kreaturamedia.com/',
+		'version' => '3.0.3',
+    'js' => array(
+      $libs_path . '/plugins/jquery.once.min.js' => array(),
+      REVSLIDER_PLUGIN_PATH . '/pluginsources/jquery.themepunch.plugins.min.js' => array(),
+      REVSLIDER_PLUGIN_PATH . '/js/jquery.themepunch.revolution.min.js' => array(),
+    ),
+    'css' => array(
+      REVSLIDER_PLUGIN_PATH . '/css/captions.css' => array(),
+      REVSLIDER_PLUGIN_PATH . '/css/settings.css' => array(),
+    ),
+  );
+	
+	$libraries['revolutionslider.admin'] = array(
+    'title' => 'revolution slider',
+    'website' => 'http://kreaturamedia.com/',
+		'version' => '3.0.3',
+    'js' => array(
+      $libs_path . '/plugins/jquery.once.min.js' => array(),
+      REVSLIDER_PLUGIN_PATH . '/pluginsources/jquery.themepunch.plugins.min.js' => array(),
+      REVSLIDER_PLUGIN_PATH . '/js/jquery.themepunch.revolution.min.js' => array(),
+      $path . '/js/dropdownchecklist/ui.dropdownchecklist-1.4-min.js' => array(),
+      $path . '/js/UniteAdminRev.js' => array(),
+      $path . '/js/rev-admin.js' => array(),
+    ),
+    'css' => array(
+      REVSLIDER_PLUGIN_PATH . '/css/captions.css' => array(),
+      REVSLIDER_PLUGIN_PATH . '/css/settings.css' => array(),
+      $path . '/css/dropdownchecklist/ui.dropdownchecklist.standalone.css' => array(),
+      $path . '/css/custom.css' => array(),
+    ),
+  );
+
+
+  return $libraries;
+}
+
+/**
+ * slides edit form
+ */
+function rev_slider_slides_edit($slid) {
+	acquia_include('slider', 'ac_slider');
+	acquia_include('slider', 'rev_slider');
+	
+	// register actions
+	revSlider::register_settings();
+	acquia_include('utility');
+	acquia_load_resources();
+	rev_slider_load_resources('admin_slider');
+	
+  $slider = acquiaSlider::get_by_id($slid);
+
+	return theme('rev_slider_slides_edit', array('slid' => $slid));
+}
+
+/**
+ * slides edit form
+ * 
+ * @param object $slider
+ * 		slider main settings
+ * @param array $slides
+ * 		array of slides objects
+ * 
+ * @return string $export (encoded slider data)
+ */
+function rev_slider_export_slider($slider, $slides) {
+	$export = array();
+	foreach ($slides as $slide) {
+	  $export['layers'][] = array('sublayers' => $slide->layers, 'properties' => $slide->settings);
+	}
+	$export['properties'] = $slider->settings;
+	$export['title'] = isset($slider->title) ? $slider->title : '';
+	$export['description'] = isset($slider->description) ? $slider->description : '';
+
+	$export = array($export);
+	return json_encode($export);
+}
+
+/**
+ * import slider data
+ * 
+ * @param string $data
+ * 		Encoded revolution slider data
+ * @param string $machine_name
+ * 		machine name of the new importing slider.
+ * 
+ * @return array $slider
+ */
+function rev_slider_import_data($data, $type = 'rev_slider', $machine_name) {
+	$slider = array();
+	
+	if ($data = json_decode($data)) {
+		$data = @array_shift($data);
+	}
+	
+	if (!is_object($data) || !isset($data->layers) || !isset($data->properties)) {
+		return false;
+	}
+	
+	$data->properties = (array) $data->properties;
+
+	$slider['title'] = isset($data->title) ? $data->title : t('revolutionSlider: no title');
+	$slider['machine_name'] = $machine_name;
+	$slider['description'] = isset($data->description) ? $data->description : '';
+	$slider['type'] = $type;
+	$slider['settings'] = $data->properties;
+	$slider['slides'] = array();
+	// modify layers to be compatible with 
+	foreach($data->layers as $lid => $layer) {
+		$sublayers = array();
+		foreach($layer->sublayers as $sublayer) {
+				$sublayers[] = (array) $sublayer;
+		}
+	  $slider['slides'][] = array('layers' => $sublayers, 'position' => $lid, 'settings' => (array)$layer->properties);
+	}
+
+	return $slider;
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function rev_slider_ac_shortcode_include_directory($plugin) {
+  if ($plugin == 'shortcodes') {
+    return 'shortcodes';
+  }
+}
+
+/**
+ * Implements hook_ac_shortcode_include_directory()
+ */
+function rev_slider_ac_composer_include_directory($plugin) {
+  if ($plugin == 'composer') {
+    return 'composer';
+  }
+}
+
+function rev_slider_ac_slider_import_sample() {
+	return array(
+		'rev_slider' => array(
+			'title' => t('revolution slider'),
+			'import' => 'rev_slider_import_samples',
+		)
+	);
+}
+
+function rev_slider_import_samples(){
+	acquia_include('utility');
+	acquia_include('slider', 'ac_slider');
+	acquia_include('utility', 'ac_slider');
+	
+	// Base64 encoded, serialized slider export code
+	$path = drupal_get_path('module', 'rev_slider'). '/sample_slider/';
+	$sample_slider = json_decode(file_get_contents($path.'sample_slider.json'), true);
+	// Iterate over the sliders
+	foreach($sample_slider as $sliderkey => $slider) {
+		// Iterate over the layers
+		foreach($sample_slider[$sliderkey]['layers'] as $layerkey => $layer) {
+
+			// Convert BG image URI
+			$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['background_fid'] = ''; 
+			if(!empty($sample_slider[$sliderkey]['layers'][$layerkey]['properties']['background'])) {
+				$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['background'] = file_create_url($path .basename($layer['properties']['background']), array('absolute' => TRUE));
+			}
+
+			// Convert thumbnail images URI
+			$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['thumbnail_fid'] = '';
+			if(!empty($sample_slider[$sliderkey]['layers'][$layerkey]['properties']['thumbnail'])) {
+				$sample_slider[$sliderkey]['layers'][$layerkey]['properties']['thumbnail'] = file_create_url($path .basename($layer['properties']['thumbnail']), array('absolute' => TRUE));
+			}
+
+			// Iterate over the sublayers
+			if(isset($layer['sublayers']) && !empty($layer['sublayers'])) {
+				foreach($layer['sublayers'] as $sublayerkey => $sublayer) {
+
+					// Only IMG sublayers
+					$sample_slider[$sliderkey]['layers'][$layerkey]['sublayers'][$sublayerkey]['imageId'] = '';
+					if($sublayer['type'] == 'img' || ( isset($sublayer['media']) && $sublayer['media'] == 'img')) {
+						$sample_slider[$sliderkey]['layers'][$layerkey]['sublayers'][$sublayerkey]['image_fid'] = '';
+						$sample_slider[$sliderkey]['layers'][$layerkey]['sublayers'][$sublayerkey]['image'] = file_create_url($path .basename($sublayer['image']), array('absolute' => TRUE));
+					}
+				}
+			}
+		}
+		// add setting keys
+		$sample_slider[$sliderkey]['title'] = isset($sample_slider[$sliderkey]['title']) ? $sample_slider[$sliderkey]['title'] : t('Revolution slider: no title');
+		$sample_slider[$sliderkey]['description'] = '';
+		$sample_slider[$sliderkey]['machine_name'] = machine_name($sample_slider[$sliderkey]['title']);
+
+		// Add slider in database
+		$slider = acquiaSlider::create($sample_slider[$sliderkey]['title'], $sample_slider[$sliderkey]['machine_name'], 'rev_slider', $sample_slider[$sliderkey]['properties']);
+		if (!$slider) {
+			drupal_set_message(t('acquiaSlider: Import ' . $sample_slider[$sliderkey]['title'] . ' was unsuccessful.'), 'error');
+			return false;
+		}
+		
+		foreach($sample_slider[$sliderkey]['layers'] as $layerkey => $layer) {
+			acquiaSlide::create($slider->slid, $layerkey, $layer['properties'], $layer['sublayers']);
+		}
+
+	}
+}

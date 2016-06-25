@@ -1,0 +1,237 @@
+--------------------
+Array
+(
+    [slid] => 6
+    [title] => acquia revolution slider 
+    [description] => 
+    [machine_name] => acquia-revolution-slider-
+    [type] => rev_slider
+    [settings] => Array
+        (
+            [slider_type] => fullscreen
+            [width] => 1500
+            [height] => 650
+            [responsitive_w1] => 940
+            [responsitive_sw1] => 770
+            [responsitive_w2] => 780
+            [responsitive_sw2] => 500
+            [responsitive_w3] => 510
+            [responsitive_sw3] => 310
+            [responsitive_w4] => 
+            [responsitive_sw4] => 
+            [responsitive_w5] => 
+            [responsitive_sw5] => 
+            [responsitive_w6] => 
+            [responsitive_sw6] => 
+            [fullscreen_offset_container] => 
+            [delay] => 9000
+            [shuffle] => false
+            [lazy_load] => true
+            [load_googlefont] => false
+            [google_font] => PT+Sans+Narrow:400,700
+            [stop_slider] => false
+            [stop_after_loops] => 0
+            [stop_at_slide] => 2
+            [disable_title] => false
+            [position] => center
+            [margin_top] => 0
+            [margin_bottom] => 0
+            [margin_left] => 0
+            [margin_right] => 0
+            [shadow_type] => 0
+            [show_timerbar] => bottom
+            [background_color] => #E9E9E9
+            [padding] => 0
+            [background_dotted_overlay] => none
+            [show_background_image] => false
+            [background_image] => 
+            [background_image_fid] => -1
+            [bg_fit] => cover
+            [bg_repeat] => repeat
+            [bg_position] => center center
+            [touchenabled] => true
+            [stop_on_hover] => off
+            [navigaion_type] => none
+            [navigation_arrows] => nexttobullets
+            [navigation_style] => round
+            [navigaion_always_on] => false
+            [hide_thumbs] => 200
+            [navigaion_align_hor] => center
+            [navigaion_align_vert] => bottom
+            [navigaion_offset_hor] => 0
+            [navigaion_offset_vert] => 20
+            [leftarrow_align_hor] => left
+            [leftarrow_align_vert] => center
+            [leftarrow_offset_hor] => 20
+            [leftarrow_offset_vert] => 0
+            [rightarrow_align_hor] => right
+            [rightarrow_align_vert] => center
+            [rightarrow_offset_hor] => 20
+            [rightarrow_offset_vert] => 0
+            [thumb_width] => 100
+            [thumb_height] => 50
+            [thumb_amount] => 5
+            [hide_slider_under] => 0
+            [hide_defined_layers_under] => 0
+            [hide_all_layers_under] => 0
+            [start_with_slide] => 1
+            [first_transition_active] => true
+            [first_transition_type] => zoomin
+            [first_transition_duration] => 300
+            [first_transition_slot_amount] => 7
+            [link_type] => regular
+            [link] => 
+            [link_open_in] => _self
+        )
+
+)
+
+Post: Array
+(
+    [sliders] => 6
+    [machine_name] => 
+    [slider_type] => none
+    [import_data] => 
+    [import_slider] => layerslider
+    [ac_slider_export_import__active_tab] => edit-export
+    [form_build_id] => form-r0KFhBhik8twN6J-e3JSOtvFiesl6Vd4K6RQlf0ABtw
+    [form_token] => w-ZmSBXaJlOCjS7RNmoOVrDaPTMeEUneKi3Xq4aHkdM
+    [form_id] => ac_slider_import_export_form
+    [_triggering_element_name] => sliders
+    [ajax_html_ids] => Array
+        (
+            [0] => skip-link
+            [1] => branding
+            [2] => page
+            [3] => content
+            [4] => main-content
+            [5] => ac-slider-import-export-form
+            [6] => ac-options-header
+            [7] => js-warning
+            [8] => active-vertical-tab
+            [9] => edit-export
+            [10] => edit-sliders
+            [11] => edit-sliders-6
+            [12] => edit-sliders-8
+            [13] => edit-sliders-11
+            [14] => edit-sliders-12
+            [15] => edit-sliders-13
+            [16] => edit-sliders-14
+            [17] => edit-sliders-15
+            [18] => edit-sliders-16
+            [19] => edit-sliders-17
+            [20] => edit-sliders-18
+            [21] => edit-sliders-20
+            [22] => edit-sliders-21
+            [23] => edit-sliders-44
+            [24] => edit-sliders-45
+            [25] => edit-sliders-50
+            [26] => edit-sliders-51
+            [27] => edit-sliders-52
+            [28] => edit-sliders-54
+            [29] => edit-sliders-55
+            [30] => edit-sliders-57
+            [31] => edit-sliders-58
+            [32] => edit-sliders-60
+            [33] => edit-sliders-62
+            [34] => edit-sliders-65
+            [35] => edit-sliders-66
+            [36] => edit-sliders-67
+            [37] => edit-sliders-68
+            [38] => edit-sliders-69
+            [39] => edit-sliders-70
+            [40] => export-data
+            [41] => edit-export-data
+            [42] => edit-import
+            [43] => edit-machine-name
+            [44] => edit-slider-type
+            [45] => edit-import-data
+            [46] => edit-import-submit
+            [47] => edit-sample-import
+            [48] => edit-import-slider
+            [49] => edit-import-submit--2
+            [50] => feed-icons
+            [51] => admin-menu
+            [52] => admin-menu-wrapper
+            [53] => admin-menu-icon
+            [54] => admin-menu-menu
+            [55] => admin-menu-account
+        )
+
+    [ajax_page_state] => Array
+        (
+            [theme] => shiny
+            [theme_token] => mObBB-Uia-zt6Jqd-csUZYstMwwTJmN3iqwGNwsQLC0
+            [css] => Array
+                (
+                    [modules/system/system.base.css] => 1
+                    [modules/system/system.menus.css] => 1
+                    [modules/system/system.messages.css] => 1
+                    [modules/system/system.theme.css] => 1
+                    [modules/system/system.admin.css] => 1
+                    [sites/all/libraries/fonts/fontadmin/css/fontadmin.css] => 1
+                    [sites/all/libraries/fonts/fontadmin/css/fontadmin-ie7.css] => 1
+                    [sites/all/libraries/colorpicker/css/colorpicker.min.css] => 1
+                    [sites/all/modules/acquia/css/acquia.plugins.css] => 1
+                    [misc/vertical-tabs.css] => 1
+                    [modules/comment/comment.css] => 1
+                    [modules/field/theme/field.css] => 1
+                    [modules/node/node.css] => 1
+                    [modules/search/search.css] => 1
+                    [sites/all/modules/ubercart/uc_order/uc_order.css] => 1
+                    [sites/all/modules/ubercart/uc_product/uc_product.css] => 1
+                    [sites/all/modules/ubercart/uc_store/uc_store.css] => 1
+                    [modules/user/user.css] => 1
+                    [modules/forum/forum.css] => 1
+                    [sites/all/modules/views/css/views.css] => 1
+                    [sites/all/modules/admin_menu/admin_menu.css] => 1
+                    [sites/all/modules/admin_menu/admin_menu.uid1.css] => 1
+                    [sites/all/modules/admin_menu/admin_menu_toolbar/admin_menu_toolbar.css] => 1
+                    [sites/all/modules/ctools/css/ctools.css] => 1
+                    [sites/all/modules/tagclouds/tagclouds.css] => 1
+                    [sites/all/modules/acquia/css/fonts.css] => 1
+                    [sites/all/modules/acquia/css/acquia.admin.css] => 1
+                    [sites/all/modules/acquia/css/acquia-anim.css] => 1
+                    [//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,latin-ext] => 1
+                    [sites/all/modules/acquia/css/theme-settings.css] => 1
+                    [sites/all/themes/shiny/css/reset.css] => 1
+                    [sites/all/themes/shiny/css/style.css] => 1
+                    [sites/all/themes/shiny/css/contrib.css] => 1
+                    [sites/all/themes/shiny/css/shiny.css] => 1
+                    [sites/all/themes/shiny/css/ie.css] => 1
+                    [sites/all/themes/shiny/css/ie8.css] => 1
+                    [sites/all/themes/shiny/css/ie7.css] => 1
+                    [sites/all/themes/shiny/css/ie6.css] => 1
+                )
+
+            [js] => Array
+                (
+                    [sites/all/modules/acquia/js/acquia.admin.js] => 1
+                    [sites/all/modules/jquery_update/replace/jquery/1.8/jquery.min.js] => 1
+                    [misc/jquery.once.js] => 1
+                    [misc/drupal.js] => 1
+                    [sites/all/libraries/colorpicker/colorpicker.min.js] => 1
+                    [sites/all/modules/acquia/js/acquia.plugins.js] => 1
+                    [sites/all/modules/jquery_update/replace/ui/external/jquery.cookie.js] => 1
+                    [sites/all/modules/jquery_update/replace/misc/jquery.form.min.js] => 1
+                    [misc/vertical-tabs.js] => 1
+                    [misc/form.js] => 1
+                    [misc/ajax.js] => 1
+                    [sites/all/modules/admin_menu/admin_devel/admin_devel.js] => 1
+                    [sites/all/modules/admin_menu/admin_menu.js] => 1
+                    [sites/all/modules/admin_menu/admin_menu_toolbar/admin_menu_toolbar.js] => 1
+                    [misc/progress.js] => 1
+                    [sites/all/modules/acquia/modules/ac_portfolio/js/ac_portfolio.like.js] => 1
+                    [sites/all/modules/devel/devel_krumo_path.js] => 1
+                    [misc/collapse.js] => 1
+                )
+
+        )
+
+)
+
+Get: Array
+(
+    [q] => system/ajax
+)
+
